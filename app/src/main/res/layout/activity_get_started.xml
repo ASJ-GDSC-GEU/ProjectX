@@ -27,6 +27,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.15" />
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -36,12 +37,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/background_circle" />
 
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_bold"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/roboto_light"
         android:text="@string/let_s_get_started"
         android:textColor="@color/darkMainColor"
         android:textSize="28sp"
@@ -54,7 +55,8 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_regular"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/roboto_light"
         android:text="@string/getStartedMessage"
         android:textColor="@color/greyText"
         android:textSize="18sp"
@@ -73,7 +75,7 @@
         android:background="@drawable/filled_round_btn"
         android:drawableStart="@drawable/email_icon"
         android:elevation="0dp"
-        android:fontFamily="@font/poppins_medium"
+        android:fontFamily="@font/roboto_medium"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:text="@string/continue_with_email_address"
@@ -91,6 +93,7 @@
         android:background="@drawable/border_round_btn"
         android:drawableStart="@drawable/google_icon"
         android:elevation="0dp"
+        android:fontFamily="@font/roboto_medium"
         android:gravity="center"
         android:minWidth="0dp"
         android:paddingStart="20dp"
@@ -111,6 +114,7 @@
         android:background="@drawable/border_round_btn"
         android:drawableStart="@drawable/facebook_icon"
         android:elevation="0dp"
+        android:fontFamily="@font/roboto_medium"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:text="@string/continue_with_facebook"
@@ -129,6 +133,7 @@
         android:background="@drawable/border_round_btn"
         android:drawableStart="@drawable/twitter_icon"
         android:elevation="0dp"
+        android:fontFamily="@font/roboto_medium"
         android:gravity="center"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
@@ -148,7 +153,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/roboto"
         android:gravity="center"
         android:padding="10dp"
         android:text="@string/terms_and_condition_message"
