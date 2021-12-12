@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/background_circle.xml" value="0.26197916666666665" />
+        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/border_input_bg.xml" value="0.290625" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/border_round_btn.xml" value="0.26197916666666665" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/coloured_round_btn.xml" value="0.26197916666666665" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/email_icon.xml" value="0.26197916666666665" />
@@ -11,11 +12,16 @@
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/filled_round_btn.xml" value="0.26197916666666665" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/google_icon.xml" value="0.26197916666666665" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/ic_first_screen2.xml" value="0.290625" />
+        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/main_color_gradiet.xml" value="0.290625" />
+        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/selector_shape.xml" value="0.15989583333333332" />
+        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/student_teacher_selector.xml" value="0.290625" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/tempobg.xml" value="0.290625" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/twitter_icon.xml" value="0.26197916666666665" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/activity_get_started.xml" value="0.4" />
+        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout-v28/activity_sign_up.xml" value="0.24048913043478262" />
+        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/activity_details.xml" value="0.4" />
+        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/activity_get_started.xml" value="0.264" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/activity_main.xml" value="0.2056159420289855" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/activity_sign_up.xml" value="0.4" />
+        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
       </map>
     </option>
   </component>

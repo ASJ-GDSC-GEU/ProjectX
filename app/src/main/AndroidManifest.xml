@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectX">
         <activity
+            android:name=".DetailsActivity"
+            android:exported="true" />
+        <activity
             android:name=".GetStartedActivity"
             android:exported="true">
             <intent-filter>
@@ -20,11 +23,11 @@
         </activity>
         <activity
             android:name=".SignUpActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".GetStartedActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" />
-
 
         <meta-data
             android:name="preloaded_fonts"

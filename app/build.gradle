@@ -6,6 +6,10 @@ plugins {
 android {
     compileSdk 31
 
+    buildFeatures {
+        viewBinding  true
+    }
+
     defaultConfig {
         applicationId "com.example.projectx"
         minSdk 24
@@ -30,9 +34,7 @@ android {
         jvmTarget = '1.8'
     }
 
-    buildFeatures{
-        viewBinding true
-    }
+
 }
 
 dependencies {

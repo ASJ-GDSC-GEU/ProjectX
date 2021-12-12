@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/first_screen_bg" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:elevation="48dp"
+        android:minHeight="?attr/actionBarSize"
+        android:outlineSpotShadowColor="#9F9F9F"
+        android:paddingTop="20dp"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?attr/homeAsUpIndicator">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Details"
+            android:textColor="@color/darkMainColor"
+            android:textSize="24sp" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/password_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Name"
+        android:textColor="@color/darkMainColor"
+        android:textSize="14sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/name_input"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/border_input_bg"
+        android:cursorVisible="true"
+        android:ems="10"
+        android:fontFamily="@font/roboto_light"
+        android:hint="Johns Parker"
+        android:inputType="text"
+        android:paddingStart="16dp"
+        android:textColor="@color/darkMainColor"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/password_label" />
+
+
+    <RadioGroup
+        android:id="@+id/stu_tea_radgrp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_input_bg"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/name_input">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/student_teacher_selector"
+            android:button="@android:color/transparent"
+            android:checked="true"
+            android:gravity="center"
+            android:onClick="onRadioButtonClicked"
+            android:padding="15dp"
+            android:text="Student"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/student_teacher_selector"
+            android:button="@android:color/transparent"
+            android:checked="false"
+            android:gravity="center"
+            android:onClick="onRadioButtonClicked"
+            android:padding="15dp"
+            android:text="Teacher"
+            android:textColor="@color/darkGreyText"
+            android:textSize="18sp" />
+
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/signUpBtn"
+        style="@style/CustomButton"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/filled_round_btn"
+        android:elevation="0dp"
+        android:fontFamily="@font/roboto_medium"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
