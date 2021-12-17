@@ -14,8 +14,6 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
     }
 
     fun onRadioButtonClicked(view: View) {
