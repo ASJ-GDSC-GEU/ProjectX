@@ -3,8 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/background_circle.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/drawable/border_input_bg.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/drawable/email_icon.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/drawable/facebook_icon.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/drawable/main_color_gradiet.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/drawable/selector_shape.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/drawable/twitter_icon.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/layout/activity_details.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/activity_get_started.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_login_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.16770833333333332" />
       </map>
     </option>
   </component>
