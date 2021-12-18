@@ -1,4 +1,4 @@
-package com.example.projectx
+package com.example.projectx.screens
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

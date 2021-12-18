@@ -1,11 +1,11 @@
-package com.example.projectx
+package com.example.projectx.screens
 
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projectx.R
 import com.example.projectx.databinding.ActivityDetailsBinding
 
 class DetailsActivity : AppCompatActivity() {
@@ -14,8 +14,6 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
     }
 
     fun onRadioButtonClicked(view: View) {
