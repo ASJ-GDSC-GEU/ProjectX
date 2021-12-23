@@ -1,6 +1,22 @@
 package com.example.projectx.daos
 
-class TeacherDao {
+import com.example.projectx.models.Student
+import com.example.projectx.models.Teacher
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
+class TeacherDao {
+    val db = FirebaseFirestore.getInstance()
+    val studentCollection = db.collection("teacher")
+
+    fun addTeacher(teacher: Teacher){
+        teacher?.let {
+            GlobalScope.launch(Dispatchers.IO) {
+                studentCollection.document(teacher.uid).set(it)
+            }
+        }
+    }
 
 }
