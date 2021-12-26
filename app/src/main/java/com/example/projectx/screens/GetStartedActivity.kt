@@ -108,7 +108,7 @@ class GetStartedActivity : AppCompatActivity() {
             startActivity(mainActivityIntent)
             finish()
         } else {
-
+            Toast.makeText(this, "Update UI Error", Toast.LENGTH_SHORT).show()
         }
     }
 }

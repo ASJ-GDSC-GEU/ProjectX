@@ -15,5 +15,7 @@
         <item name="android:autofilledHighlight">@android:color/transparent</item>
         <!-- Customize your theme here. -->
         <item name="android:buttonStyle">@style/CustomButton</item>
+        <item name="floatingActionButtonStyle">@style/FloatingActionButtonStyle</item>
+
     </style>
 </resources>
