@@ -3,21 +3,24 @@ package com.example.projectx.screens
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.text.Editable
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.RadioButton
-import androidx.appcompat.app.AppCompatActivity
 import com.example.projectx.MainActivity
 import com.example.projectx.R
 import com.example.projectx.daos.StudentDao
 import com.example.projectx.daos.TeacherDao
-import com.example.projectx.databinding.ActivityDetailsBinding
+import com.example.projectx.databinding.FragmentDetailsBinding
 import com.example.projectx.models.Student
 import com.example.projectx.models.Teacher
 import com.google.firebase.auth.FirebaseAuth
 
-class DetailsActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityDetailsBinding
+
+class DetailsFragment : Fragment() {
+    private var _binding: FragmentDetailsBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var auth: FirebaseAuth
     private lateinit var userName: String
@@ -26,12 +29,22 @@ class DetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    }
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        _binding = FragmentDetailsBinding.inflate(inflater,container, false)
+        val view = binding.root
+        return view
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
-
 
         binding.apply {
             nameInput.setText(currentUser?.displayName)
@@ -59,10 +72,12 @@ class DetailsActivity : AppCompatActivity() {
         }
 
 
-
     }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
     fun onRadioButtonClicked(view: View) {
         if (view is RadioButton) {
@@ -88,16 +103,10 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun goToStudentHomeScreen(){
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
     }
 
     private fun goToTeacherHomeScreen(){
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
 
+    }
 
 }

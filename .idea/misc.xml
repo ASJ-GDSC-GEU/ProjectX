@@ -13,8 +13,12 @@
         <entry key="app/src/main/res/layout/activity_details.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_get_started.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_login_screen.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25052083333333336" />
-        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.16770833333333332" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_details.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_get_started.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.2359375" />
       </map>
     </option>
   </component>

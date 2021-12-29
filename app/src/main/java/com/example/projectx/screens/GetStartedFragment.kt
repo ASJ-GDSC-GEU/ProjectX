@@ -1,45 +1,56 @@
 package com.example.projectx.screens
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.Window
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.example.projectx.MainActivity
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.example.projectx.R
-import com.example.projectx.databinding.ActivityGetStartedBinding
+import com.example.projectx.databinding.FragmentGetStartedBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
-class GetStartedActivity : AppCompatActivity() {
+
+class GetStartedFragment : Fragment() {
+    private var _binding : FragmentGetStartedBinding? = null
+    private val binding get() = _binding!!
+
     private val RC_SIGN_IN: Int = 123
     private val TAG: String = "Message"
     private lateinit var googleSignInClient : GoogleSignInClient
-    private lateinit var binding : ActivityGetStartedBinding
 
     private lateinit var auth: FirebaseAuth
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
-        binding = ActivityGetStartedBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        _binding = FragmentGetStartedBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
+    }
 
-        initialiseSignUp()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(this.requireContext(), gso)
+
         auth = Firebase.auth
 
         binding.button2.setOnClickListener {
@@ -47,19 +58,7 @@ class GetStartedActivity : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
-    }
 
-    fun initialiseSignUp(){
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-        googleSignInClient = GoogleSignIn.getClient(this, gso)
-    }
 
     private fun signIn() {
         val signInIntent = googleSignInClient.signInIntent
@@ -67,7 +66,6 @@ class GetStartedActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
@@ -87,7 +85,7 @@ class GetStartedActivity : AppCompatActivity() {
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
+            .addOnCompleteListener() { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
@@ -104,11 +102,13 @@ class GetStartedActivity : AppCompatActivity() {
 
     private fun updateUI(firebaseUser: FirebaseUser?) {
         if(firebaseUser != null) {
-            val mainActivityIntent = Intent(this, DetailsActivity::class.java)
-            startActivity(mainActivityIntent)
-            finish()
+            val action = GetStartedFragmentDirections.actionGetStartedFragmentToDetailsFragment()
+            requireView().findNavController().navigate(action)
         } else {
 
         }
     }
+
 }
+
+
