@@ -105,7 +105,7 @@ class GetStartedFragment : Fragment() {
             val action = GetStartedFragmentDirections.actionGetStartedFragmentToDetailsFragment()
             requireView().findNavController().navigate(action)
         } else {
-
+            Toast.makeText(this, "Update UI Error", Toast.LENGTH_SHORT).show()
         }
     }
 
