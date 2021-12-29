@@ -12,11 +12,7 @@
         <activity
             android:name=".screens.TeachersActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".screens.DetailsActivity"
@@ -25,6 +21,12 @@
             android:name=".screens.GetStartedActivity"
             android:exported="true">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
         <activity
             android:name=".screens.SignUpActivity"
@@ -32,7 +34,9 @@
             android:parentActivityName=".screens.GetStartedActivity" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
