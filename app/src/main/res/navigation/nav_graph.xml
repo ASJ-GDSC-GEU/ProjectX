@@ -20,7 +20,11 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.projectx.screens.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_detailsFragment_to_teachersFragment"
+            app:destination="@id/teachersFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.example.projectx.screens.SignUpFragment"
@@ -30,4 +34,9 @@
             android:id="@+id/action_signUpFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/teachersFragment"
+        android:name="com.example.projectx.screens.TeachersFragment"
+        android:label="fragment_teachers"
+        tools:layout="@layout/fragment_teachers" />
 </navigation>
