@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.projectx.R
 import com.example.projectx.daos.StudentDao
 import com.example.projectx.daos.TeacherDao
@@ -104,9 +105,13 @@ class DetailsFragment : Fragment() {
 
 
     private fun goToStudentHomeScreen() {
+        val action = DetailsFragmentDirections.actionDetailsFragmentToTeachersFragment()
+        requireView().findNavController().navigate(action)
     }
 
     private fun goToTeacherHomeScreen() {
+        val action = DetailsFragmentDirections.actionDetailsFragmentToTeachersFragment()
+        requireView().findNavController().navigate(action)
     }
 
 }

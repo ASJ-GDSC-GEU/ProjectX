@@ -38,5 +38,31 @@
         android:id="@+id/teachersFragment"
         android:name="com.example.projectx.screens.TeachersFragment"
         android:label="fragment_teachers"
-        tools:layout="@layout/fragment_teachers" />
+        tools:layout="@layout/fragment_teachers" >
+        <action
+            android:id="@+id/action_teachersFragment_to_homeNotesFragment"
+            app:destination="@id/homeNotesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeNotesFragment"
+        android:name="com.example.projectx.screens.Notes.HomeNotesFragment"
+        android:label="fragment_home_notes"
+        tools:layout="@layout/fragment_home_notes" >
+        <action
+            android:id="@+id/action_homeNotesFragment_to_editNotesFragment"
+            app:destination="@id/editNotesFragment" />
+        <action
+            android:id="@+id/action_homeNotesFragment_to_createNoteFragment"
+            app:destination="@id/createNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNoteFragment"
+        android:name="com.example.projectx.screens.Notes.CreateNoteFragment"
+        android:label="fragment_create_note"
+        tools:layout="@layout/fragment_create_note" />
+    <fragment
+        android:id="@+id/editNotesFragment"
+        android:name="com.example.projectx.screens.Notes.EditNotesFragment"
+        android:label="fragment_edit_notes"
+        tools:layout="@layout/fragment_edit_notes" />
 </navigation>
