@@ -29,7 +29,7 @@ class HomeNotesFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentHomeNotesBinding.inflate(inflater, container, false)
 
-        binding.fab.setOnClickListener {
+        binding.create.setOnClickListener {
             val action = HomeNotesFragmentDirections.actionHomeNotesFragmentToCreateNoteFragment()
             requireView().findNavController().navigate(action)
         }
