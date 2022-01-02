@@ -35,15 +35,16 @@
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_teachers.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_create_note.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_create_note.xml" value="0.1461038961038961" />
         <entry key="app/src/main/res/layout/fragment_create_notes.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_edit_notes.xml" value="0.29583333333333334" />
+        <entry key="app/src/main/res/layout/fragment_edit_notes.xml" value="0.14106583072100312" />
         <entry key="app/src/main/res/layout/fragment_get_started.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home_notes.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/fragment_notes_home.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.2359375" />
         <entry key="app/src/main/res/layout/fragment_teachers.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_notes.xml" value="0.22777777777777777" />
       </map>
     </option>
   </component>

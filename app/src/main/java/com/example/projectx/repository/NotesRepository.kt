@@ -13,9 +13,9 @@ class NotesRepository(val dao: NotesDao) {
         dao.insertNote(notes)
     }
 
-    fun deleteNote(id : Int){
-        dao.deleteNote(id)
-    }
+//    fun deleteNote(id : Int){
+//        dao.deleteNote(id)
+//    }
 
     fun updateNote(notes: Notes){
         dao.updateNote(notes)

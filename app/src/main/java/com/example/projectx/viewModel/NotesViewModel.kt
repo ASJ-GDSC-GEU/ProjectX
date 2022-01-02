@@ -20,9 +20,9 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
         repository.insertNotes(notes)
     }
 
-    fun deleteNote(id : Int){
-        repository.deleteNote(id)
-    }
+//    fun deleteNote(id : Int){
+//        repository.deleteNote(id)
+//    }
 
     fun getNotes() : LiveData<List<Notes>>{
         return repository.getAllNotes()

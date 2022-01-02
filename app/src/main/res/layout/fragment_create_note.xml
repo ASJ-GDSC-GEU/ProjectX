@@ -92,7 +92,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/body_input"
+            android:id="@+id/etNoteBody"
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:layout_marginRight="16dp"

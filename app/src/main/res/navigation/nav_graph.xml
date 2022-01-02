@@ -49,7 +49,7 @@
     <fragment
         android:id="@+id/homeNotesFragment"
         android:name="com.example.projectx.screens.Notes.HomeNotesFragment"
-        android:label="fragment_home_notes"
+        android:label="Notes"
         tools:layout="@layout/fragment_home_notes" >
         <action
             android:id="@+id/action_homeNotesFragment_to_editNotesFragment"
@@ -61,13 +61,24 @@
     <fragment
         android:id="@+id/createNoteFragment"
         android:name="com.example.projectx.screens.Notes.CreateNoteFragment"
-        android:label="fragment_create_note"
-        tools:layout="@layout/fragment_create_note" />
+        android:label="Create Note"
+        tools:layout="@layout/fragment_create_note" >
+        <action
+            android:id="@+id/action_createNoteFragment_to_homeNotesFragment"
+            app:destination="@id/homeNotesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editNotesFragment"
         android:name="com.example.projectx.screens.Notes.EditNotesFragment"
-        android:label="fragment_edit_notes"
-        tools:layout="@layout/fragment_edit_notes" />
+        android:label="Edit Note"
+        tools:layout="@layout/fragment_edit_notes" >
+        <action
+            android:id="@+id/action_editNotesFragment_to_homeNotesFragment"
+            app:destination="@id/homeNotesFragment" />
+        <argument
+            android:name="data"
+            app:argType="com.example.projectx.entities.Notes" />
+    </fragment>
     <fragment
         android:id="@+id/bottomSheetFragment"
         android:name="com.example.projectx.screens.BottomSheetFragment"

@@ -16,6 +16,7 @@
             android:layout_height="20dp"
             android:layout_gravity="right"
             android:layout_margin="10dp"
+            android:id="@+id/vPriority"
             android:background="@drawable/red_dot">
 
 
@@ -31,6 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="title fkds"
+            android:id="@+id/tvTitle"
             android:fontFamily="@font/poppins_bold"
             android:maxLines="1"
             android:textSize="16sp"
@@ -42,6 +44,7 @@
 
             <TextView
                 android:layout_width="match_parent"
+                android:id="@+id/tvSubtitle"
                 android:layout_height="wrap_content"
                 android:text="subtitle afijf fdsjkhf uf akfj afdkj safdkjlfd asjkdfsjhk sdkfj dskjf ds"
                 android:fontFamily="@font/poppins_regular"
@@ -55,7 +58,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:id="@+id/tvDate"
                 android:text="27/December/2021"
                 android:fontFamily="@font/poppins_bold"
 
