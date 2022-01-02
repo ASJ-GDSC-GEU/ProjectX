@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_teachersFragment_to_homeNotesFragment"
             app:destination="@id/homeNotesFragment" />
+        <action
+            android:id="@+id/action_teachersFragment_to_bottomSheetFragment"
+            app:destination="@id/bottomSheetFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeNotesFragment"
@@ -65,4 +68,9 @@
         android:name="com.example.projectx.screens.Notes.EditNotesFragment"
         android:label="fragment_edit_notes"
         tools:layout="@layout/fragment_edit_notes" />
+    <fragment
+        android:id="@+id/bottomSheetFragment"
+        android:name="com.example.projectx.screens.BottomSheetFragment"
+        android:label="fragment_bottom_sheet"
+        tools:layout="@layout/fragment_bottom_sheet" />
 </navigation>

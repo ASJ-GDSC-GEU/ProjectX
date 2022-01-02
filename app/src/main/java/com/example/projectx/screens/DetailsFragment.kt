@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.projectx.R
@@ -14,6 +15,8 @@ import com.example.projectx.databinding.FragmentDetailsBinding
 import com.example.projectx.models.Student
 import com.example.projectx.models.Teacher
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 
 class DetailsFragment : Fragment() {
@@ -48,6 +51,10 @@ class DetailsFragment : Fragment() {
 
         binding.apply {
             nameInput.setText(currentUser?.displayName)
+            val userId : String = Firebase.auth.currentUser!!.uid
+
+            //User with these Id's are only allowed for teachersFragment
+            val teacherIds = listOf<String>("rtpN6EtI5cSVJFl7L1Agakwt3LR2", "So7jMd1JBtObIEze7Dgmor7OUUo2")
 
             //Teachers or Student Selection
             studentOrTeacher.setOnCheckedChangeListener { group, checkedId ->
@@ -80,7 +87,7 @@ class DetailsFragment : Fragment() {
                         studentDao.addStudent(student)
                         goToStudentHomeScreen()
 
-                    } else {
+                    } else if (selectedUser == 1 && teacherIds.contains(userId)) {
                         val teacher =
                             Teacher(
                                 currentUser!!.uid,
@@ -90,6 +97,9 @@ class DetailsFragment : Fragment() {
                         val teacherDao = TeacherDao()
                         teacherDao.addTeacher(teacher)
                         goToTeacherHomeScreen()
+                    }
+                    else{
+                        Toast.makeText(view.context, "You are not verified for Teacher", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -103,10 +113,7 @@ class DetailsFragment : Fragment() {
         _binding = null
     }
 
-
     private fun goToStudentHomeScreen() {
-        val action = DetailsFragmentDirections.actionDetailsFragmentToTeachersFragment()
-        requireView().findNavController().navigate(action)
     }
 
     private fun goToTeacherHomeScreen() {
