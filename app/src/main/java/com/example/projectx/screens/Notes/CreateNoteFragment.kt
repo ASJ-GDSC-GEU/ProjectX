@@ -1,12 +1,11 @@
 package com.example.projectx.screens.Notes
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.example.projectx.R
 import com.example.projectx.databinding.FragmentCreateNoteBinding
@@ -81,8 +80,8 @@ class CreateNoteFragment : Fragment() {
         val notes = Notes(null, title, subTitle, note, currentDate, priority)
         viewModel.addNotes(notes)
 
-        val action = CreateNoteFragmentDirections.actionCreateNoteFragmentToHomeNotesFragment()
-        requireView().findNavController().navigate(action)
+        requireView().findNavController().popBackStack()
+
     }
 
 

@@ -13,7 +13,19 @@
         android:orientation="vertical"
         >
 
-
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/fui_transparent"
+            android:backgroundTint="@color/fui_transparent"
+            android:minHeight="?attr/actionBarSize"
+            android:outlineSpotShadowColor="#9F9F9F"
+            android:paddingTop="20dp"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
 
         <EditText
@@ -105,7 +117,7 @@
             android:ems="10"
             android:fontFamily="@font/roboto_light"
             android:hint="Note..."
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             android:textColor="@color/darkMainColor"
             android:textSize="18sp"
 

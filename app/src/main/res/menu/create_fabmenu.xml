@@ -8,11 +8,11 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/shedule_meet"
-        android:title="Shedule a Meeting"
+        android:title="Schedule a Meeting"
         app:showAsAction="never" />
     <item
         android:id="@+id/create_timeTable"
-        android:title="Create Time Table"
+        android:title="Your Notes"
         app:showAsAction="never" />
 
 

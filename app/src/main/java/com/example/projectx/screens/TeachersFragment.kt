@@ -1,17 +1,18 @@
 package com.example.projectx.screens
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.projectx.Adapters.MyClassAdapter
 import com.example.projectx.R
 import com.example.projectx.daos.MyClassDao
@@ -43,6 +44,10 @@ class TeachersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentTeachersBinding.inflate(inflater, container, false)
+        binding.createMeet.setOnClickListener {
+            val action = TeachersFragmentDirections.actionTeachersFragmentToMeetingsActivity()
+            requireView().findNavController().navigate(action)
+        }
         val view = binding.root
         return view
     }
@@ -81,7 +86,10 @@ class TeachersFragment : Fragment() {
                 R.id.create_newClass ->
                     openDialog(view)
                 R.id.create_meet ->
+                {
                     Toast.makeText(view.context, "Create Meet", Toast.LENGTH_SHORT).show()
+
+                }
                 R.id.create_timeTable ->
                     findNavController().navigate(R.id.homeNotesFragment)
             }

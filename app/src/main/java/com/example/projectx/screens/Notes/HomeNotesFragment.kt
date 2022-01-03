@@ -1,19 +1,15 @@
 package com.example.projectx.screens.Notes
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.projectx.R
 import com.example.projectx.adapter.NotesAdapter
 import com.example.projectx.databinding.FragmentHomeNotesBinding
-import com.example.projectx.screens.GetStartedFragmentDirections
 import com.example.projectx.viewModel.NotesViewModel
 
 
@@ -47,6 +43,46 @@ class HomeNotesFragment : Fragment() {
         binding.create.setOnClickListener {
             val action = HomeNotesFragmentDirections.actionHomeNotesFragmentToCreateNoteFragment()
             requireView().findNavController().navigate(action)
+        }
+
+        binding.tvHighPriority.setOnClickListener {
+            viewModel.getHighNotes().observe(viewLifecycleOwner, {
+                    noteList ->
+                binding.rvNotes.layoutManager = GridLayoutManager(requireContext(), 2)
+                binding.rvNotes.adapter = NotesAdapter(requireContext(), noteList)
+
+
+            })
+        }
+
+        binding.tvMediumPriority.setOnClickListener {
+            viewModel.getMediumNotes().observe(viewLifecycleOwner, {
+                    noteList ->
+                binding.rvNotes.layoutManager = GridLayoutManager(requireContext(), 2)
+                binding.rvNotes.adapter = NotesAdapter(requireContext(), noteList)
+
+
+            })
+        }
+
+        binding.tvLowPriority.setOnClickListener {
+            viewModel.getLowNotes().observe(viewLifecycleOwner, {
+                    noteList ->
+                binding.rvNotes.layoutManager = GridLayoutManager(requireContext(), 2)
+                binding.rvNotes.adapter = NotesAdapter(requireContext(), noteList)
+
+
+            })
+        }
+
+        binding.ivAllNotesPriority.setOnClickListener {
+            viewModel.getNotes().observe(viewLifecycleOwner, {
+                    noteList ->
+                binding.rvNotes.layoutManager = GridLayoutManager(requireContext(), 2)
+                binding.rvNotes.adapter = NotesAdapter(requireContext(), noteList)
+
+
+            })
         }
 
         val view = binding.root

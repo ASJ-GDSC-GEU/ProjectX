@@ -1,10 +1,10 @@
 package com.example.projectx.screens.Notes
 
 import android.os.Bundle
+import android.view.*
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
@@ -12,6 +12,7 @@ import com.example.projectx.R
 import com.example.projectx.databinding.FragmentEditNotesBinding
 import com.example.projectx.entities.Notes
 import com.example.projectx.viewModel.NotesViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -25,13 +26,23 @@ class EditNotesFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        
+
         binding = FragmentEditNotesBinding.inflate(layoutInflater, container, false)
+
+        val toolbar: androidx.appcompat.widget.Toolbar = binding.toolbar
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        toolbar.title = "Edit Your Note"
+        setHasOptionsMenu(true)
 
         binding.etTitle.setText(oldNotes.data.title)
         binding.etSubtitle.setText(oldNotes.data.subTitle)
@@ -99,7 +110,39 @@ class EditNotesFragment : Fragment() {
         viewModel.updateNote( notes)
 
         val action = EditNotesFragmentDirections.actionEditNotesFragmentToHomeNotesFragment()
-        requireView().findNavController().navigate(action)
+        requireView().findNavController().popBackStack()
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.menuDeleteNote){
+            val bottomSheet: BottomSheetDialog = BottomSheetDialog(requireContext())
+            bottomSheet.setContentView(R.layout.dialog_delete)
+
+            val textViewYes = bottomSheet.findViewById<TextView>(R.id.btYes)
+            val textViewNo = bottomSheet.findViewById<TextView>(R.id.btNo)
+
+            textViewYes?.setOnClickListener {
+                viewModel.deleteNote(oldNotes.data.id!!)
+                bottomSheet.dismiss()
+                requireView().findNavController().popBackStack()
+
+            }
+
+            textViewNo?.setOnClickListener {
+                bottomSheet.dismiss()
+            }
+
+            bottomSheet.show()
+        }
+        return super.onOptionsItemSelected(item)
+
+
     }
 
 }

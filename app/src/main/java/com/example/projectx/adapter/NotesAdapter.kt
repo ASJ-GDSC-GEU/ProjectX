@@ -2,7 +2,6 @@ package com.example.projectx.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
@@ -43,6 +42,8 @@ class NotesAdapter(val requireContext : Context, val noteList: List<Notes>) : Re
             val action = HomeNotesFragmentDirections.actionHomeNotesFragmentToEditNotesFragment(data)
             Navigation.findNavController(it).navigate(action)
         }
+
+
     }
 
     override fun getItemCount(): Int = noteList.size

@@ -27,6 +27,7 @@
         android:textSize="18sp"
         android:gravity="center"
 
+
         ></TextView>
 
     <TextView
@@ -38,6 +39,7 @@
         android:padding="10dp"
         android:fontFamily="@font/poppins_bold"
         android:layout_marginTop="20dp"
+        android:id="@+id/btYes"
         android:background="@drawable/red_button"
         android:text="Yes"></TextView>
 
@@ -50,6 +52,8 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
+        android:id="@+id/btNo"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/grey_button"
         android:text="No"></TextView>
 </LinearLayout>
