@@ -1,4 +1,4 @@
-package com.example.projectx.Adapters
+package com.example.projectx.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectx.R
 import com.example.projectx.models.MyClass
-import com.example.projectx.screens.TeachersFragment
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
