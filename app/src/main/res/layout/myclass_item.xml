@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_marginTop="20dp"
@@ -14,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:fontFamily="@font/roboto"
-        android:text="TextView"
+        android:text="course"
         android:textColor="@color/greyText"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:fontFamily="@font/roboto_medium"
-        android:text="TextView"
+        android:text="subject"
         android:textColor="@color/darkMainColor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:fontFamily="@font/roboto"
-        android:text="TextView"
+        android:text="click to invite students"
         android:textColor="@color/darkGreyText"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +59,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:src="@drawable/sample" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -69,7 +68,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:src="@drawable/sample" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -78,9 +77,11 @@
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:src="@drawable/sample" />
 
-        <ImageView
+        <androidx.cardview.widget.CardView
+            app:cardElevation="0dp"
+            app:cardCornerRadius="50dp"
             android:id="@+id/imageView7"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -88,7 +89,18 @@
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:background="#f2f2f4"
+                android:textSize="12sp"
+                android:textColor="@color/darkMainColor"
+                android:foregroundGravity="center_horizontal"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="+43" />
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

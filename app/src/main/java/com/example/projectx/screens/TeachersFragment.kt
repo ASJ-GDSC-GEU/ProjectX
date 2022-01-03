@@ -1,6 +1,5 @@
 package com.example.projectx.screens
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -8,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.projectx.Adapters.MyClassAdapter
+import com.example.projectx.adapter.MyClassAdapter
 import com.example.projectx.R
 import com.example.projectx.daos.MyClassDao
 import com.example.projectx.databinding.FragmentTeachersBinding
@@ -31,6 +28,7 @@ class TeachersFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var adapter: MyClassAdapter
     private lateinit var classes: List<MyClass>
+    private lateinit var myClassDao : MyClassDao
     val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,15 +50,7 @@ class TeachersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            val query = db.collection("classes")
-                .whereEqualTo("creator_id", Firebase.auth.currentUser!!.uid)
-                .orderBy("course", Query.Direction.ASCENDING)
-            val recyclerOptions = FirestoreRecyclerOptions.Builder<MyClass>()
-                .setQuery(query, MyClass::class.java).build()
-
-            adapter = MyClassAdapter(recyclerOptions)
-            recyclerview.adapter = adapter
-            recyclerview.layoutManager = LinearLayoutManager(view.context)
+            setUpRecyclerView()
 
 
         }
@@ -70,6 +60,15 @@ class TeachersFragment : Fragment() {
             popUpMenu(view)
         }
 
+    }
+
+    private fun setUpRecyclerView() {
+        var collection = MyClassDao().getClassCollection()
+        var query = collection.orderBy("semester", Query.Direction.ASCENDING)
+        val recyclerOptions = FirestoreRecyclerOptions.Builder<MyClass>().setQuery(query, MyClass::class.java).build()
+        adapter = MyClassAdapter(recyclerOptions)
+        binding.recyclerview.adapter = adapter
+        binding.recyclerview.layoutManager = LinearLayoutManager(view?.context)
     }
 
     private fun popUpMenu(view: View) {

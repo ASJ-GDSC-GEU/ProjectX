@@ -1,13 +1,12 @@
 package com.example.projectx.screens
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.projectx.R
 import com.example.projectx.databinding.FragmentGetStartedBinding
@@ -25,7 +24,7 @@ import com.google.firebase.ktx.Firebase
 class GetStartedFragment : Fragment() {
     private var _binding : FragmentGetStartedBinding? = null
     private val binding get() = _binding!!
-
+    private var user_details: Int = 0//0 for details not filled and 1 for filled
     private val RC_SIGN_IN: Int = 123
     private val TAG: String = "Message"
     private lateinit var googleSignInClient : GoogleSignInClient
@@ -106,10 +105,14 @@ class GetStartedFragment : Fragment() {
 
 
     private fun updateUI(firebaseUser: FirebaseUser?) {
-        if(firebaseUser != null) {
-            val action = GetStartedFragmentDirections.actionGetStartedFragmentToDetailsFragment()
+
+        if (firebaseUser != null) {
+            val action =
+                GetStartedFragmentDirections.actionGetStartedFragmentToDetailsFragment()
             requireView().findNavController().navigate(action)
-        } else {
+        }
+
+     else {
         }
     }
 
