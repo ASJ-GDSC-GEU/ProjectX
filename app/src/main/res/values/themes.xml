@@ -20,4 +20,10 @@
 
 
     </style>
+    <style name="Theme.ProjectX.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.ProjectX.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.ProjectX.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

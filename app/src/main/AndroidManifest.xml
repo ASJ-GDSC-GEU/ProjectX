@@ -19,9 +19,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectX">
         <activity
+            android:name=".screens.LectureHall.MeetingVideoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".screens.LectureHall.MeetingHome"
+            android:exported="true" />
+        <activity
+            android:name=".screens.LectureHall.LectureHome"
+            android:exported="true"
+            android:label="@string/title_activity_lecture_home"
+            android:theme="@style/Theme.ProjectX.NoActionBar" />
+        <activity
             android:name=".screens.MeetingsActivity"
             android:exported="true" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
