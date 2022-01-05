@@ -42,13 +42,6 @@ tools:context=".screens.LectureHall.MeetingVideoActivity">
         android:layout_height="50dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="20"
-            android:onClick="onLocalVideoMuteClicked"
-            android:scaleType="centerInside"
-            android:src="@drawable/btn_voice" />
 
         <ImageView
             android:layout_width="0dp"
@@ -58,13 +51,7 @@ tools:context=".screens.LectureHall.MeetingVideoActivity">
             android:scaleType="centerInside"
             android:src="@drawable/btn_mute" />
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="20"
-            android:onClick="onSwitchCameraClicked"
-            android:scaleType="centerInside"
-            android:src="@drawable/btn_switch_camera" />
+
 
         <ImageView
             android:layout_width="0dp"
@@ -73,6 +60,14 @@ tools:context=".screens.LectureHall.MeetingVideoActivity">
             android:onClick="onEndCallClicked"
             android:scaleType="centerInside"
             android:src="@drawable/btn_end_call" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:onClick="onSwitchCameraClicked"
+            android:scaleType="centerInside"
+            android:src="@drawable/btn_switch_camera" />
 
     </LinearLayout>
 

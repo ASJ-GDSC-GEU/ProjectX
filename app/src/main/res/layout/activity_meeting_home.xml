@@ -31,14 +31,12 @@
             android:id="@+id/host"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
             android:text="Host" />
 
         <RadioButton
             android:id="@+id/audience"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
             android:text="Audience" />
     </RadioGroup>
 

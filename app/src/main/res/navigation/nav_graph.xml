@@ -49,8 +49,8 @@
             android:id="@+id/action_teachersFragment_to_bottomSheetFragment"
             app:destination="@id/bottomSheetFragment" />
         <action
-            android:id="@+id/action_teachersFragment_to_meetingsActivity"
-            app:destination="@id/meetingsActivity" />
+            android:id="@+id/action_teachersFragment_to_meetingHome"
+            app:destination="@id/meetingHome" />
     </fragment>
     <fragment
         android:id="@+id/homeNotesFragment"
@@ -91,8 +91,8 @@
         android:label="fragment_bottom_sheet"
         tools:layout="@layout/fragment_bottom_sheet" />
     <activity
-        android:id="@+id/meetingsActivity"
-        android:name="com.example.projectx.screens.MeetingsActivity"
-        android:label="activity_meetings"
-        tools:layout="@layout/activity_meetings" />
+        android:id="@+id/meetingHome"
+        android:name="com.example.projectx.screens.LectureHall.MeetingHome"
+        android:label="activity_meeting_home"
+        tools:layout="@layout/activity_meeting_home" />
 </navigation>

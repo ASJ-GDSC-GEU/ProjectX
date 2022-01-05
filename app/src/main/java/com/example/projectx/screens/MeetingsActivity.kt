@@ -19,7 +19,7 @@ class MeetingsActivity : AppCompatActivity() {
     private val appId = "4b6b5bbe77884cb8ae65c6dabcf44d5f"
 
     // Fill the temp token generated on Agora Console.
-    private val token = "0064b6b5bbe77884cb8ae65c6dabcf44d5fIACAhuL3TuLlkdmaxRSP0k4IyW614K9z32O6BRPP1hfFC7IoWQkAAAAAEADdovT0iSXUYQEAAQCIJdRh"
+    private val token = "0064b6b5bbe77884cb8ae65c6dabcf44d5fIAC/EoGXWU1cQbTHjPzpCLfe+bfRkKCQqh77DYwfhhkih7IoWQkAAAAAEADKVPAlEAHWYQEAAQAPAdZh"
 
     // Fill the channel name.
     private val channelName = "ProjectX"

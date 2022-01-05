@@ -48,7 +48,7 @@ class TeachersFragment : Fragment() {
         val view = binding.root
 
         binding.createMeet.setOnClickListener {
-            val action = TeachersFragmentDirections.actionTeachersFragmentToMeetingsActivity()
+            val action = TeachersFragmentDirections.actionTeachersFragmentToMeetingHome()
             requireView().findNavController().navigate(action)
         }
 
