@@ -39,8 +39,9 @@
         <entry key="app/src/main/res/layout/activity_lecture_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
-        <entry key="app/src/main/res/layout/activity_meeting_home.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_meeting_video.xml" value="0.2359375" />
+        <entry key="app/src/main/res/layout/activity_meeting_home.xml" value="0.12062256809338522" />
+        <entry key="app/src/main/res/layout/activity_meeting_video.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_meetings.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_teachers.xml" value="0.25" />
         <entry key="app/src/main/res/layout/content_lecture_home.xml" value="0.25" />

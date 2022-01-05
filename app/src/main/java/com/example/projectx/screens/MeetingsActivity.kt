@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectx.R
+import com.example.projectx.token
 import io.agora.agorauikit_android.AgoraConnectionData
 import io.agora.agorauikit_android.AgoraVideoViewer
 import io.agora.agorauikit_android.requestPermissions
@@ -19,10 +20,9 @@ class MeetingsActivity : AppCompatActivity() {
     private val appId = "4b6b5bbe77884cb8ae65c6dabcf44d5f"
 
     // Fill the temp token generated on Agora Console.
-    private val token = "0064b6b5bbe77884cb8ae65c6dabcf44d5fIAC/EoGXWU1cQbTHjPzpCLfe+bfRkKCQqh77DYwfhhkih7IoWQkAAAAAEADKVPAlEAHWYQEAAQAPAdZh"
 
     // Fill the channel name.
-    private val channelName = "ProjectX"
+    private val channelName = "project"
 
     private var agView: AgoraVideoViewer? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +54,7 @@ class MeetingsActivity : AppCompatActivity() {
 
         // Check permission and join channel
         if (AgoraVideoViewer.requestPermissions(this)) {
-            agView!!.join(channelName, token = token, role = Constants.CLIENT_ROLE_BROADCASTER)
+            agView!!.join(channelName, token = token, role = Constants.CHANNEL_PROFILE_LIVE_BROADCASTING)
         }
 
         else {
@@ -65,7 +65,7 @@ class MeetingsActivity : AppCompatActivity() {
                 // if permissions are granted.
                 if (AgoraVideoViewer.requestPermissions(this)) {
                     (joinButton.parent as ViewGroup).removeView(joinButton)
-                    agView!!.join(channelName, token = token, role = Constants.CLIENT_ROLE_BROADCASTER)
+                    agView!!.join(channelName, token = token, role = Constants.CHANNEL_PROFILE_LIVE_BROADCASTING)
                 }
             })
             joinButton.setBackgroundColor(Color.GREEN)

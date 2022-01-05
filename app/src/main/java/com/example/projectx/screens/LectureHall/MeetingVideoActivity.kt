@@ -15,6 +15,8 @@ import io.agora.rtc2.IRtcEngineEventHandler
 import io.agora.rtc2.RtcEngine
 import io.agora.rtc2.video.VideoCanvas
 
+
+
 class MeetingVideoActivity : AppCompatActivity() {
     private var mRtcEngine: RtcEngine?= null
     private var channelName: String? = null
@@ -42,8 +44,9 @@ class MeetingVideoActivity : AppCompatActivity() {
         mRtcEngine!!.setClientRole(userRole)
 
         mRtcEngine!!.enableVideo()
+        mRtcEngine!!.startPreview()
         if(userRole == 1)
-                setupLocalVideo()
+            setupLocalVideo()
         else{
             val localVideoCanvas = findViewById<View>(R.id.local_video_view_container)
             localVideoCanvas.isVisible = false

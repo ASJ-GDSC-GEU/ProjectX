@@ -50,6 +50,8 @@ dependencies {
 
     implementation 'com.github.AgoraIO-Community.Android-UIKit:final:4.0.1'
 //    implementation 'com.github.agorabuilder:native-full-sdk:3.6.0.1'
+    implementation 'com.github.agorabuilder:agora-full-preview:4.0.0'
+
 
 
     implementation 'androidx.core:core-ktx:1.7.0'
