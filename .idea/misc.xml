@@ -19,9 +19,11 @@
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_teachers.xml" value="0.264" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/myclass_item.xml" value="0.4" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/menu/create_fabmenu.xml" value="0.6" />
+        <entry key="app/src/main/res/drawable/assignment.xml" value="0.20185185185185187" />
         <entry key="app/src/main/res/drawable/background_circle.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/drawable/border_input_bg.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/drawable/border_round_btn.xml" value="0.2759259259259259" />
+        <entry key="app/src/main/res/drawable/calendar.xml" value="0.20185185185185187" />
         <entry key="app/src/main/res/drawable/edittext_bg.xml" value="0.14479166666666668" />
         <entry key="app/src/main/res/drawable/email_icon.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/drawable/facebook_icon.xml" value="0.2222222222222222" />
@@ -34,6 +36,7 @@
         <entry key="app/src/main/res/drawable/shape_circle_blue.xml" value="0.14479166666666668" />
         <entry key="app/src/main/res/drawable/shape_circle_pink_dark.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/twitter_icon.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/drawable/yellow_dot.xml" value="0.20185185185185187" />
         <entry key="app/src/main/res/layout/activity_details.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_get_started.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_lecture_home.xml" value="0.25" />
@@ -45,7 +48,10 @@
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_teachers.xml" value="0.25" />
         <entry key="app/src/main/res/layout/content_lecture_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/dialog_delete.xml" value="0.1824074074074074" />
+        <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.22407407407407406" />
         <entry key="app/src/main/res/layout/fragment_create_note.xml" value="0.1461038961038961" />
         <entry key="app/src/main/res/layout/fragment_create_notes.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.25" />
@@ -55,9 +61,11 @@
         <entry key="app/src/main/res/layout/fragment_home_notes.xml" value="0.29583333333333334" />
         <entry key="app/src/main/res/layout/fragment_notes_home.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.2359375" />
-        <entry key="app/src/main/res/layout/fragment_teachers.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_student.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_teachers.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_notes.xml" value="0.22777777777777777" />
+        <entry key="app/src/main/res/layout/myclass_item.xml" value="0.25" />
       </map>
     </option>
   </component>

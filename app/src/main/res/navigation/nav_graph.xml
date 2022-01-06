@@ -10,9 +10,6 @@
         android:label="fragment_get_started"
         tools:layout="@layout/fragment_get_started" >
         <action
-            android:id="@+id/action_getStartedFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
-        <action
             android:id="@+id/action_getStartedFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
         <action
@@ -27,15 +24,9 @@
         <action
             android:id="@+id/action_detailsFragment_to_teachersFragment"
             app:destination="@id/teachersFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/signUpFragment"
-        android:name="com.example.projectx.screens.SignUpFragment"
-        android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
         <action
-            android:id="@+id/action_signUpFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            android:id="@+id/action_detailsFragment_to_studentFragment"
+            app:destination="@id/studentFragment" />
     </fragment>
     <fragment
         android:id="@+id/teachersFragment"
@@ -95,4 +86,16 @@
         android:name="com.example.projectx.screens.LectureHall.MeetingHome"
         android:label="activity_meeting_home"
         tools:layout="@layout/activity_meeting_home" />
+    <fragment
+        android:id="@+id/studentFragment"
+        android:name="com.example.projectx.screens.StudentFragment"
+        android:label="fragment_student"
+        tools:layout="@layout/fragment_student" >
+        <action
+            android:id="@+id/action_studentFragment_to_homeNotesFragment"
+            app:destination="@id/homeNotesFragment" />
+        <action
+            android:id="@+id/action_studentFragment_to_meetingHome"
+            app:destination="@id/meetingHome" />
+    </fragment>
 </navigation>

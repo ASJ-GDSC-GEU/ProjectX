@@ -18,12 +18,19 @@
             android:gravity="center_vertical"
             android:id="@+id/linearLayoutfilter"
             android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filter: "
+                />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:id="@+id/ivAllNotesPriority"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:background="@drawable/filter_list">
 
             </ImageView>
@@ -35,8 +42,8 @@
                 android:textColor="@color/red"
                 android:textSize="18sp"
                 android:background="@drawable/priority_bg"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:paddingTop="10dp"
                 android:layout_margin="5dp"
                 android:paddingBottom="10dp"
@@ -50,8 +57,8 @@
                 android:textColor="@color/yellow"
                 android:textSize="18sp"
                 android:background="@drawable/priority_bg"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:id="@+id/tvMediumPriority"
@@ -64,8 +71,8 @@
                 android:textColor="@color/teal_200"
                 android:textSize="18sp"
                 android:background="@drawable/priority_bg"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:id="@+id/tvLowPriority"
