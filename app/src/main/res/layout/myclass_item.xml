@@ -4,6 +4,7 @@
     android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_marginTop="20dp"
+    android:id="@+id/class_groupBtn"
     android:background="@drawable/white_roundfilled"
     android:layout_height="wrap_content">
 

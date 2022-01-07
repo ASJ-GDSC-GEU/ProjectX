@@ -1,8 +1,11 @@
 package com.example.projectx.daos
 
 import android.util.Log
+import com.example.projectx.models.MyClass
 import com.example.projectx.models.Teacher
+import com.example.projectx.screens.ClassGroupFragment
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -35,6 +38,18 @@ class TeacherDao {
 
     }
 
-
-
+//    fun setDataInGroup(class_id: String) {
+//        class_id.let {
+//            GlobalScope.launch(Dispatchers.IO) {
+//                TopDao().dbRef().collection("classes").document(class_id).get()
+//                    .addOnSuccessListener { documentSnapshot ->
+//                        val class_obj = documentSnapshot.toObject<MyClass>()
+//                        // Toast.makeText(requireView().context, "$class_id", Toast.LENGTH_SHORT).show()
+//                        ClassGroupFragment().optionsa(class_obj)
+//                    }
+//            }
+//        }
+//    }
 }
+
+

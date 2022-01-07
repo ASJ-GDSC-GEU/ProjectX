@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_teachersFragment_to_meetingHome"
             app:destination="@id/meetingHome" />
+        <action
+            android:id="@+id/action_teachersFragment_to_classGroupFragment"
+            app:destination="@id/classGroupFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeNotesFragment"
@@ -98,4 +101,9 @@
             android:id="@+id/action_studentFragment_to_meetingHome"
             app:destination="@id/meetingHome" />
     </fragment>
+    <fragment
+        android:id="@+id/classGroupFragment"
+        android:name="com.example.projectx.screens.ClassGroupFragment"
+        android:label="fragment_class_group"
+        tools:layout="@layout/fragment_class_group" />
 </navigation>

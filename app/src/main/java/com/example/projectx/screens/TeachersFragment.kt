@@ -61,8 +61,6 @@ class TeachersFragment : Fragment() {
 
         binding.apply {
             setUpRecyclerView()
-
-
         }
 
         binding.create.setOnClickListener {

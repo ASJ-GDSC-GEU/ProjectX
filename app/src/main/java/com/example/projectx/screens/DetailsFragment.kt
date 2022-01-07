@@ -112,7 +112,7 @@ class DetailsFragment : Fragment() {
                         val teacher =
                             Teacher(
                                 currentUser!!.uid,
-                                userName,
+                                nameInput.text.toString(),
                                 currentUser.photoUrl.toString()
                             )
                         teacherDao.addTeacher(teacher)
