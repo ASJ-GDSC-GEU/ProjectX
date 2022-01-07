@@ -11,10 +11,19 @@
         tools:layout="@layout/fragment_get_started" >
         <action
             android:id="@+id/action_getStartedFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:popUpTo="@id/nav_graph.xml"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_getStartedFragment_to_teachersFragment"
-            app:destination="@id/teachersFragment" />
+            app:destination="@id/teachersFragment"
+            app:popUpTo="@id/nav_graph.xml"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_getStartedFragment_to_studentFragment"
+            app:destination="@id/studentFragment"
+            app:popUpTo="@id/nav_graph.xml"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -42,6 +51,9 @@
         <action
             android:id="@+id/action_teachersFragment_to_meetingHome"
             app:destination="@id/meetingHome" />
+        <action
+            android:id="@+id/action_teachersFragment_to_teacherAssignmentFragment"
+            app:destination="@id/teacherAssignmentFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeNotesFragment"
@@ -97,5 +109,44 @@
         <action
             android:id="@+id/action_studentFragment_to_meetingHome"
             app:destination="@id/meetingHome" />
+        <action
+            android:id="@+id/action_studentFragment_to_studentAssignment"
+            app:destination="@id/studentAssignment"
+            app:enterAnim="@animator/nav_default_enter_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentAssignment"
+        android:name="com.example.projectx.screens.StudentAssignment"
+        android:label="fragment_student_assignment"
+        tools:layout="@layout/fragment_student_assignment" >
+        <action
+            android:id="@+id/action_studentAssignment_to_assignmentDetailFragment"
+            app:destination="@id/assignmentDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherAssignmentFragment"
+        android:name="com.example.projectx.screens.TeacherAssignmentFragment"
+        android:label="fragment_teacher_assignment"
+        tools:layout="@layout/fragment_teacher_assignment" >
+        <action
+            android:id="@+id/action_teacherAssignmentFragment_to_createAssignmentFragment"
+            app:destination="@id/createAssignmentFragment" />
+        <action
+            android:id="@+id/action_teacherAssignmentFragment_to_assignmentDetailFragment"
+            app:destination="@id/assignmentDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createAssignmentFragment"
+        android:name="com.example.projectx.screens.CreateAssignmentFragment"
+        android:label="fragment_create_assignment"
+        tools:layout="@layout/fragment_create_assignment" />
+    <fragment
+        android:id="@+id/assignmentDetailFragment"
+        android:name="com.example.projectx.screens.AssignmentDetailFragment"
+        android:label="fragment_assignment_detail"
+        tools:layout="@layout/fragment_assignment_detail" >
+        <argument
+            android:name="assignmentData"
+            app:argType="com.example.projectx.models.Assignment" />
     </fragment>
 </navigation>

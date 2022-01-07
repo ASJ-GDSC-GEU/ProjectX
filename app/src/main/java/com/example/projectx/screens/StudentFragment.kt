@@ -38,6 +38,11 @@ class StudentFragment : Fragment() {
             requireView().findNavController().navigate(action)
         }
 
+        binding.assignmentButton.setOnClickListener {
+            val action = StudentFragmentDirections.actionStudentFragmentToStudentAssignment()
+            requireView().findNavController().navigate(action)
+        }
+
         return view
     }
 

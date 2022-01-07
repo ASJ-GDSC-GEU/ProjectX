@@ -20,7 +20,6 @@ import com.example.projectx.databinding.FragmentTeachersBinding
 import com.example.projectx.models.MyClass
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -90,13 +89,21 @@ class TeachersFragment : Fragment() {
                 R.id.create_newClass ->
                     openDialog(view)
                 R.id.create_meet ->
-                    Toast.makeText(view.context, "Create Meet", Toast.LENGTH_SHORT).show()
+                    addTaskCalendarDialog()
                 R.id.create_timeTable ->
                     findNavController().navigate(R.id.homeNotesFragment)
+
+                R.id.give_assignment ->
+                    navigateToAssignment()
             }
             true
         })
         popupMenu.show()
+    }
+
+    private fun navigateToAssignment(){
+        val action = TeachersFragmentDirections.actionTeachersFragmentToTeacherAssignmentFragment()
+        requireView().findNavController().navigate(action)
     }
 
     private fun openDialog(view: View) {
@@ -143,8 +150,7 @@ class TeachersFragment : Fragment() {
     }
 
     private fun addTaskCalendarDialog() {
-        MaterialAlertDialogBuilder(requireContext()).setTitle("Add Task")
-            .setMessage("Choose Date and Time")
+        Toast.makeText(requireContext(), "This Feature will be coming soon...", Toast.LENGTH_LONG).show()
     }
 
     override fun onStart() {

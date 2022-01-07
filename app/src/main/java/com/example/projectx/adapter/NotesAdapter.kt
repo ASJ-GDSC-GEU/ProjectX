@@ -14,7 +14,6 @@ class NotesAdapter(val requireContext : Context, val noteList: List<Notes>) : Re
 
     class notesViewHolder(val binding : ItemNotesBinding) : RecyclerView.ViewHolder(binding.root) {
 
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): notesViewHolder {
