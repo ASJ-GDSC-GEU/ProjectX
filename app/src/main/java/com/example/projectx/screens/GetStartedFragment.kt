@@ -24,6 +24,7 @@ import com.google.firebase.ktx.Firebase
 class GetStartedFragment : Fragment() {
     private var _binding : FragmentGetStartedBinding? = null
     private val binding get() = _binding!!
+    private var user_details: Int = 0//0 for details not filled and 1 for filled
     private val RC_SIGN_IN: Int = 123
     private val TAG: String = "Message"
     private lateinit var googleSignInClient : GoogleSignInClient
@@ -106,13 +107,12 @@ class GetStartedFragment : Fragment() {
     private fun updateUI(firebaseUser: FirebaseUser?) {
 
         if (firebaseUser != null) {
+            val action =
+                GetStartedFragmentDirections.actionGetStartedFragmentToDetailsFragment()
+            requireView().findNavController().navigate(action)
+        }
 
-                val action =
-                    GetStartedFragmentDirections.actionGetStartedFragmentToDetailsFragment()
-                requireView().findNavController().navigate(action)
-
-        } else {
-
+     else {
         }
     }
 

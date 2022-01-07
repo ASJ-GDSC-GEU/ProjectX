@@ -7,7 +7,6 @@
     tools:context=".screens.DetailsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/detailsConstraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".screens.DetailsFragment">
@@ -135,7 +134,6 @@
 
         </RadioGroup>
 
-
         <Button
             android:id="@+id/signUpBtn"
             style="@style/CustomButton"
@@ -153,117 +151,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
             app:layout_constraintStart_toStartOf="@+id/guideline5" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/signUpBtn"
-            app:layout_constraintEnd_toStartOf="@+id/guideline6"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/guideline5"
-            app:layout_constraintTop_toBottomOf="@+id/student_or_Teacher"
-            app:layout_constraintVertical_bias="0.198">
-
-            <TextView
-                android:id="@+id/tvCourse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Course"
-
-                android:textColor="@color/darkMainColor"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/constraintLayout2" />
-
-
-            <EditText
-                android:id="@+id/etCourse"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="2dp"
-                android:background="@drawable/border_input_bg"
-                android:cursorVisible="true"
-                android:ems="10"
-                android:fontFamily="@font/roboto_light"
-                android:hint="B.Tech"
-                android:inputType="textPersonName"
-                android:paddingStart="16dp"
-                android:textColor="@color/darkMainColor"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvCourse" />
-
-            <TextView
-                android:id="@+id/tvSemester"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Semester"
-                android:textColor="@color/darkMainColor"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etCourse" />
-
-
-            <EditText
-                android:id="@+id/etSemester"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="2dp"
-                android:background="@drawable/border_input_bg"
-                android:cursorVisible="true"
-                android:ems="10"
-                android:fontFamily="@font/roboto_light"
-                android:hint="3"
-                android:inputType="number"
-                android:paddingStart="16dp"
-                android:textColor="@color/darkMainColor"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvSemester" />
-
-
-            <TextView
-                android:id="@+id/tvSection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Section"
-                android:textColor="@color/darkMainColor"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etSemester" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etSection"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="2dp"
-                android:background="@drawable/border_input_bg"
-                android:cursorVisible="true"
-                android:ems="10"
-                android:fontFamily="@font/roboto_light"
-                android:hint="A"
-                android:inputType="text"
-                android:paddingStart="16dp"
-                android:textColor="@color/darkMainColor"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvSection" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

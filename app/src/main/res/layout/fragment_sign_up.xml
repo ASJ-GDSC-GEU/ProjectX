@@ -198,51 +198,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/confirm_passwd_label" />
-
-            <RadioGroup
-                android:id="@+id/student_or_Teacher"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/border_input_bg"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/confirm_passwd_input">
-
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/student"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/student_teacher_selector"
-                    android:button="@android:color/transparent"
-                    android:checked="true"
-                    android:gravity="center"
-                    android:padding="15dp"
-                    android:text="Student"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
-
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/teacher"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/student_teacher_selector"
-                    android:button="@android:color/transparent"
-                    android:checked="false"
-                    android:gravity="center"
-                    android:padding="15dp"
-                    android:text="Teacher"
-                    android:textColor="@color/darkGreyText"
-                    android:textSize="18sp" />
-
-
-            </RadioGroup>
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button

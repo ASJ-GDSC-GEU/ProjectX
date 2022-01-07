@@ -1,6 +1,6 @@
 package com.example.projectx.daos
 
-import android.util.Log
+import com.example.projectx.models.Student
 import com.example.projectx.models.Teacher
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
@@ -18,23 +18,5 @@ class TeacherDao {
             }
         }
     }
-
-    fun isTeacherRegistered(uid : String) : Boolean {
-        var exist : Boolean = false
-        val docIdRef = studentCollection.document(uid)
-        docIdRef.get().addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                val document = task.result
-                exist = document.exists()
-            } else {
-                exist = false
-            }
-        }
-        Log.e("exist value in student", exist.toString())
-        return exist
-
-    }
-
-
 
 }

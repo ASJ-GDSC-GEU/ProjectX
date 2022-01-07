@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="10dp"
+    android:id="@+id/class_block"
     android:layout_width="match_parent"
     android:layout_marginTop="20dp"
     android:background="@drawable/white_roundfilled"
@@ -26,6 +28,8 @@
         android:layout_margin="5dp"
         android:fontFamily="@font/roboto_medium"
         android:text="subject"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:textColor="@color/darkMainColor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,4 +107,13 @@
                 android:text="+43" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/item_menuicon" />
 </androidx.constraintlayout.widget.ConstraintLayout>

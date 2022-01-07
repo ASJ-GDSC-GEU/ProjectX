@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.projectx.R
@@ -15,6 +16,7 @@ import com.example.projectx.models.Student
 import com.example.projectx.models.Teacher
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 
@@ -24,9 +26,6 @@ class DetailsFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var userName: String
-    private lateinit var course: String
-    private lateinit var semester: String
-    private lateinit var section: String
 
     private var selectedUser: Int = 0 // 0 for Student --- 1 for Teacher
 
@@ -49,10 +48,6 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
-        val studentDao = StudentDao()
-        val teacherDao = TeacherDao()
-
-
 
 
         binding.apply {
@@ -60,6 +55,7 @@ class DetailsFragment : Fragment() {
             val userId : String = Firebase.auth.currentUser!!.uid
 
             //User with these Id's are only allowed for teachersFragment
+            val teacherIds = listOf<String>("rtpN6EtI5cSVJFl7L1Agakwt3LR2", "qxCjRDWLeUPd5EpztIq5pM43LlD2")
 
             //Teachers or Student Selection
             studentOrTeacher.setOnCheckedChangeListener { group, checkedId ->
@@ -67,13 +63,11 @@ class DetailsFragment : Fragment() {
                     binding.teacher.setTextColor(Color.WHITE)
                     binding.student.setTextColor(Color.GRAY)
                     selectedUser = 1
-                    constraintLayout2.visibility = View.INVISIBLE
 
                 } else if (checkedId == R.id.student) {
                     binding.teacher.setTextColor(Color.GRAY)
                     binding.student.setTextColor(Color.WHITE)
                     selectedUser = 0
-                    constraintLayout2.visibility = View.VISIBLE
                 }
             }
 
@@ -81,44 +75,33 @@ class DetailsFragment : Fragment() {
             signUpBtn.setOnClickListener {
                 if (nameInput.text.isNullOrBlank()) {
                     nameInput.error = "Required"
-                }else {
-
-
+                } else {
+                    userName = nameInput.text.toString()
                     if (selectedUser == 0) {
-                        if(etCourse.text.isNullOrBlank()){
-                            etCourse.error = "Required"
-                        }else if(etSemester.text.isNullOrBlank()){
-                            etSemester.error = "Required"
-                        }else if(etSection.text.isNullOrBlank()){
-                            etSection.error = "Required"
-                        }else {
-                            userName = nameInput.text.toString()
-                            course = etCourse.text.toString()
-                            semester = etSemester.text.toString()
-                            section = etSection.text.toString()
-                            val student =
-                                Student(
-                                    currentUser!!.uid,
-                                    userName,
-                                    currentUser.photoUrl.toString(),
-                                    course,
-                                    semester,
-                                    section
-                                )
-                            studentDao.addStudent(student)
-                            goToStudentHomeScreen()
-                        }
-                    } else if (selectedUser == 1) {
+                        val student =
+                            Student(
+                                currentUser!!.uid,
+                                userName,
+                                currentUser.photoUrl.toString()
+                            )
+                        val studentDao = StudentDao()
+                        studentDao.addStudent(student)
+                        goToStudentHomeScreen()
+
+                    } else if (selectedUser == 1 && teacherIds.contains(userId)) {
                         val teacher =
                             Teacher(
                                 currentUser!!.uid,
                                 userName,
                                 currentUser.photoUrl.toString()
                             )
+                        val teacherDao = TeacherDao()
                         teacherDao.addTeacher(teacher)
                         goToTeacherHomeScreen()
                     }
-
+                    else{
+                        Toast.makeText(view.context, "You are not verified for Teacher", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
@@ -132,8 +115,6 @@ class DetailsFragment : Fragment() {
     }
 
     private fun goToStudentHomeScreen() {
-        val action = DetailsFragmentDirections.actionDetailsFragmentToStudentFragment()
-        requireView().findNavController().navigate(action)
     }
 
     private fun goToTeacherHomeScreen() {
