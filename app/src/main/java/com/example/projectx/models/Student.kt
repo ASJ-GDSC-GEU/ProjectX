@@ -7,6 +7,4 @@ data class Student (val uid : String,
                     val course : String,
                     val semester : String,
                     val section : String
-                    ){
-
-}
+                    )

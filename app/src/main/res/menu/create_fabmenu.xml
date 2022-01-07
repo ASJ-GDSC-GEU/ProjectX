@@ -15,5 +15,9 @@
         android:title="Your Notes"
         app:showAsAction="never" />
 
-
+    <item
+        android:id = "@+id/give_assignment"
+        android:title="Assignments"
+        app:showAsAction="never"
+        />
 </menu>

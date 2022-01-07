@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.projectx.R
+import com.example.projectx.daos.StudentDao
+import com.example.projectx.daos.TeacherDao
 import com.example.projectx.databinding.FragmentGetStartedBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -22,11 +24,14 @@ import com.google.firebase.ktx.Firebase
 
 
 class GetStartedFragment : Fragment() {
-    private var _binding : FragmentGetStartedBinding? = null
+    private var _binding: FragmentGetStartedBinding? = null
     private val binding get() = _binding!!
     private val RC_SIGN_IN: Int = 123
     private val TAG: String = "Message"
-    private lateinit var googleSignInClient : GoogleSignInClient
+    private lateinit var googleSignInClient: GoogleSignInClient
+
+    private lateinit var studentDao: StudentDao
+    private lateinit var teacherDao: TeacherDao
 
     private lateinit var auth: FirebaseAuth
 
@@ -50,6 +55,9 @@ class GetStartedFragment : Fragment() {
         googleSignInClient = GoogleSignIn.getClient(this.requireContext(), gso)
 
         auth = Firebase.auth
+        studentDao = StudentDao()
+        teacherDao = TeacherDao()
+
 
         binding.button2.setOnClickListener {
             signIn()
@@ -58,8 +66,8 @@ class GetStartedFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        if(auth.currentUser != null)
-                updateUI(auth.currentUser)
+        if (auth.currentUser != null)
+            updateUI(auth.currentUser)
     }
 
 
@@ -106,16 +114,35 @@ class GetStartedFragment : Fragment() {
     private fun updateUI(firebaseUser: FirebaseUser?) {
 
         if (firebaseUser != null) {
+            binding.signupConstraint.visibility = View.INVISIBLE
+            binding.loaderConstraint.visibility = View.VISIBLE
 
-                val action =
-                    GetStartedFragmentDirections.actionGetStartedFragmentToDetailsFragment()
-                requireView().findNavController().navigate(action)
+            val snapshot = studentDao.getStudentById(auth.currentUser!!.uid).addOnCompleteListener {
+                val temp = it.result.exists()
+                if (!temp) {
+                    val snapshot2 =
+                        teacherDao.getTeacherById(auth.currentUser!!.uid).addOnCompleteListener {
+                            var teacherResult = it.result.exists()
+                            if (!teacherResult) {
+                                val action =
+                                    GetStartedFragmentDirections.actionGetStartedFragmentToDetailsFragment()
+                                requireView().findNavController().navigate(action)
+                            } else {
+                                val action =
+                                    GetStartedFragmentDirections.actionGetStartedFragmentToTeachersFragment()
+                                requireView().findNavController().navigate(action)
+                            }
+                        }
 
-        } else {
 
+                }else{
+                    val action =
+                        GetStartedFragmentDirections.actionGetStartedFragmentToStudentFragment()
+                    requireView().findNavController().navigate(action)
+                }
+            }
         }
     }
-
 }
 
 

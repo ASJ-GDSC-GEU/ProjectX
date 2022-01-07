@@ -109,6 +109,7 @@ class DetailsFragment : Fragment() {
                             goToStudentHomeScreen()
                         }
                     } else if (selectedUser == 1) {
+                        userName = nameInput.text.toString()
                         val teacher =
                             Teacher(
                                 currentUser!!.uid,
