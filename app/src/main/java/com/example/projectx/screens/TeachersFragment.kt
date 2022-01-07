@@ -1,14 +1,12 @@
 package com.example.projectx.screens
 
 import android.os.Bundle
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -21,6 +19,7 @@ import com.example.projectx.models.MyClass
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -45,7 +44,10 @@ class TeachersFragment : Fragment() {
     ): View? {
         _binding = FragmentTeachersBinding.inflate(inflater, container, false)
         val view = binding.root
-
+        val toolbar: androidx.appcompat.widget.Toolbar = binding.toolbar
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        toolbar.title = "Teacher Area..."
+        setHasOptionsMenu(true)
         binding.createMeet.setOnClickListener {
             val action = TeachersFragmentDirections.actionTeachersFragmentToMeetingHome()
             requireView().findNavController().navigate(action)
@@ -162,6 +164,36 @@ class TeachersFragment : Fragment() {
         super.onStop()
         adapter.stopListening()
     }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.change_role_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.menuDeleteNote){
+
+        }
+        when(item.itemId){
+            R.id.change_role -> {
+                val action = TeachersFragmentDirections.actionTeachersFragmentToDetailsFragment()
+                requireView().findNavController().navigate(action)
+            }
+
+            R.id.sign_out -> {
+                FirebaseAuth.getInstance().signOut()
+                val action = TeachersFragmentDirections.actionTeachersFragmentToGetStartedFragment()
+                requireView().findNavController().navigate(action)
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
+
+
+    }
+
+
 
 
 }

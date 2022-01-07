@@ -1,12 +1,13 @@
 package com.example.projectx.screens
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.example.projectx.R
 import com.example.projectx.databinding.FragmentStudentBinding
+import com.google.firebase.auth.FirebaseAuth
 
 
 class StudentFragment : Fragment() {
@@ -28,6 +29,11 @@ class StudentFragment : Fragment() {
         _binding = FragmentStudentBinding.inflate(inflater, container, false)
         val view = binding!!.root
 
+        val toolbar: androidx.appcompat.widget.Toolbar = binding.toolbar
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        toolbar.title = "Student Area..."
+        setHasOptionsMenu(true)
+
         binding.notesButton.setOnClickListener {
             val action = StudentFragmentDirections.actionStudentFragmentToHomeNotesFragment()
             requireView().findNavController().navigate(action)
@@ -44,6 +50,33 @@ class StudentFragment : Fragment() {
         }
 
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.change_role_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.menuDeleteNote){
+
+        }
+        when(item.itemId){
+            R.id.change_role -> {
+                val action = StudentFragmentDirections.actionStudentFragmentToDetailsFragment()
+                requireView().findNavController().navigate(action)
+            }
+
+            R.id.sign_out -> {
+                FirebaseAuth.getInstance().signOut()
+                val action = StudentFragmentDirections.actionStudentFragmentToGetStartedFragment()
+                requireView().findNavController().navigate(action)
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
+
+
     }
 
 

@@ -58,7 +58,7 @@
         <entry key="app/src/main/res/layout/fragment_create_note.xml" value="0.1461038961038961" />
         <entry key="app/src/main/res/layout/fragment_create_notes.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_edit_notes.xml" value="0.14106583072100312" />
+        <entry key="app/src/main/res/layout/fragment_edit_notes.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_get_started.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home_notes.xml" value="0.29583333333333334" />
@@ -71,6 +71,7 @@
         <entry key="app/src/main/res/layout/fragment_teachers.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_notes.xml" value="0.22777777777777777" />
         <entry key="app/src/main/res/layout/myclass_item.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/change_role_menu.xml" value="0.25" />
         <entry key="app/src/main/res/menu/create_fabmenu.xml" value="0.25" />
         <entry key="app/src/main/res/menu/delete_menu.xml" value="0.21296296296296297" />
       </map>
