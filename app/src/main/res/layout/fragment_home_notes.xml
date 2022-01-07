@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:text="Medium"
                 android:layout_margin="5dp"
-                android:textColor="@color/yellow"
+                android:textColor="#FFC800"
                 android:textSize="18sp"
                 android:background="@drawable/priority_bg"
                 android:paddingStart="20dp"

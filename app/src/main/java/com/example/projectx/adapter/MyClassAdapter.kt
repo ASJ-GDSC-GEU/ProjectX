@@ -10,7 +10,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectx.R
 import com.example.projectx.models.MyClass
-import com.example.projectx.screens.TeachersFragmentDirections
+import com.example.projectx.screens.Teachers.TeachersFragmentDirections
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 

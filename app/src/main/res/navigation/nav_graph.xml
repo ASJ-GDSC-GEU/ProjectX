@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/teachersFragment"
-        android:name="com.example.projectx.screens.TeachersFragment"
+        android:name="com.example.projectx.screens.Teachers.TeachersFragment"
         android:label="fragment_teachers"
         tools:layout="@layout/fragment_teachers" >
         <action
@@ -103,7 +103,7 @@
         tools:layout="@layout/activity_meeting_home" />
     <fragment
         android:id="@+id/studentFragment"
-        android:name="com.example.projectx.screens.StudentFragment"
+        android:name="com.example.projectx.screens.Student.StudentFragment"
         android:label="fragment_student"
         tools:layout="@layout/fragment_student" >
         <action
@@ -116,10 +116,13 @@
             android:id="@+id/action_studentFragment_to_studentAssignment"
             app:destination="@id/studentAssignment"
             app:enterAnim="@animator/nav_default_enter_anim" />
+        <action
+            android:id="@+id/action_studentFragment_to_joinClassFragment"
+            app:destination="@id/joinClassFragment" />
     </fragment>
     <fragment
         android:id="@+id/studentAssignment"
-        android:name="com.example.projectx.screens.StudentAssignment"
+        android:name="com.example.projectx.screens.Student.StudentAssignment"
         android:label="fragment_student_assignment"
         tools:layout="@layout/fragment_student_assignment" >
         <action
@@ -128,7 +131,7 @@
     </fragment>
     <fragment
         android:id="@+id/teacherAssignmentFragment"
-        android:name="com.example.projectx.screens.TeacherAssignmentFragment"
+        android:name="com.example.projectx.screens.Teachers.TeacherAssignmentFragment"
         android:label="fragment_teacher_assignment"
         tools:layout="@layout/fragment_teacher_assignment" >
         <action
@@ -154,7 +157,12 @@
     </fragment>
     <fragment
         android:id="@+id/classGroupFragment"
-        android:name="com.example.projectx.screens.ClassGroupFragment"
+        android:name="com.example.projectx.screens.Teachers.ClassGroupFragment"
         android:label="fragment_class_group"
         tools:layout="@layout/fragment_class_group" />
+    <fragment
+        android:id="@+id/joinClassFragment"
+        android:name="com.example.projectx.screens.Student.JoinClassFragment"
+        android:label="fragment_join_class"
+        tools:layout="@layout/fragment_join_class" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.projectx.screens
+package com.example.projectx.screens.Student
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.example.projectx.screens
+package com.example.projectx.screens.Teachers
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -45,7 +45,7 @@ class ClassGroupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val class_id: String = getArguments()?.getString("test").toString()
+        val class_id: String = arguments?.getString("test").toString()
         val db = FirebaseFirestore.getInstance()
         addOptions()
         GlobalScope.launch(Dispatchers.IO) {
