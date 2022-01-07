@@ -38,9 +38,6 @@ class MyClassDao {
     fun getClassCollection(): CollectionReference {
         return myClassCollection
     }
-    fun dbRef(): FirebaseFirestore {
-        return db
-    }
 
 
 }

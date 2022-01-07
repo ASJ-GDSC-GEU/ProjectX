@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projectx.R
 import com.example.projectx.adapter.MyClassAdapter
 import com.example.projectx.daos.MyClassDao
-import com.example.projectx.daos.TopDao
 import com.example.projectx.databinding.FragmentTeachersBinding
 import com.example.projectx.models.MyClass
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -75,7 +74,7 @@ class TeachersFragment : Fragment() {
 
     private fun setUpRecyclerView() {
         var collection = MyClassDao().getClassCollection()
-        var query = collection.whereEqualTo("creator_id", TopDao().userId()).orderBy("semester", Query.Direction.ASCENDING)
+        var query = collection.orderBy("semester", Query.Direction.ASCENDING)
         val recyclerOptions = FirestoreRecyclerOptions.Builder<MyClass>().setQuery(query, MyClass::class.java).build()
         adapter = MyClassAdapter(recyclerOptions)
         binding.recyclerview.adapter = adapter
