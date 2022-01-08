@@ -1,5 +1,6 @@
 package com.example.projectx.screens.Teachers
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -48,8 +49,17 @@ class ClassGroupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val class_id: String = arguments?.getString("test").toString()
+        val user_type: Int = arguments?.getInt("user_type")!!.toInt()
+        when(user_type){
+            0 -> {
+                binding.classOptions.visibility = View.GONE
+            }
+            1 -> {
+                binding.classOptions.visibility = View.VISIBLE
+                addOptions()
+            }
+        }
         val db = FirebaseFirestore.getInstance()
-        addOptions()
 
         GlobalScope.launch(Dispatchers.IO) {
             var data_main = TopDao().dbRef().collection("classes")

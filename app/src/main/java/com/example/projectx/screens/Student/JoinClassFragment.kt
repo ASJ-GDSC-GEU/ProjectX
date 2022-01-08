@@ -32,11 +32,11 @@ class JoinClassFragment : Fragment() {
         _binding = FragmentJoinClassBinding.inflate(inflater, container, false)
         val view = binding!!.root
         binding.apply {
-            classId.setText("32kY41V5dc1cvlCVDaRi")
             join.setOnClickListener {
                 JoinClassDao().joinClass(classId.text.toString())
+                navigateToStudentfragment()
             }
-            navigateToStudentfragment()
+
         }
         return view
     }

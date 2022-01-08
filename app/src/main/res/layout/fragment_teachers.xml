@@ -18,7 +18,7 @@
         tools:context=".screens.TeachersActivity">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/join_meet_stu"
+            android:id="@+id/join_meet_stu2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -105,8 +105,8 @@
             android:text="Your classes"
             android:textColor="@color/darkMainColor"
             android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="@+id/join_meet_stu"
-            app:layout_constraintTop_toBottomOf="@+id/join_meet_stu" />
+            app:layout_constraintStart_toStartOf="@+id/join_meet_stu2"
+            app:layout_constraintTop_toBottomOf="@+id/join_meet_stu2" />
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -114,9 +114,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:nestedScrollingEnabled="false"
-            app:layout_constraintEnd_toEndOf="@+id/join_meet_stu"
+            app:layout_constraintEnd_toEndOf="@+id/join_meet_stu2"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/join_meet_stu"
+            app:layout_constraintStart_toStartOf="@+id/join_meet_stu2"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <LinearLayout
@@ -130,7 +130,7 @@
             android:layout_marginBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/join_meet_stu">
+            app:layout_constraintTop_toBottomOf="@+id/join_meet_stu2">
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -139,7 +139,7 @@
                 android:src="@drawable/create_illustration"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/join_meet_stu" />
+                app:layout_constraintTop_toBottomOf="@+id/join_meet_stu2" />
 
             <TextView
                 android:id="@+id/cancel_button"

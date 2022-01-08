@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -50,8 +51,7 @@ class StudentFragment : Fragment() {
                 .into(userLogo)
             setUpRecyclerView()
             joinMeetStu.setOnClickListener {
-                val action = StudentFragmentDirections.actionStudentFragmentToMeetingHome()
-                requireView().findNavController().navigate(action)
+                navigateToMeetingHome()
             }
             studentFloat.setOnClickListener {
                 popUpMenu(view)
@@ -63,6 +63,7 @@ class StudentFragment : Fragment() {
 
         return view
     }
+
 
     private fun popUpMenuSetting(view: View) {
         val popupMenu: PopupMenu =
@@ -142,6 +143,13 @@ class StudentFragment : Fragment() {
         val action = StudentFragmentDirections.actionStudentFragmentToStudentAssignment()
         requireView().findNavController().navigate(action)
     }
+
+    private fun navigateToMeetingHome() {
+        val action = StudentFragmentDirections.actionStudentFragmentToMeetingHome()
+        requireView().findNavController().navigate(action)
+    }
+
+
 
 
 }

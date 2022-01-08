@@ -38,6 +38,7 @@ class MyClassAdapter(options: FirestoreRecyclerOptions<MyClass>, private val use
             var snapshot: String = snapshots.getSnapshot(position).id
             val bundle: Bundle = Bundle()
             bundle.putString("test", snapshot)
+            bundle.putInt("user_type", user_type)
             when (user_type) {
                 0 -> {
                     it.findNavController()
