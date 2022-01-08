@@ -37,7 +37,21 @@ class StudentFragment : Fragment() {
         binding.apply {
             activity?.setActionBar(toolbar2)
             activity?.actionBar?.setDisplayShowTitleEnabled(false)
-            joinMeet.setOnClickListener {
+            val userImage = TopDao().currentUser().photoUrl
+            Glide.with(view.context).load(userImage).circleCrop().error(R.drawable.user_error).into(userLogo)
+
+            recyclerview
+
+
+
+
+
+
+
+
+
+
+            joinMeetStu.setOnClickListener {
                 val action = StudentFragmentDirections.actionStudentFragmentToMeetingHome()
                 requireView().findNavController().navigate(action)
             }
@@ -45,8 +59,7 @@ class StudentFragment : Fragment() {
                 popUpMenu(view)
             }
 
-            val userImage = TopDao().currentUser().photoUrl
-            Glide.with(view.context).load(userImage).circleCrop().error(R.drawable.user_error).into(userLogo)
+
         }
 
         return view

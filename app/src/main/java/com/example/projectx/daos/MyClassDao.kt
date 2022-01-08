@@ -28,8 +28,7 @@ class MyClassDao {
                     teacherRef.update("myClass", FieldValue.arrayUnion(myClassCol.id))
                 }
                     .addOnFailureListener {
-                        Log.i(TAG, "MyClass.getView() — get item number")
-
+                        Log.i(TAG, "Failed Setting MyClass data in Firebase")
                     }
             }
         }

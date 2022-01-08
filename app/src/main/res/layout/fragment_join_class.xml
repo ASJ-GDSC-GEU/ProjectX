@@ -1,27 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".screens.Student.JoinClassFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="Course"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
 
-        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-            android:id="@+id/course_drop"
-            style="@style/FirebaseUI.TextInputEditText"
-            android:inputType="none" />
+       <com.google.android.material.textfield.TextInputEditText
+           android:id="@+id/class_id"
+           android:layout_width="0dp"
+           android:layout_height="48dp"
+           android:background="@drawable/border_input_bg"
+           android:cursorVisible="true"
+           android:ems="10"
+           android:fontFamily="@font/roboto_light"
+           android:hint="Class Id"
+           android:inputType="text"
+           android:layout_margin="20dp"
+           android:paddingStart="16dp"
+           android:textColor="@color/darkMainColor"
+           android:textSize="18sp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
 
-    </com.google.android.material.textfield.TextInputLayout>
 
+       <Button
+           android:id="@+id/join"
+           style="@style/CustomButton"
+           android:layout_width="0dp"
+           android:layout_marginTop="20dp"
+           android:layout_height="48dp"
+           android:background="@drawable/filled_round_btn"
+           android:elevation="0dp"
+           android:fontFamily="@font/roboto_medium"
+           android:paddingStart="20dp"
+           android:paddingEnd="20dp"
+           android:text="Join Class"
+           android:textAllCaps="false"
+           android:textColor="@color/white"
+           app:layout_constraintEnd_toEndOf="@+id/class_id"
+           app:layout_constraintStart_toStartOf="@+id/class_id"
+           app:layout_constraintTop_toBottomOf="@+id/class_id" />
+
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
