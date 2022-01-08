@@ -1,14 +1,12 @@
-package com.example.projectx.screens.Teachers
+package com.example.projectx.screens
 
 import android.os.Bundle
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -60,9 +58,12 @@ class TeachersFragment : Fragment() {
 
         binding.apply {
             setUpRecyclerView()
+
+
         }
 
         binding.create.setOnClickListener {
+            //popupMenu
             popUpMenu(view)
         }
 
@@ -160,6 +161,36 @@ class TeachersFragment : Fragment() {
         super.onStop()
         adapter.stopListening()
     }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.change_role_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.menuDeleteNote){
+
+        }
+        when(item.itemId){
+            R.id.change_role -> {
+                val action = TeachersFragmentDirections.actionTeachersFragmentToDetailsFragment()
+                requireView().findNavController().navigate(action)
+            }
+
+            R.id.sign_out -> {
+                FirebaseAuth.getInstance().signOut()
+                val action = TeachersFragmentDirections.actionTeachersFragmentToGetStartedFragment()
+                requireView().findNavController().navigate(action)
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
+
+
+    }
+
+
 
 
 }
