@@ -7,10 +7,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".screens.Teachers.TeachersFragment">
 
-
-
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -20,22 +16,6 @@
         android:layout_height="match_parent"
         android:paddingBottom="20dp"
         tools:context=".screens.TeachersActivity">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/fui_transparent"
-            android:backgroundTint="@color/fui_transparent"
-            android:minHeight="?attr/actionBarSize"
-            android:outlineSpotShadowColor="#9F9F9F"
-            android:paddingTop="20dp"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </androidx.appcompat.widget.Toolbar>
-
 
         <androidx.cardview.widget.CardView
             android:id="@+id/join_meet_stu2"
@@ -47,8 +27,7 @@
             app:cardElevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
-            >
+            app:layout_constraintTop_toTopOf="@+id/guideline7">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
