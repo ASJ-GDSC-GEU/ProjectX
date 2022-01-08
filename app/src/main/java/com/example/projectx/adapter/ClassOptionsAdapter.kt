@@ -33,7 +33,6 @@ class ClassOptionsAdapter(private val optionsList : List<ClassOptions>) : Recycl
                 holder.classOptionItem.setBackgroundResource(R.drawable.round_filledblue)
                 holder.label.setTextColor(Color.parseColor("#B2C2FF"))
                 holder.classOptionItem.cardElevation = 12F
-
             }
         }
 

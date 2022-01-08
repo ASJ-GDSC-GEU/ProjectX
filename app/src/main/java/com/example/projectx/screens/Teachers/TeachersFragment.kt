@@ -124,6 +124,7 @@ class TeachersFragment : Fragment() {
         adapter = MyClassAdapter(recyclerOptions, USER_TYPE)
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(view?.context)
+        adapter.startListening()
     }
 
     private fun popUpMenu(view: View) {
