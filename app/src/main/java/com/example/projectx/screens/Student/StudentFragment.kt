@@ -6,19 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.projectx.R
+import com.example.projectx.adapter.MyClassAdapter
+import com.example.projectx.daos.MyClassDao
 import com.example.projectx.daos.TopDao
 import com.example.projectx.databinding.FragmentStudentBinding
+import com.example.projectx.models.MyClass
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.Query
 
 
 class StudentFragment : Fragment() {
 
     private var _binding: FragmentStudentBinding? = null
     private val binding get() = _binding!!
+    private lateinit var adapter: MyClassAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +36,6 @@ class StudentFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-
         _binding = FragmentStudentBinding.inflate(inflater, container, false)
         val view = binding!!.root
 
@@ -38,19 +43,9 @@ class StudentFragment : Fragment() {
             activity?.setActionBar(toolbar2)
             activity?.actionBar?.setDisplayShowTitleEnabled(false)
             val userImage = TopDao().currentUser().photoUrl
-            Glide.with(view.context).load(userImage).circleCrop().error(R.drawable.user_error).into(userLogo)
-
-            recyclerview
-
-
-
-
-
-
-
-
-
-
+            Glide.with(view.context).load(userImage).circleCrop().error(R.drawable.user_error)
+                .into(userLogo)
+            setUpRecyclerView()
             joinMeetStu.setOnClickListener {
                 val action = StudentFragmentDirections.actionStudentFragmentToMeetingHome()
                 requireView().findNavController().navigate(action)
@@ -58,12 +53,27 @@ class StudentFragment : Fragment() {
             studentFloat.setOnClickListener {
                 popUpMenu(view)
             }
-
-
         }
 
         return view
     }
+
+
+
+    private fun setUpRecyclerView() {
+        var collection = MyClassDao().getClassCollection()
+        var user_id = TopDao().userId()
+        var query = collection.whereArrayContains("students_id", user_id)
+            .orderBy("semester", Query.Direction.ASCENDING)
+        val recyclerOptions =
+            FirestoreRecyclerOptions.Builder<MyClass>().setQuery(query, MyClass::class.java).build()
+        adapter = MyClassAdapter(recyclerOptions)
+        binding.recyclerviewStu.adapter = adapter
+        binding.recyclerviewStu.layoutManager = LinearLayoutManager(view?.context)
+        adapter.startListening()
+    }
+
+
 
     private fun popUpMenu(view: View) {
         val popupMenu: PopupMenu =
