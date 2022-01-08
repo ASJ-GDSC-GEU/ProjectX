@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.projectx.R
 import com.example.projectx.daos.JoinClassDao
 import com.example.projectx.databinding.FragmentJoinClassBinding
@@ -35,8 +36,14 @@ class JoinClassFragment : Fragment() {
             join.setOnClickListener {
                 JoinClassDao().joinClass(classId.text.toString())
             }
+            navigateToStudentfragment()
         }
         return view
+    }
+
+    private fun navigateToStudentfragment() {
+        val action = JoinClassFragmentDirections.actionJoinClassFragmentToStudentFragment()
+        requireView().findNavController().navigate(action)
     }
 
 

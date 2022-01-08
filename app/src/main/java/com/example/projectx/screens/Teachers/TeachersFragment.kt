@@ -22,17 +22,16 @@ import com.example.projectx.models.MyClass
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.google.firebase.ktx.Firebase
 
 class TeachersFragment : Fragment() {
     private var _binding: FragmentTeachersBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: MyClassAdapter
     private lateinit var classes: List<MyClass>
-    private lateinit var myClassDao : MyClassDao
+    private val USER_TYPE: Int = 1 //1 for Teacher
+    private lateinit var myClassDao: MyClassDao
     val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +63,6 @@ class TeachersFragment : Fragment() {
         }
 
         binding.create.setOnClickListener {
-            //popupMenu
             popUpMenu(view)
         }
 
@@ -74,7 +72,7 @@ class TeachersFragment : Fragment() {
         var collection = MyClassDao().getClassCollection()
         var query = collection.whereEqualTo("creator_id", TopDao().userId()).orderBy("semester", Query.Direction.ASCENDING)
         val recyclerOptions = FirestoreRecyclerOptions.Builder<MyClass>().setQuery(query, MyClass::class.java).build()
-        adapter = MyClassAdapter(recyclerOptions)
+        adapter = MyClassAdapter(recyclerOptions, USER_TYPE)
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(view?.context)
     }
@@ -130,11 +128,12 @@ class TeachersFragment : Fragment() {
         dialog.setContentView(view)
         create_button.setOnClickListener {
             val myClass = MyClass(
-                courceView.text.toString(),
-                subjectView.text.toString(),
-                semView.text.toString(),
-                secView.text.toString(),
-                Firebase.auth.currentUser!!.uid
+                course = courceView.text.toString(),
+                subject = subjectView.text.toString(),
+                semester = semView.text.toString(),
+                section = secView.text.toString(),
+                creator_id = TopDao().userId(),
+                students_id = listOf()
             )
             val myClassDao = MyClassDao()
             myClassDao.addClass(myClass)

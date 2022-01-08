@@ -1,5 +1,6 @@
 package com.example.projectx.screens
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.projectx.R
 import com.example.projectx.daos.StudentDao
 import com.example.projectx.daos.TeacherDao
@@ -112,26 +114,27 @@ class GetStartedFragment : Fragment() {
 
 
     private fun updateUI(firebaseUser: FirebaseUser?) {
-
         if (firebaseUser != null) {
             binding.signupConstraint.visibility = View.INVISIBLE
             binding.loaderConstraint.visibility = View.VISIBLE
 
-            val snapshot = studentDao.getStudentById(auth.currentUser!!.uid).addOnCompleteListener {
-                val temp = it.result.exists()
-                if (!temp) {
-                    val snapshot2 =
-                        teacherDao.getTeacherById(auth.currentUser!!.uid).addOnCompleteListener {
-                            var teacherResult = it.result.exists()
-                            if (!teacherResult) {
-                                val action =
-                                    GetStartedFragmentDirections.actionGetStartedFragmentToDetailsFragment()
-                                requireView().findNavController().navigate(action)
-                            } else {
-                                val action =
-                                    GetStartedFragmentDirections.actionGetStartedFragmentToTeachersFragment()
-                                requireView().findNavController().navigate(action)
-                            }
+            val snapshot = studentDao.getStudentById(auth.currentUser!!.uid)
+                .addOnCompleteListener {
+                    val temp = it.result.exists()
+                    if (!temp) {
+                        val snapshot2 =
+                            teacherDao.getTeacherById(auth.currentUser!!.uid)
+                                .addOnCompleteListener {
+                                    var teacherResult = it.result.exists()
+                                    if (!teacherResult) {
+                                        val action =
+                                            GetStartedFragmentDirections.actionGetStartedFragmentToDetailsFragment()
+                                        requireView().findNavController().navigate(action)
+                                    } else {
+                                        val action =
+                                            GetStartedFragmentDirections.actionGetStartedFragmentToTeachersFragment()
+                                        requireView().findNavController().navigate(action)
+                                    }
                         }
 
 

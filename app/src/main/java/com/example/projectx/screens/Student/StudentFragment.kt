@@ -17,7 +17,9 @@ import com.example.projectx.daos.TopDao
 import com.example.projectx.databinding.FragmentStudentBinding
 import com.example.projectx.models.MyClass
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.Query
+import com.google.firebase.ktx.Firebase
 
 
 class StudentFragment : Fragment() {
@@ -25,6 +27,7 @@ class StudentFragment : Fragment() {
     private var _binding: FragmentStudentBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: MyClassAdapter
+    private val USER_TYPE: Int = 0 // 0 for student and 1 for Teacher
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,10 +56,37 @@ class StudentFragment : Fragment() {
             studentFloat.setOnClickListener {
                 popUpMenu(view)
             }
+            userLogo.setOnClickListener {
+                popUpMenuSetting(view)
+            }
         }
 
         return view
     }
+
+    private fun popUpMenuSetting(view: View) {
+        val popupMenu: PopupMenu =
+            PopupMenu(context, binding.userLogo, Gravity.END, 0, R.style.MyPopupMenu)
+        popupMenu.menuInflater.inflate(R.menu.mini_setting_menu, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.logout ->
+                    logoutUser()
+                R.id.assignment_menu ->
+                    navigateToStuAssignment()
+                R.id.notes_menu ->
+                    navigateToStuNotes()
+            }
+            true
+        })
+        popupMenu.show()
+    }
+
+    private fun logoutUser() {
+        Firebase.auth.signOut()
+            navigateToGetStarted()
+    }
+
 
 
 
@@ -67,7 +97,7 @@ class StudentFragment : Fragment() {
             .orderBy("semester", Query.Direction.ASCENDING)
         val recyclerOptions =
             FirestoreRecyclerOptions.Builder<MyClass>().setQuery(query, MyClass::class.java).build()
-        adapter = MyClassAdapter(recyclerOptions)
+        adapter = MyClassAdapter(recyclerOptions, USER_TYPE)
         binding.recyclerviewStu.adapter = adapter
         binding.recyclerviewStu.layoutManager = LinearLayoutManager(view?.context)
         adapter.startListening()
@@ -91,6 +121,11 @@ class StudentFragment : Fragment() {
             true
         })
         popupMenu.show()
+    }
+
+    private fun navigateToGetStarted() {
+        val action = StudentFragmentDirections.actionStudentFragmentToGetStartedFragment()
+        requireView().findNavController().navigate(action)
     }
 
     private fun navigateToJoinClass() {

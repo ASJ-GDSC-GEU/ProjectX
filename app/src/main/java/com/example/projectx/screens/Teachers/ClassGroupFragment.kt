@@ -8,24 +8,26 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projectx.R
 import com.example.projectx.adapter.ClassOptionsAdapter
+import com.example.projectx.adapter.StudentItemAdapter
 import com.example.projectx.daos.TopDao
 import com.example.projectx.databinding.FragmentClassGroupBinding
 import com.example.projectx.models.ClassOptions
 import com.example.projectx.models.MyClass
+import com.example.projectx.models.StudentItem
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
 
 
 class ClassGroupFragment : Fragment() {
     private var _binding: FragmentClassGroupBinding? = null
     private val binding get() = _binding!!
     private var class_obj: MyClass? = null
-    private lateinit var result: MyClass
+    lateinit var result: MyClass
+    private lateinit var adapter: StudentItemAdapter
+    private var studentArray = ArrayList<StudentItem>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,22 +50,53 @@ class ClassGroupFragment : Fragment() {
         val class_id: String = arguments?.getString("test").toString()
         val db = FirebaseFirestore.getInstance()
         addOptions()
+
         GlobalScope.launch(Dispatchers.IO) {
-            var data = TopDao().dbRef().collection("classes").document(class_id).get().await()
-                .toObject<MyClass>()!!
-            withContext(Dispatchers.Main) {
-                binding.courseName.text = data.subject
-                binding.courseSem.text = "${data!!.course} Sem-${data.semester}"
-            }
+            var data_main = TopDao().dbRef().collection("classes")
+                .document(class_id)
+                .get()
+                .addOnSuccessListener { documents ->
+                    var data = documents.toObject<MyClass>()!!
+                    var array: List<String> = data.students_id
+                    binding.studentCount.text = array.size.toString() + " Students"
+                    binding.courseName.text = data.subject
+                    binding.courseSem.text = "${data!!.course} Sem-${data.semester}"
+                    //Toast.makeText(view.context, "$array", Toast.LENGTH_SHORT).show()
+                    setRecyclerView(array)
+                }
+
         }
 
+    }
+
+    private fun setRecyclerView(array: List<String>) {
+        TopDao().dbRef().collection("student")
+            .whereIn("uid", array)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    var studentItem = StudentItem(
+                        name = document.get("name").toString(),
+                        description = document.get("course").toString(),
+                        imageUrl = document.get("imageUrl").toString()
+                    )
+                    studentArray.add(studentItem)
+                }
+                adapter = StudentItemAdapter(studentArray, requireView().context)
+                binding.recyclerViewStudents.adapter = adapter
+                binding.recyclerViewStudents.layoutManager = LinearLayoutManager(view?.context)
+            }
     }
 
 
     private fun addOptions() {
         binding.apply {
             classOptions.layoutManager =
-                LinearLayoutManager(requireView().context, LinearLayoutManager.HORIZONTAL, false)
+                LinearLayoutManager(
+                    requireView().context,
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+                )
             val data = ArrayList<ClassOptions>()
             data.add(
                 ClassOptions(
@@ -77,7 +110,12 @@ class ClassGroupFragment : Fragment() {
                     imageView = R.drawable.invite_student_icon
                 )
             )
-            data.add(ClassOptions(label = "Share Files", imageView = R.drawable.share_file_icon))
+            data.add(
+                ClassOptions(
+                    label = "Share Files",
+                    imageView = R.drawable.share_file_icon
+                )
+            )
             val adapter = ClassOptionsAdapter(data)
             classOptions.adapter = adapter
         }
@@ -92,15 +130,3 @@ class ClassGroupFragment : Fragment() {
 
 }
 
-
-// Previous Deleted Code
-//TopDao().dbRef().collection("classes").document(class_id).get()
-//.addOnSuccessListener { documentSnapshot ->
-//    class_obj = documentSnapshot.toObject<MyClass>()
-//    // Toast.makeText(requireView().context, "$class_id", Toast.LENGTH_SHORT).show()
-//    adddata(class_obj)
-//} fun adddata(classObj: MyClass?) {
-//        binding.courseName.text = "${classObj!!.subject} : Sec-${classObj!!.section}"
-//        binding.courseSem.text = "${classObj!!.course} Sem-${classObj.semester}"
-//
-//    }

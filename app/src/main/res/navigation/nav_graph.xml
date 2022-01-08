@@ -119,6 +119,12 @@
         <action
             android:id="@+id/action_studentFragment_to_joinClassFragment"
             app:destination="@id/joinClassFragment" />
+        <action
+            android:id="@+id/action_studentFragment_to_classGroupFragment"
+            app:destination="@id/classGroupFragment" />
+        <action
+            android:id="@+id/action_studentFragment_to_getStartedFragment"
+            app:destination="@id/getStartedFragment" />
     </fragment>
     <fragment
         android:id="@+id/studentAssignment"
@@ -164,5 +170,9 @@
         android:id="@+id/joinClassFragment"
         android:name="com.example.projectx.screens.Student.JoinClassFragment"
         android:label="fragment_join_class"
-        tools:layout="@layout/fragment_join_class" />
+        tools:layout="@layout/fragment_join_class" >
+        <action
+            android:id="@+id/action_joinClassFragment_to_studentFragment"
+            app:destination="@id/studentFragment" />
+    </fragment>
 </navigation>
