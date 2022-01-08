@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.projectx.R
 import com.example.projectx.adapter.MyClassAdapter
 import com.example.projectx.daos.MyClassDao
@@ -22,8 +23,10 @@ import com.example.projectx.models.MyClass
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.google.firebase.ktx.Firebase
 
 class TeachersFragment : Fragment() {
     private var _binding: FragmentTeachersBinding? = null
@@ -46,17 +49,21 @@ class TeachersFragment : Fragment() {
         _binding = FragmentTeachersBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        binding.apply {
+            activity?.setActionBar(toolbar2)
+            activity?.actionBar?.setDisplayShowTitleEnabled(false)
+            val userImage = TopDao().currentUser().photoUrl
+            Glide.with(view.context).load(userImage).circleCrop().error(R.drawable.user_error)
+                .into(userLogo)
+
+            userLogo.setOnClickListener {
+                popUpMenuSetting(view)
+            }
+        }
         binding.createMeet.setOnClickListener {
             val action = TeachersFragmentDirections.actionTeachersFragmentToMeetingHome()
             requireView().findNavController().navigate(action)
         }
-
-        return view
-    }
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
             setUpRecyclerView()
@@ -66,6 +73,48 @@ class TeachersFragment : Fragment() {
             popUpMenu(view)
         }
 
+        return view
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+
+    }
+
+    private fun popUpMenuSetting(view: View) {
+        val popupMenu: PopupMenu =
+            PopupMenu(context, binding.userLogo, Gravity.END, 0, R.style.MyPopupMenu)
+        popupMenu.menuInflater.inflate(R.menu.mini_setting_teacher_menu, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.logout ->
+                    logoutUser()
+                R.id.switch_to_teacher ->
+                    navigateToDetailsFragment()
+
+            }
+            true
+        })
+        popupMenu.show()
+    }
+
+    private fun logoutUser() {
+        Firebase.auth.signOut()
+        navigateToGetStarted()
+    }
+
+    private fun navigateToGetStarted() {
+        val action = TeachersFragmentDirections.actionTeachersFragmentToGetStartedFragment()
+        requireView().findNavController().navigate(action)
+    }
+
+
+    private fun navigateToDetailsFragment(){
+        val action = TeachersFragmentDirections.actionTeachersFragmentToDetailsFragment()
+        requireView().findNavController().navigate(action)
     }
 
     private fun setUpRecyclerView() {
@@ -138,6 +187,14 @@ class TeachersFragment : Fragment() {
             val myClassDao = MyClassDao()
             myClassDao.addClass(myClass)
             dialog.dismiss()
+            requireView().refreshDrawableState()
+
+            val navController = findNavController()
+            navController.run {
+                popBackStack()
+                navigate(R.id.teachersFragment)
+            }
+
         }
         cancel_button.setOnClickListener {
             dialog.dismiss()
@@ -155,6 +212,7 @@ class TeachersFragment : Fragment() {
         super.onStart()
         adapter.startListening()
     }
+
 
     override fun onStop() {
         super.onStop()

@@ -7,7 +7,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".screens.Teachers.TeachersFragment">
 
+
     <ScrollView
+        android:layout_marginTop="0dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -16,6 +18,49 @@
         android:layout_height="match_parent"
         android:paddingBottom="20dp"
         tools:context=".screens.TeachersActivity">
+
+        <Toolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="?attr/colorPrimary"
+            android:elevation="16dp"
+            android:outlineSpotShadowColor="#907B8B97"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/app_namelabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/googlesans_medium"
+                    android:text="Grovico"
+                    android:textColor="@color/darkMainColor"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/user_logo"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="20dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </Toolbar>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/join_meet_stu2"
@@ -27,7 +72,8 @@
             app:cardElevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline7">
+            app:layout_constraintTop_toBottomOf="@id/toolbar2"
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -100,7 +146,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/roboto"
             android:text="Your classes"
             android:textColor="@color/darkMainColor"

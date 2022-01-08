@@ -91,18 +91,29 @@
             app:layout_constraintStart_toStartOf="@+id/guideline5"
             app:layout_constraintTop_toBottomOf="@+id/password_label" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/name_input"
+            android:text="Continue as..."
+            android:id="@+id/continueAs"
+            app:layout_constraintLeft_toLeftOf="@id/guideline5"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/darkMainColor"
+            android:textSize="14sp"/>
 
         <RadioGroup
             android:id="@+id/student_or_Teacher"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/border_input_bg"
             android:orientation="horizontal"
             android:padding="10dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
             app:layout_constraintStart_toStartOf="@+id/guideline5"
-            app:layout_constraintTop_toBottomOf="@+id/name_input">
+            app:layout_constraintTop_toBottomOf="@+id/continueAs">
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/student"
@@ -160,16 +171,16 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/signUpBtn"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/guideline5"
             app:layout_constraintTop_toBottomOf="@+id/student_or_Teacher"
-            app:layout_constraintVertical_bias="0.198">
+            app:layout_constraintVertical_bias="0.083">
 
             <TextView
                 android:id="@+id/tvCourse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Course"
 

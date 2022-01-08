@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -50,15 +49,24 @@ class StudentFragment : Fragment() {
             Glide.with(view.context).load(userImage).circleCrop().error(R.drawable.user_error)
                 .into(userLogo)
             setUpRecyclerView()
-            joinMeetStu.setOnClickListener {
-                navigateToMeetingHome()
-            }
-            studentFloat.setOnClickListener {
-                popUpMenu(view)
-            }
             userLogo.setOnClickListener {
                 popUpMenuSetting(view)
             }
+
+            binding.joinMeet.setOnClickListener {
+                navigateToMeetingHome()
+
+            }
+
+            binding.assignmentButton.setOnClickListener {
+                navigateToStuAssignment()
+
+            }
+
+            binding.notesButton.setOnClickListener {
+                navigateToStuNotes()
+            }
+
         }
 
         return view
@@ -73,10 +81,12 @@ class StudentFragment : Fragment() {
             when (item.itemId) {
                 R.id.logout ->
                     logoutUser()
-                R.id.assignment_menu ->
-                    navigateToStuAssignment()
-                R.id.notes_menu ->
-                    navigateToStuNotes()
+                R.id.switch_to_teacher ->
+                    navigateToDetailsFragment()
+
+                R.id.join_class ->
+                    navigateToJoinClass()
+
             }
             true
         })
@@ -99,30 +109,14 @@ class StudentFragment : Fragment() {
         val recyclerOptions =
             FirestoreRecyclerOptions.Builder<MyClass>().setQuery(query, MyClass::class.java).build()
         adapter = MyClassAdapter(recyclerOptions, USER_TYPE)
-        binding.recyclerviewStu.adapter = adapter
-        binding.recyclerviewStu.layoutManager = LinearLayoutManager(view?.context)
+        binding.recyclerview.adapter = adapter
+        binding.recyclerview.layoutManager = LinearLayoutManager(view?.context)
         adapter.startListening()
     }
 
 
 
-    private fun popUpMenu(view: View) {
-        val popupMenu: PopupMenu =
-            PopupMenu(context, binding.studentFloat, Gravity.END, 0, R.style.MyPopupMenu)
-        popupMenu.menuInflater.inflate(R.menu.student_fabmenu, popupMenu.menu)
-        popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
-            when (item.itemId) {
-                R.id.joinClass_menu ->
-                    navigateToJoinClass()
-                R.id.assignment_menu ->
-                    navigateToStuAssignment()
-                R.id.notes_menu ->
-                    navigateToStuNotes()
-            }
-            true
-        })
-        popupMenu.show()
-    }
+
 
     private fun navigateToGetStarted() {
         val action = StudentFragmentDirections.actionStudentFragmentToGetStartedFragment()
@@ -149,7 +143,10 @@ class StudentFragment : Fragment() {
         requireView().findNavController().navigate(action)
     }
 
-
+    private fun navigateToDetailsFragment(){
+        val action = StudentFragmentDirections.actionStudentFragmentToDetailsFragment()
+        requireView().findNavController().navigate(action)
+    }
 
 
 }

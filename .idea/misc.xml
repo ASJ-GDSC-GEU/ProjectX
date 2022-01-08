@@ -10,32 +10,15 @@
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/ic_class.xml" value="0.275" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/join_meeting_icon.xml" value="0.290625" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/main_color_gradiet.xml" value="0.290625" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/round_filledblue.xml" value="0.290625" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/schedule_meet_icon.xml" value="0.275" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/drawable/white_roundfilled.xml" value="0.275" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/font/poppins_bold.xml" value="0.278125" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/class_option_item.xml" value="0.27355072463768115" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/dropdown_item.xml" value="0.1829861111111111" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_assignment_detail.xml" value="0.27447916666666666" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.14241803278688525" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_class_group.xml" value="0.27355072463768115" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_create_note.xml" value="0.27355072463768115" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_details.xml" value="0.14241803278688525" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_edit_notes.xml" value="0.27447916666666666" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_get_started.xml" value="0.1334853090172239" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_home_notes.xml" value="0.27355072463768115" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_join_class.xml" value="0.24791666666666667" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_sign_up.xml" value="0.27355072463768115" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_student.xml" value="0.176" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_teachers.xml" value="0.264" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/item_notes.xml" value="0.2572463768115942" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/myclass_item.xml" value="0.4" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/students_item.xml" value="0.4" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/students_itm.xml" value="0.16875" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/menu/create_fabmenu.xml" value="0.6" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/menu/delete_menu.xml" value="0.27447916666666666" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/menu/mini_setting_menu.xml" value="0.27447916666666666" />
-        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/menu/student_fabmenu.xml" value="0.27447916666666666" />
         <entry key="app/src/main/res/drawable/assignment.xml" value="0.20185185185185187" />
         <entry key="app/src/main/res/drawable/background_circle.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/drawable/border_input_bg.xml" value="0.2222222222222222" />
@@ -75,7 +58,7 @@
         <entry key="app/src/main/res/layout/fragment_create_note.xml" value="0.1461038961038961" />
         <entry key="app/src/main/res/layout/fragment_create_notes.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_edit_notes.xml" value="0.14106583072100312" />
+        <entry key="app/src/main/res/layout/fragment_edit_notes.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_get_started.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home_notes.xml" value="0.29583333333333334" />
@@ -88,9 +71,13 @@
         <entry key="app/src/main/res/layout/fragment_teachers.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_notes.xml" value="0.22777777777777777" />
         <entry key="app/src/main/res/layout/myclass_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/students_item.xml" value="0.25" />
         <entry key="app/src/main/res/menu/change_role_menu.xml" value="0.25" />
         <entry key="app/src/main/res/menu/create_fabmenu.xml" value="0.25" />
         <entry key="app/src/main/res/menu/delete_menu.xml" value="0.21296296296296297" />
+        <entry key="app/src/main/res/menu/mini_setting_menu.xml" value="0.234375" />
+        <entry key="app/src/main/res/menu/mini_setting_teacher_menu.xml" value="0.12916666666666668" />
+        <entry key="app/src/main/res/menu/student_fabmenu.xml" value="0.234375" />
       </map>
     </option>
   </component>
