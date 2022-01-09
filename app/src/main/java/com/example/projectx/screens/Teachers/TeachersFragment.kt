@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide
 import com.example.projectx.R
 import com.example.projectx.adapter.MyClassAdapter
 import com.example.projectx.daos.MyClassDao
+import com.example.projectx.daos.StudentDao
 import com.example.projectx.daos.TopDao
 import com.example.projectx.databinding.FragmentTeachersBinding
 import com.example.projectx.models.MyClass
@@ -36,6 +37,8 @@ class TeachersFragment : Fragment() {
     private val USER_TYPE: Int = 1 //1 for Teacher
     private lateinit var myClassDao: MyClassDao
     val db = FirebaseFirestore.getInstance()
+    private lateinit var studentDao : StudentDao
+    private lateinit var topDao : TopDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +51,9 @@ class TeachersFragment : Fragment() {
     ): View? {
         _binding = FragmentTeachersBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        studentDao = StudentDao()
+        topDao = TopDao()
 
         binding.apply {
             activity?.setActionBar(toolbar2)
@@ -93,8 +99,7 @@ class TeachersFragment : Fragment() {
                 R.id.logout ->
                     logoutUser()
                 R.id.switch_to_teacher ->
-                    navigateToDetailsFragment()
-
+                    navigateToStudentFragment()
             }
             true
         })
@@ -218,6 +223,27 @@ class TeachersFragment : Fragment() {
     override fun onStop() {
         super.onStop()
         adapter.stopListening()
+    }
+
+    private fun navigateToStudentFragment(){
+        binding.mainCons.visibility = View.INVISIBLE
+        binding.loaderCons.visibility = View.VISIBLE
+
+        studentDao = StudentDao()
+        val snapshot2 =
+            studentDao.getStudentById(topDao.userId())
+                .addOnCompleteListener {
+                    var teacherResult = it.result.exists()
+                    if (!teacherResult) {
+                            navigateToDetailsFragment()
+                    } else {
+                        val action =
+                            TeachersFragmentDirections.actionTeachersFragmentToStudentFragment()
+                        requireView().findNavController().navigate(action)
+                    }
+                }
+
+
     }
 
 

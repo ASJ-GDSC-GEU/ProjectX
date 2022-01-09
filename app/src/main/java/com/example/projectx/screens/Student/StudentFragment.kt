@@ -13,12 +13,12 @@ import com.bumptech.glide.Glide
 import com.example.projectx.R
 import com.example.projectx.adapter.MyClassAdapter
 import com.example.projectx.daos.MyClassDao
+import com.example.projectx.daos.TeacherDao
 import com.example.projectx.daos.TopDao
 import com.example.projectx.databinding.FragmentStudentBinding
 import com.example.projectx.models.MyClass
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
 
 
@@ -28,7 +28,8 @@ class StudentFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var adapter: MyClassAdapter
     private val USER_TYPE: Int = 0 // 0 for student and 1 for Teacher
-
+    private lateinit var teacherDao : TeacherDao
+    private lateinit var topDao : TopDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,7 @@ class StudentFragment : Fragment() {
     ): View? {
         _binding = FragmentStudentBinding.inflate(inflater, container, false)
         val view = binding!!.root
+        topDao = TopDao()
 
         binding.apply {
             activity?.setActionBar(toolbar2)
@@ -69,6 +71,7 @@ class StudentFragment : Fragment() {
 
         }
 
+
         return view
     }
 
@@ -82,7 +85,7 @@ class StudentFragment : Fragment() {
                 R.id.logout ->
                     logoutUser()
                 R.id.switch_to_teacher ->
-                    navigateToDetailsFragment()
+                    navigateToTeacherFragment()
 
                 R.id.join_class ->
                     navigateToJoinClass()
@@ -143,6 +146,26 @@ class StudentFragment : Fragment() {
     private fun navigateToDetailsFragment() {
         val action = StudentFragmentDirections.actionStudentFragmentToDetailsFragment()
         requireView().findNavController().navigate(action)
+    }
+
+    private fun navigateToTeacherFragment(){
+        binding.mainCons.visibility = View.INVISIBLE
+        binding.loaderCons.visibility = View.VISIBLE
+        teacherDao = TeacherDao()
+                    val snapshot2 =
+                        teacherDao.getTeacherById(topDao.userId())
+                            .addOnCompleteListener {
+                                var teacherResult = it.result.exists()
+                                if (!teacherResult) {
+                                        navigateToDetailsFragment()
+                                } else {
+                                    val action =
+                                        StudentFragmentDirections.actionStudentFragmentToTeachersFragment()
+                                    requireView().findNavController().navigate(action)
+                                }
+                            }
+
+
     }
 
 
