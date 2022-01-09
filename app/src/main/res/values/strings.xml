@@ -211,7 +211,7 @@
         <item>Doctor of Philosophy (Ph.D)</item>
         <item>Visual Information Processing (Visual Information Processing)</item>
         <item>Under Graduate Teacher Training (U.G.T.T)</item>
-</string-array>
+    </string-array>
     <string-array name="Semester">
         <item>1</item>
         <item>2</item>

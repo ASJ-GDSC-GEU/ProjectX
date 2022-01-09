@@ -39,12 +39,12 @@ class ClassOptionsAdapter(
 
         if(role == 0){
             when (position) {
-                2 -> {
+                0 -> {
                     holder.classOptionItem.setBackgroundResource(R.drawable.round_filledblue)
                     holder.label.setTextColor(Color.parseColor("#B2C2FF"))
                     holder.classOptionItem.cardElevation = 12F
-                    holder.classOptionItem.setOnClickListener{
-                        Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
+                    holder.classOptionItem.setOnClickListener {
+                        Navigation.findNavController(it).navigate(R.id.studentAssignment)
                     }
                 }
                 1 -> {
@@ -53,23 +53,24 @@ class ClassOptionsAdapter(
                     }
                 }
 
-                0 -> {
-                    holder.classOptionItem.setOnClickListener {
-                        Navigation.findNavController(it).navigate(R.id.studentAssignment)
+                2 -> {
+                    holder.classOptionItem.setOnClickListener{
+                        Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         }else if(role == 1){
             when (position) {
-                2 -> {
+                0 -> {
                     holder.classOptionItem.setBackgroundResource(R.drawable.round_filledblue)
                     holder.label.setTextColor(Color.parseColor("#B2C2FF"))
                     holder.classOptionItem.cardElevation = 12F
-                    holder.classOptionItem.setOnClickListener{
-                        Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
+                    holder.classOptionItem.setOnClickListener {
+                        Navigation.findNavController(it).navigate(R.id.teacherAssignmentFragment)
                     }
+
                 }
-                0 -> {
+                1 -> {
                     holder.classOptionItem.setOnClickListener {
                         val clipboard: ClipboardManager =
                             it.context.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
@@ -80,15 +81,9 @@ class ClassOptionsAdapter(
 
                 }
 
-                3 -> {
+                2 -> {
                     holder.classOptionItem.setOnClickListener{
                         Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-                1 -> {
-                    holder.classOptionItem.setOnClickListener {
-                        Navigation.findNavController(it).navigate(R.id.teacherAssignmentFragment)
                     }
                 }
             }

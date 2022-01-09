@@ -81,7 +81,7 @@ class ClassGroupFragment : Fragment() {
 
     }
 
-    private fun  addClassOptionsforStudents(classId: String){
+    private fun addClassOptionsforStudents(classId: String) {
         binding.apply {
             classOptions.layoutManager =
                 LinearLayoutManager(
@@ -94,21 +94,19 @@ class ClassGroupFragment : Fragment() {
             data.add(
                 ClassOptions(
                     label = "Assignments",
-                    imageView = R.drawable.assignment
+                    imageView = R.drawable.invite_student_icon
                 )
             )
-
+            data.add(
+                ClassOptions(
+                    label = "Join Meeting Class",
+                    imageView = R.drawable.create_meetlink_icon
+                )
+            )
             data.add(
                 ClassOptions(
                     label = "Share Files",
                     imageView = R.drawable.share_file_icon
-                )
-            )
-
-            data.add(
-                ClassOptions(
-                    label = "Create meet link",
-                    imageView = R.drawable.create_meetlink_icon
                 )
             )
 
@@ -131,7 +129,7 @@ class ClassGroupFragment : Fragment() {
                         .addOnCompleteListener {
                             when (userType) {
                                 0 -> {
-                                   navigateToStudent()
+                                    navigateToStudent()
                                 }
                                 1 -> {
                                     navigateToTeacher()
@@ -158,6 +156,7 @@ class ClassGroupFragment : Fragment() {
     }
 
     private fun setRecyclerView(array: List<String>) {
+        studentArray.clear()
         TopDao().dbRef().collection("student")
             .whereIn("uid", array)
             .get()
@@ -178,7 +177,6 @@ class ClassGroupFragment : Fragment() {
             }
     }
 
-
     private fun addOptions(classId: String) {
         binding.apply {
             classOptions.layoutManager =
@@ -195,25 +193,18 @@ class ClassGroupFragment : Fragment() {
                     imageView = R.drawable.invite_student_icon
                 )
             )
-
             data.add(
                 ClassOptions(
-                    label = "Assignments",
-                    imageView = R.drawable.assignment
+                    label = "Copy Class ID",
+                    imageView = R.drawable.create_meetlink_icon
                 )
             )
+
 
             data.add(
                 ClassOptions(
                     label = "Share Files",
                     imageView = R.drawable.share_file_icon
-                )
-            )
-
-            data.add(
-                ClassOptions(
-                    label = "Create meet link",
-                    imageView = R.drawable.create_meetlink_icon
                 )
             )
 

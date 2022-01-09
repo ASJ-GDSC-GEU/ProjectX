@@ -149,7 +149,6 @@ class TeachersFragment : Fragment() {
                         Toast.makeText(requireContext(), "Will be implemented soon...", Toast.LENGTH_SHORT).show()
                 R.id.create_timeTable ->
                     findNavController().navigate(R.id.homeNotesFragment)
-
                 R.id.give_assignment ->
                     navigateToAssignment()
             }
