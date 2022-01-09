@@ -11,15 +11,207 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="Cources">
-        <item>B.Tech</item>
-        <item>BCA</item>
-        <item>MCA</item>
-        <item>BSC</item>
-    </string-array>
-    <string-array name="Subject">
-        <item>Eng. Mathematics</item>
-        <item>None</item>
-    </string-array>
+        <item>Bachelor of Arts (B.A)</item>
+        <item>Bachelor of Arts Bachelor of Education (B.A. B.Ed)</item>
+        <item>Bachelor of Arts Bachelor of Law (B.A.B.L)</item>
+        <item>Bachelor of Arts Bachelor of Law (B.A.LLB)</item>
+        <item>Bachelor of Ayurvedic Medicine and Surgery (B.A.M.S)</item>
+        <item>Bachelor of Applied Sciences (B.A.S)</item>
+        <item>Bachelor of Arts (B.A.S.L.P)</item>
+        <item>Bachelor of Audiology and Speech Language Pathology (B.A.S.L.P)</item>
+        <item>Bachelor of Architecture (B.Arch)</item>
+        <item>Bachelor of Business Administration (B.B.A)</item>
+        <item>Bachelor of Business Administration Bachelor of Law (B.B.A LL.B)</item>
+        <item>Bachelor of Business Management (B.B.M)</item>
+        <item>Bachelor of Business Studies (B.B.S)</item>
+        <item>Bachelor of Computer Applications (B.C.A)</item>
+        <item>Bachelor of Communication Journalism (B.C.J)</item>
+        <item>Bachelor of Computer Science (B.C.S)</item>
+        <item>Bachelor of Commerce (B.Com)</item>
+        <item>Bachelor of Divinity (B.D)</item>
+        <item>Bachelor of Dental Surgery (B.D.S)</item>
+        <item>Basic Development Therapy (B.D.T)</item>
+        <item>Bachelor of Design (B.Des)</item>
+        <item>Bachelor of Engineering (B.E)</item>
+        <item>Bachelor of Electronic Science (B.E.S)</item>
+        <item>Bachelor of Education (B.Ed)</item>
+        <item>Bachelor of education in Artificial Intelligence (B.Ed AI)</item>
+        <item>Bachelor of Education (B.EdQ)</item>
+        <item>Bachelor of Elementary Education (B.EI.ED)</item>
+        <item>Bachelor of Elementary Education (B.EL.Ed)</item>
+        <item>Bachelor of Fine Arts (B.F.A)</item>
+        <item>Bachelor of Financial Investment and Analysis (B.F.I.A)</item>
+        <item>Bachelor of Fishery Sciences (B.F.S)</item>
+        <item>Bachelor of Fashion Technology (B.F.Tech)</item>
+        <item>Bachelor of General Law (B.G.L)</item>
+        <item>Behavioral Healthcare Education (B.H.Ed)</item>
+        <item>Bachelor of Hotel Management (B.H.M)</item>
+        <item>Bachelor Hotel Management and Catering Technology (B.H.M.C.T)</item>
+        <item>Bachelor of Homeopathic Medicine and Surgery (B.H.M.S)</item>
+        <item>Bachelor of Hospitality and Tourism Management (B.H.T.M)</item>
+        <item>Bachelor of Information Systems Management (B.I.S.M)</item>
+        <item>Bachelor of Laws (B.L)</item>
+        <item>Bachelor of Library and Information Science (B.L.I.S)</item>
+        <item>Bachelor of Labour Management (B.L.M)</item>
+        <item>Bachelor Library Science (B.L.Sc)</item>
+        <item>Bachelor of Literature (B.Lit)</item>
+        <item>Bachelor of Medical Laboratory Technology (B.M.L.T)</item>
+        <item>Bachelor of Mental Retardation (B.M.R)</item>
+        <item>Bachelor of Medical Record Science (B.M.R.Sc)</item>
+        <item>Bachelor in Mobility Science (B.M.Sc)</item>
+        <item>Bachelor of Mobility Science (B.M.Sc)</item>
+        <item>Bachelor of Medical Technology (B.M.T)</item>
+        <item>Bachelor of Naturopathy and Yogic Sciences (B.N.Y.Sc)</item>
+        <item>Bachelor of Occupational Therapy (B.O.T)</item>
+        <item>Bachelor of Occupational Therapy (B.O.Th)</item>
+        <item>Bachelor of Optometry and Vision Science (B.Optom)</item>
+        <item>Bachelor of Physical Education (B.P.E)</item>
+        <item>Bachelor Of Physical Education (B.P.Ed)</item>
+        <item>Bachelor in Prosthetics and Orthotics (B.P.O)</item>
+        <item>Bachelor of Public Relations (B.P.R)</item>
+        <item>Bachelor of Physiotherapy (B.P.T)</item>
+        <item>Bachelor of Pharmacy (B.Pharma)</item>
+        <item>Bachelor of Rehabilitation Therapy (B.R.T)</item>
+        <item>Bachelor of Science (B.S)</item>
+        <item>Bachelor in Science Education (B.S.E)</item>
+        <item>Bachelor of Speech Language and Audiology (B.S.L.A)</item>
+        <item>Bachelor of Socio Legal Sciences Bachelor of Laws (B.S.L.LL.B)</item>
+        <item>Bachelor of Siddha Medical Sciences (B.S.M.S)</item>
+        <item>Bachelor Of Social Work (B.S.W)</item>
+        <item>Bachelor of Science (B.Sc)</item>
+        <item>Bachelor of Science Bachelor of Education (B.Sc.B.Ed)</item>
+        <item>Bachelor of Science in Education (B.Sc.Ed)</item>
+        <item>Bachelor of Tourism Administration (B.T.A)</item>
+        <item>Basic Training Certificate (B.T.C)</item>
+        <item>Bachelor of Technology (B.Tech)</item>
+        <item>Bachelors of Technology (B.Tech)</item>
+        <item>Bachelor of Unani Medicine and Surgery (B.U.M.S)</item>
+        <item>Bachelor of Veterinary Science (B.V.Sc)</item>
+        <item>Bachelor of Medicine (Bachelor of Medicine)</item>
+        <item>Bachelor of Journalism and Mass Communication (BJMC)</item>
+        <item>Diploma in Special Education (D.S.E (CP))</item>
+        <item>Bachelor of Unani Medicine and Surgery (Kamil e Tob o Jarahat)</item>
+        <item>Bachelor of Law (LL.B)</item>
+        <item>Bachelor of Medicine Bachelor of Surgery (M.B.B.S)</item>
+        <item>Master of Journalism and Mass Communication (MJMC)</item>
+        <item>Doctor of Philosophy (Ph. D)</item>
+        <item>Clinical Psychology (Psy.D (Cl.Psy))</item>
+        <item>Under Graduate Basic Training (U.G.B.T)</item>
+        <item>Under Graduate Training (U.G.T)</item>
+        <item>Bachelor of Technology (B.Tech)</item>
+        <item>Master of Science (BOTANY)</item>
+        <item>Diploma in Medical (D.M)</item>
+        <item>Executive Fellow Program In Management (E.F.P.M)</item>
+        <item>Executive Management Programme (E.M.P)</item>
+        <item>NULL (EPGP)</item>
+        <item>Fellow Programme in Management (F.P.M)</item>
+        <item>FACULTY DEVELOPMENT PROGRAMME (FDP)</item>
+        <item>Executive Fellow Programme in Management (FELLOWSHIP)</item>
+        <item>FELLOW PROGRAMME IN MANAGEMENT (FELLOWSHIP)</item>
+        <item>FELLOW PROGRAMME IN MANAGEMENT (FPM)</item>
+        <item>Master of Law (LL.M)</item>
+        <item>Master of Arts (M.A)</item>
+        <item>Master of Arts (M.A. (SWDS))</item>
+        <item>Master of Arts in Management (M.A.M)</item>
+        <item>Master of Arts in Personal Management (M.A.P.M)</item>
+        <item>Master of Arts (M.A.S.L.P)</item>
+        <item>Master of Audiology and Speech Language Pathology (M.A.S.L.P)</item>
+        <item>Master of Arts in Theatre and Television (M.A.T.T)</item>
+        <item>Master of Architecture (M.Arch)</item>
+        <item>Master of Business Administration (M.B.A)</item>
+        <item>Master of Business Economics (M.B.E)</item>
+        <item>Master of Business Laws (M.B.L)</item>
+        <item>Master of Business Management (M.B.M)</item>
+        <item>Master of Business Studies (M.B.S)</item>
+        <item>Master of Computer Applications (M.C.A)</item>
+        <item>Master of Communication and Journalism (M.C.J)</item>
+        <item>Master of Comparative Laws (M.C.L)</item>
+        <item>Master of Computer Management (M.C.M)</item>
+        <item>Master of Corporate Secretaryship (M.C.S)</item>
+        <item>Master of Chirurgical (M.Ch)</item>
+        <item>Master of Commerce (M.Com)</item>
+        <item>Doctor of Medicine (M.D)</item>
+        <item>Sports Medicine (M.D)</item>
+        <item>Management Development Programme (M.D.P)</item>
+        <item>Master of Dental Surgery (M.D.S)</item>
+        <item>Master of Design (M.Des)</item>
+        <item>Master of Engineering (M.E)</item>
+        <item>Master of Education (M.Ed)</item>
+        <item>Master of education in Artificial Intelligence (M.Ed AI)</item>
+        <item>Master of Fine Arts (M.F.A)</item>
+        <item>Master of Finance and Control (M.F.C)</item>
+        <item>Master of Film Management (M.F.M)</item>
+        <item>Master of Financial Services (M.F.S)</item>
+        <item>Master of Fishery Science (M.F.Sc)</item>
+        <item>Master of Fishery Sciences (M.F.Sc)</item>
+        <item>Master of Foreign Trade (M.F.T)</item>
+        <item>Master of Hospital Administration (M.H.A)</item>
+        <item>Master of Hospitality and Hotel Management (M.H.H.M)</item>
+        <item>Master of Hospitality Management (M.H.M)</item>
+        <item>Master of Human Resource Management (M.H.R.M)</item>
+        <item>Master Of Health Science (M.H.Sc)</item>
+        <item>Masters of Hospitality and Tourism Management (M.H.T.M)</item>
+        <item>Master of International Business (M.I.B)</item>
+        <item>Master of Information Management (M.I.M)</item>
+        <item>Master of Journalism (M.J)</item>
+        <item>Master of Laws (M.L)</item>
+        <item>Master of Library and Information Science (M.L.I.Sc)</item>
+        <item>Master of Labour Management (M.L.M)</item>
+        <item>Master of Library Science (M.L.Sc)</item>
+        <item>Master of Marketing Management (M.M.M)</item>
+        <item>Master of Management Program (M.M.P)</item>
+        <item>Master of Management Studies (M.M.S)</item>
+        <item>Master of Occupational Theraphy (M.O.T)</item>
+        <item>Master of Performing Arts (M.P.A)</item>
+        <item>Master of Psychiatric Epidemiology (M.P.E)</item>
+        <item>Master Of Physical Education (M.P.Ed)</item>
+        <item>Master of Public Health (M.P.H)</item>
+        <item>Masters Programme in International Business (M.P.I.B)</item>
+        <item>Master of Performance Management (M.P.M)</item>
+        <item>Diploma in Prosthetics and Orthotics (M.P.O)</item>
+        <item>Masters in Public Systems Management (M.P.S.M)</item>
+        <item>Master of Physiotheraphy (M.P.T)</item>
+        <item>Master of Pharmacy (M.Pharma)</item>
+        <item>Master of Philosophy (M.Phil)</item>
+        <item>Master of Rehabilitation Science (M.R.Sc)</item>
+        <item>M.S. in Library and Information Science (M.S)</item>
+        <item>Master of Science (M.S)</item>
+        <item>Master of Social Dynamics (M.S.D)</item>
+        <item>Masters Programme In Sports Physiotheraphy (M.S.P.T)</item>
+        <item>Master of Social Work (M.S.W)</item>
+        <item>Master of Science (M.Sc)</item>
+        <item>Master of Tourism Administrations (M.T.A)</item>
+        <item>Master of Tourism Management (M.T.M)</item>
+        <item>Master of Technology (M.Tech)</item>
+        <item>Master of Veterinary Science (M.V.Sc)</item>
+        <item>Doctor of Medicine Unani (Mahir e Tibb)</item>
+        <item>Master of Business Administration (MBA)</item>
+        <item>MANAGEMENT DEVELOPMENT PROGRAMEE (MDP)</item>
+        <item>Master of Industrial Relation and Personal Management (MIR and PM)</item>
+        <item>Master of Personnel Management (MPM)</item>
+        <item>Master of Personal Management and Industrial Relation (MPM and IR)</item>
+        <item>Post Graduate Diploma (P Diplomo)</item>
+        <item>Post Graduate Diploma (P.G.D.D.R.M)</item>
+        <item>Post Graduate Diploma (P.G.D.E.I)</item>
+        <item>Post Graduate Diploma (P.G.D.R.P)</item>
+        <item>Post Graduate Diploma (P.G.D.S.E.(MR))</item>
+        <item>Post Graduate Programme (P.G.P)</item>
+        <item>Post Graduate (PG)</item>
+        <item>Post Graduate Diploma (PG Diploma)</item>
+        <item>Post Graduate Programme (PG Programme)</item>
+        <item>Post Graduate Diploma (PGD)</item>
+        <item>POST GRADUATE PROGRAME FOR EXECUTIVES (PGEXP)</item>
+        <item>POST-GRADUATE PROGRAMME IN MANAGEMENT (PGP)</item>
+        <item>POST GRADUATE PROGRAMME IN AGRIBUSINESS MANAGEMENT (PGP-ABM)</item>
+        <item>PUBLIC MANAGEMENT AND POLICY (PGP-PMP)</item>
+        <item>PGPX IN -VISIONARY LEADERSHIP IN MANUFACTURING (PGPEX-VLM)</item>
+        <item>POST GRADUATE PROGRAME IN MANAGEMENT (PGPM)</item>
+        <item>MANAGEMENT FOR EXECUTIVES (PGPX)</item>
+        <item>Doctor of Philosophy (Ph. D)</item>
+        <item>Doctor of Philosophy (Ph.D)</item>
+        <item>Visual Information Processing (Visual Information Processing)</item>
+        <item>Under Graduate Teacher Training (U.G.T.T)</item>
+</string-array>
     <string-array name="Semester">
         <item>1</item>
         <item>2</item>
@@ -75,7 +267,6 @@
     <string name="students">Students</string>
     <string name="_0_students">0 Students</string>
     <string name="switch_to_student">Switch to Student</string>
-    <string name="logout">Logout</string>
     <string name="switch_to_teacher">Switch to Teacher</string>
     <string name="join_a_new_class">Join a new Class</string>
     <string name="logout">Logout</string>

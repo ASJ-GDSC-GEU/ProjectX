@@ -47,9 +47,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout2"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="62dp"
             android:layout_margin="20dp"
             android:hint="Subject"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +59,9 @@
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 style="@style/FirebaseUI.TextInputEditText"
                 android:id="@+id/section_drop2"
-                android:inputType="none" />
+                android:paddingStart="16dp"
+                android:layout_height="match_parent"
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
