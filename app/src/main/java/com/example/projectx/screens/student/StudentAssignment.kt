@@ -1,4 +1,4 @@
-package com.example.projectx.screens.Student
+package com.example.projectx.screens.student
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class StudentAssignment : Fragment() {
 
-    private var _binding : FragmentStudentAssignmentBinding? = null
+    private var _binding: FragmentStudentAssignmentBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var assignmentDao: AssignmentDao
@@ -27,25 +27,15 @@ class StudentAssignment : Fragment() {
     private lateinit var auth: FirebaseAuth
 
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentStudentAssignmentBinding.inflate(inflater, container, false)
-
         auth = FirebaseAuth.getInstance()
-        val currentUser = auth.currentUser
         setUpRecyclerView()
-
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     private fun setUpRecyclerView() {
@@ -54,14 +44,15 @@ class StudentAssignment : Fragment() {
         studentDao = StudentDao()
         val assignmentCollections = assignmentDao.assignmentCollection
 
-        val snapshot = studentDao.getStudentById(auth.currentUser!!.uid).addOnCompleteListener {
-            var temp = it.result
+        studentDao.getStudentById(auth.currentUser!!.uid).addOnCompleteListener {
+            val temp = it.result
             val course = temp.getString("course")
             val semester = temp.getString("semester")
             val section = temp.getString("section")
-            val code = course+semester+section
+            val code = course + semester + section
             val query = assignmentCollections.whereEqualTo("code", code)
-            val recyclerViewOptions = FirestoreRecyclerOptions.Builder<Assignment>().setQuery(query, Assignment::class.java).build()
+            val recyclerViewOptions = FirestoreRecyclerOptions.Builder<Assignment>()
+                .setQuery(query, Assignment::class.java).build()
 
             adapter = AssignmentAdapter(recyclerViewOptions)
             binding.recyclerView.adapter = adapter
@@ -71,19 +62,12 @@ class StudentAssignment : Fragment() {
         }
 
 
-
-
     }
-
-//    override fun onStart() {
-//        super.onStart()
-//    }
 
     override fun onStop() {
         super.onStop()
         adapter.stopListening()
     }
-
 
 
 }

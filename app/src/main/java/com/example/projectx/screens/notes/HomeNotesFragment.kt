@@ -1,4 +1,4 @@
-package com.example.projectx.screens.Notes
+package com.example.projectx.screens.notes
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -35,7 +35,7 @@ class HomeNotesFragment : Fragment() {
         viewModel.getNotes().observe(viewLifecycleOwner, {
             noteList ->
                             binding.rvNotes.layoutManager = GridLayoutManager(requireContext(), 2)
-                            binding.rvNotes.adapter = NotesAdapter(requireContext(), noteList)
+                            binding.rvNotes.adapter = NotesAdapter(noteList)
 
 
         })
@@ -49,7 +49,7 @@ class HomeNotesFragment : Fragment() {
             viewModel.getHighNotes().observe(viewLifecycleOwner, {
                     noteList ->
                 binding.rvNotes.layoutManager = GridLayoutManager(requireContext(), 2)
-                binding.rvNotes.adapter = NotesAdapter(requireContext(), noteList)
+                binding.rvNotes.adapter = NotesAdapter(noteList)
 
 
             })
@@ -59,7 +59,7 @@ class HomeNotesFragment : Fragment() {
             viewModel.getMediumNotes().observe(viewLifecycleOwner, {
                     noteList ->
                 binding.rvNotes.layoutManager = GridLayoutManager(requireContext(), 2)
-                binding.rvNotes.adapter = NotesAdapter(requireContext(), noteList)
+                binding.rvNotes.adapter = NotesAdapter(noteList)
 
 
             })
@@ -69,7 +69,7 @@ class HomeNotesFragment : Fragment() {
             viewModel.getLowNotes().observe(viewLifecycleOwner, {
                     noteList ->
                 binding.rvNotes.layoutManager = GridLayoutManager(requireContext(), 2)
-                binding.rvNotes.adapter = NotesAdapter(requireContext(), noteList)
+                binding.rvNotes.adapter = NotesAdapter(noteList)
 
 
             })
@@ -79,7 +79,7 @@ class HomeNotesFragment : Fragment() {
             viewModel.getNotes().observe(viewLifecycleOwner, {
                     noteList ->
                 binding.rvNotes.layoutManager = GridLayoutManager(requireContext(), 2)
-                binding.rvNotes.adapter = NotesAdapter(requireContext(), noteList)
+                binding.rvNotes.adapter = NotesAdapter(noteList)
 
 
             })

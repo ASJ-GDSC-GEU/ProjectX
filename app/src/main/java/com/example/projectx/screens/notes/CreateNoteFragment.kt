@@ -1,4 +1,4 @@
-package com.example.projectx.screens.Notes
+package com.example.projectx.screens.notes
 
 import android.os.Bundle
 import android.view.LayoutInflater

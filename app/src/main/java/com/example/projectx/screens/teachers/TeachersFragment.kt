@@ -1,4 +1,4 @@
-package com.example.projectx.screens.Teachers
+package com.example.projectx.screens.teachers
 
 import android.os.Bundle
 import android.view.Gravity

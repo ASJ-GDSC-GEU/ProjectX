@@ -1,4 +1,4 @@
-package com.example.projectx.screens.Student
+package com.example.projectx.screens.student
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,10 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.example.projectx.R
 import com.example.projectx.daos.JoinClassDao
 import com.example.projectx.databinding.FragmentJoinClassBinding
-import com.example.projectx.databinding.FragmentStudentBinding
 
 class JoinClassFragment : Fragment() {
 
@@ -17,20 +15,13 @@ class JoinClassFragment : Fragment() {
     private val binding get() = _binding!!
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentJoinClassBinding.inflate(inflater, container, false)
-        val view = binding!!.root
+        val view = binding.root
         binding.apply {
             join.setOnClickListener {
                 JoinClassDao().joinClass(classId.text.toString())

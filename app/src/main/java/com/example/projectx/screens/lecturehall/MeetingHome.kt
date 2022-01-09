@@ -1,4 +1,4 @@
-package com.example.projectx.screens.LectureHall
+package com.example.projectx.screens.lecturehall
 
 import android.content.Intent
 import android.os.Bundle

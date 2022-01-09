@@ -1,5 +1,6 @@
 package com.example.projectx.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,31 +27,32 @@ class MyClassAdapter(
     FirestoreRecyclerAdapter<MyClass, MyClassAdapter.ClassViewHolder>(options) {
 
     class ClassViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val courselabel: TextView = itemView.findViewById(R.id.course_label)
-        val subjectlabel: TextView = itemView.findViewById(R.id.subject_label)
-        val total_all: TextView = itemView.findViewById(R.id.total_all)
-        val total_show: CardView = itemView.findViewById(R.id.total_show)
+        val courseLabel: TextView = itemView.findViewById(R.id.course_label)
+        val subjectLabel: TextView = itemView.findViewById(R.id.subject_label)
+        val totalAll: TextView = itemView.findViewById(R.id.total_all)
+        val totalShow: CardView = itemView.findViewById(R.id.total_show)
         val user1: ImageView = itemView.findViewById(R.id.user1)
         val user2: ImageView = itemView.findViewById(R.id.user2)
         val user3: ImageView = itemView.findViewById(R.id.user3)
-        val classitem: ConstraintLayout = itemView.findViewById(R.id.class_groupBtn)
-        val student_names: TextView = itemView.findViewById(R.id.stu)
+        val classItem: ConstraintLayout = itemView.findViewById(R.id.class_groupBtn)
+        val studentNames: TextView = itemView.findViewById(R.id.stu)
 
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClassViewHolder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.myclass_item, parent, false)
-            return ClassViewHolder(view)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.myclass_item, parent, false)
+        return ClassViewHolder(view)
 
     }
 
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ClassViewHolder, position: Int, model: MyClass) {
-        var array = ArrayList<List<String>>()
-        holder.courselabel.text = "${model.course}  Sem-${model.semester}"
-        holder.subjectlabel.text = "${model.subject} : Sec-${model.section}"
-        if (model.students_id.size > 0) {
+        val array = ArrayList<List<String>>()
+        holder.courseLabel.text = "${model.course}  Sem-${model.semester}"
+        holder.subjectLabel.text = "${model.subject} : Sec-${model.section}"
+        if (model.students_id.isNotEmpty()) {
             TopDao().dbRef().collection("student")
                 .whereIn("uid", model.students_id).limit(8)
                 .get()
@@ -65,11 +67,11 @@ class MyClassAdapter(
                     }
 
                     //adding student names in class item
-                    var namesArray = ArrayList<String>()
+                    val namesArray = ArrayList<String>()
                     for (i in array) {
                         namesArray.add(i[0])
                     }
-                    holder.student_names.text = namesArray.toString()
+                    holder.studentNames.text = namesArray.toString()
                         .replace("[", "").replace("]", "").trim()
 
 
@@ -80,7 +82,7 @@ class MyClassAdapter(
                                 .circleCrop().into(holder.user1)
                             holder.user2.visibility = View.GONE
                             holder.user3.visibility = View.GONE
-                            holder.total_show.visibility = View.GONE
+                            holder.totalShow.visibility = View.GONE
                         }
                         2 -> {
                             Glide.with(context).load(array[0][1]).error(R.drawable.user_error)
@@ -88,7 +90,7 @@ class MyClassAdapter(
                             Glide.with(context).load(array[1][1]).error(R.drawable.user_error)
                                 .circleCrop().into(holder.user2)
                             holder.user3.visibility = View.GONE
-                            holder.total_show.visibility = View.GONE
+                            holder.totalShow.visibility = View.GONE
 
 
                         }
@@ -99,7 +101,7 @@ class MyClassAdapter(
                                 .circleCrop().into(holder.user2)
                             Glide.with(context).load(array[2][1]).error(R.drawable.user_error)
                                 .circleCrop().into(holder.user3)
-                            holder.total_all.visibility = View.GONE
+                            holder.totalAll.visibility = View.GONE
                         }
                         else -> {
                             Glide.with(context).load(array[0][1]).error(R.drawable.user_error)
@@ -108,21 +110,20 @@ class MyClassAdapter(
                                 .circleCrop().into(holder.user2)
                             Glide.with(context).load(array[2][1]).error(R.drawable.user_error)
                                 .circleCrop().into(holder.user3)
-                            holder.total_all.text = "+" + (documents.size() - 3).toString()
+                            holder.totalAll.text = "+" + (documents.size() - 3).toString()
 
 
                         }
                     }
 
                 }
+        } else if (model.students_id.isEmpty()) {
+            holder.studentNames.text = "Click to Invite Students"
+            holder.totalAll.text = "+0"
         }
-        else if (model.students_id.isEmpty()){
-            holder.student_names.text = "Click to Invite Students"
-            holder.total_all.text = "+0"
-        }
-        holder.classitem.setOnClickListener {
-            var snapshot: String = snapshots.getSnapshot(position).id
-            val bundle: Bundle = Bundle()
+        holder.classItem.setOnClickListener {
+            val snapshot: String = snapshots.getSnapshot(position).id
+            val bundle = Bundle()
             bundle.putString("test", snapshot)
             bundle.putInt("user_type", user_type)
             when (user_type) {
