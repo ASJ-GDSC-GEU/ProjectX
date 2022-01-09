@@ -165,7 +165,7 @@ class TeachersFragment : Fragment() {
         val semAdapter = ArrayAdapter(view.context, R.layout.dropdown_item, semester)
         val secAdapter = ArrayAdapter(view.context, R.layout.dropdown_item, section)
         val courceView = view.findViewById<MaterialAutoCompleteTextView>(R.id.course_drop)
-        val subjectView = view.findViewById<MaterialAutoCompleteTextView>(R.id.subjet_drop)
+        val subjectView = view.findViewById<MaterialAutoCompleteTextView>(R.id.section_drop2)
         val semView = view.findViewById<MaterialAutoCompleteTextView>(R.id.semester_drop)
         val secView = view.findViewById<MaterialAutoCompleteTextView>(R.id.section_drop)
         val create_button = view.findViewById<Button>(R.id.create_button)

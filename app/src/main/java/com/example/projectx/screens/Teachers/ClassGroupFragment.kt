@@ -73,7 +73,7 @@ class ClassGroupFragment : Fragment() {
                     binding.courseName.text = data.subject
                     binding.courseSem.text = "${data!!.course} Sem-${data.semester}"
                     Toast.makeText(view.context, "$array", Toast.LENGTH_SHORT).show()
-                    //setRecyclerView(array)
+                    setRecyclerView(array)
                 }
 
         }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.projectx.R
@@ -25,8 +26,8 @@ class DetailsFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var userName: String
     private lateinit var course: String
-    private lateinit var semester: String
-    private lateinit var section: String
+    private lateinit var semester_course: String
+    private lateinit var section_course: String
 
     private var selectedUser: Int = 0 // 0 for Student --- 1 for Teacher
 
@@ -69,6 +70,8 @@ class DetailsFragment : Fragment() {
                     selectedUser = 1
                     constraintLayout2.visibility = View.INVISIBLE
 
+
+
                 } else if (checkedId == R.id.student) {
                     binding.teacher.setTextColor(Color.GRAY)
                     binding.student.setTextColor(Color.WHITE)
@@ -77,37 +80,30 @@ class DetailsFragment : Fragment() {
                 }
             }
 
+            addDataInDropDowns(view)
+
             //SignUP
             signUpBtn.setOnClickListener {
                 if (nameInput.text.isNullOrBlank()) {
                     nameInput.error = "Required"
                 }else {
-
-
                     if (selectedUser == 0) {
-                        if(etCourse.text.isNullOrBlank()){
-                            etCourse.error = "Required"
-                        }else if(etSemester.text.isNullOrBlank()){
-                            etSemester.error = "Required"
-                        }else if(etSection.text.isNullOrBlank()){
-                            etSection.error = "Required"
-                        }else {
-                            userName = nameInput.text.toString()
-                            course = etCourse.text.toString()
-                            semester = etSemester.text.toString()
-                            section = etSection.text.toString()
-                            val student =
-                                Student(
-                                    currentUser!!.uid,
-                                    userName,
-                                    currentUser.photoUrl.toString(),
-                                    course,
-                                    semester,
-                                    section
-                                )
-                            studentDao.addStudent(student)
-                            goToStudentHomeScreen()
-                        }
+                        userName = nameInput.text.toString()
+                        course = courseDrop.text.toString()
+                        semester_course = semesterDrop.text.toString()
+                        section_course = sectionDrop2.text.toString()
+                        val student =
+                            Student(
+                                currentUser!!.uid,
+                                userName,
+                                currentUser.photoUrl.toString(),
+                                course,
+                                semester_course,
+                                section_course
+                            )
+                        studentDao.addStudent(student)
+                        goToStudentHomeScreen()
+
                     } else if (selectedUser == 1) {
                         userName = nameInput.text.toString()
                         val teacher =
@@ -125,6 +121,20 @@ class DetailsFragment : Fragment() {
         }
 
 
+    }
+
+    private fun addDataInDropDowns(view: View) {
+        val cources = resources.getStringArray(R.array.Cources)
+        val semester = resources.getStringArray(R.array.Semester)
+        val section = resources.getStringArray(R.array.Section)
+        val courcesAdapter =
+            ArrayAdapter(view.context, R.layout.dropdown_item, cources)
+        val semAdapter =
+            ArrayAdapter(view.context, R.layout.dropdown_item, semester)
+        val secAdapter = ArrayAdapter(view.context, R.layout.dropdown_item, section)
+        binding.courseDrop.setAdapter(courcesAdapter)
+        binding.semesterDrop.setAdapter(semAdapter)
+        binding.sectionDrop2.setAdapter(secAdapter)
     }
 
     override fun onDestroyView() {

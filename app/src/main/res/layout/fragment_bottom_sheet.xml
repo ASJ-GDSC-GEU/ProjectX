@@ -58,7 +58,7 @@
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 style="@style/FirebaseUI.TextInputEditText"
-                android:id="@+id/subjet_drop"
+                android:id="@+id/section_drop2"
                 android:inputType="none" />
 
         </com.google.android.material.textfield.TextInputLayout>

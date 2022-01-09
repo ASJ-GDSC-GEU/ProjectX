@@ -104,28 +104,15 @@ class StudentFragment : Fragment() {
     private fun setUpRecyclerView() {
         var collection = MyClassDao().getClassCollection()
         var user_id = TopDao().userId()
-        var query = collection.whereArrayContains("students_id", user_id)
-            .orderBy("semester", Query.Direction.ASCENDING)
+        var query = collection.whereArrayContains("students_id", "qxCjRDWLeUPd5EpztIq5pM43LlD2")
         val recyclerOptions =
             FirestoreRecyclerOptions.Builder<MyClass>().setQuery(query, MyClass::class.java).build()
         adapter = MyClassAdapter(recyclerOptions, USER_TYPE)
         binding.recyclerview.adapter = adapter
-        binding.recyclerview.layoutManager = LinearLayoutManager(view?.context)
+        binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
         adapter.startListening()
+
     }
-
-    override fun onStart() {
-        super.onStart()
-        adapter.startListening()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        adapter.stopListening()
-    }
-
-
-
 
 
     private fun navigateToGetStarted() {
@@ -153,10 +140,20 @@ class StudentFragment : Fragment() {
         requireView().findNavController().navigate(action)
     }
 
-    private fun navigateToDetailsFragment(){
+    private fun navigateToDetailsFragment() {
         val action = StudentFragmentDirections.actionStudentFragmentToDetailsFragment()
         requireView().findNavController().navigate(action)
     }
 
+
+    override fun onStart() {
+        super.onStart()
+        adapter.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        adapter.stopListening()
+    }
 
 }

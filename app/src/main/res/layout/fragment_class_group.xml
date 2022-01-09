@@ -7,7 +7,11 @@
     android:background="#f5f5f5"
     tools:context=".screens.Teachers.ClassGroupFragment">
 
-
+    <ScrollView
+        android:layout_marginTop="0dp"
+        android:paddingBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -144,4 +148,5 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="20dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </FrameLayout>
