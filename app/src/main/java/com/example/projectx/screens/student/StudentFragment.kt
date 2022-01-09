@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,8 +52,7 @@ class StudentFragment : Fragment() {
             }
 
             binding.joinMeet.setOnClickListener {
-                navigateToMeetingHome()
-
+                Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
             }
 
             binding.assignmentButton.setOnClickListener {
@@ -65,7 +65,6 @@ class StudentFragment : Fragment() {
             }
 
         }
-
 
         return view
     }
@@ -133,10 +132,6 @@ class StudentFragment : Fragment() {
         requireView().findNavController().navigate(action)
     }
 
-    private fun navigateToMeetingHome() {
-        val action = StudentFragmentDirections.actionStudentFragmentToMeetingHome()
-        requireView().findNavController().navigate(action)
-    }
 
     private fun navigateToDetailsFragment() {
         val action = StudentFragmentDirections.actionStudentFragmentToDetailsFragment()

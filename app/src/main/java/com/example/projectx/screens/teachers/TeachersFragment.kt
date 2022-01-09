@@ -67,8 +67,13 @@ class TeachersFragment : Fragment() {
             }
         }
         binding.createMeet.setOnClickListener {
-            val action = TeachersFragmentDirections.actionTeachersFragmentToMeetingHome()
-            requireView().findNavController().navigate(action)
+            Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
+
+        }
+
+        binding.joinMeet.setOnClickListener {
+            Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
+
         }
 
         binding.apply {
@@ -141,7 +146,7 @@ class TeachersFragment : Fragment() {
                 R.id.create_newClass ->
                     openDialog(view)
                 R.id.create_meet ->
-                    addTaskCalendarDialog()
+                        Toast.makeText(requireContext(), "Will be implemented soon...", Toast.LENGTH_SHORT).show()
                 R.id.create_timeTable ->
                     findNavController().navigate(R.id.homeNotesFragment)
 
@@ -207,9 +212,6 @@ class TeachersFragment : Fragment() {
 
     }
 
-    private fun addTaskCalendarDialog() {
-        Toast.makeText(requireContext(), "This Feature will be coming soon...", Toast.LENGTH_LONG).show()
-    }
 
     override fun onStart() {
         super.onStart()

@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,13 +46,16 @@ class ClassGroupFragment : Fragment() {
         userType = requireArguments().getInt("user_type")
         when (userType) {
             0 -> {
-                binding.classOptions.visibility = View.GONE
+                binding.classOptions.visibility = View.VISIBLE
+                addClassOptionsforStudents(classId)
             }
             1 -> {
                 binding.classOptions.visibility = View.VISIBLE
                 addOptions(classId)
             }
         }
+
+
 
 
         TopDao().dbRef().collection("classes")
@@ -77,6 +79,43 @@ class ClassGroupFragment : Fragment() {
         }
 
 
+    }
+
+    private fun  addClassOptionsforStudents(classId: String){
+        binding.apply {
+            classOptions.layoutManager =
+                LinearLayoutManager(
+                    requireView().context,
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+                )
+            val data = ArrayList<ClassOptions>()
+
+            data.add(
+                ClassOptions(
+                    label = "Assignments",
+                    imageView = R.drawable.assignment
+                )
+            )
+
+            data.add(
+                ClassOptions(
+                    label = "Share Files",
+                    imageView = R.drawable.share_file_icon
+                )
+            )
+
+            data.add(
+                ClassOptions(
+                    label = "Create meet link",
+                    imageView = R.drawable.create_meetlink_icon
+                )
+            )
+
+
+            val adapter = ClassOptionsAdapter(classId, data, 0)
+            classOptions.adapter = adapter
+        }
     }
 
     private fun popUpMenuClassGroup(view: View, classId: String) {
@@ -149,25 +188,37 @@ class ClassGroupFragment : Fragment() {
                     false
                 )
             val data = ArrayList<ClassOptions>()
-            data.add(
-                ClassOptions(
-                    label = "Create meet link",
-                    imageView = R.drawable.create_meetlink_icon
-                )
-            )
+
             data.add(
                 ClassOptions(
                     label = "Invite Students",
                     imageView = R.drawable.invite_student_icon
                 )
             )
+
+            data.add(
+                ClassOptions(
+                    label = "Assignments",
+                    imageView = R.drawable.assignment
+                )
+            )
+
             data.add(
                 ClassOptions(
                     label = "Share Files",
                     imageView = R.drawable.share_file_icon
                 )
             )
-            val adapter = ClassOptionsAdapter(classId, data)
+
+            data.add(
+                ClassOptions(
+                    label = "Create meet link",
+                    imageView = R.drawable.create_meetlink_icon
+                )
+            )
+
+
+            val adapter = ClassOptionsAdapter(classId, data, 1)
             classOptions.adapter = adapter
         }
     }

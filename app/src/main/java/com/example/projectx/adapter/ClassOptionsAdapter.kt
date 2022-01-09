@@ -11,13 +11,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectx.R
 import com.example.projectx.models.ClassOptions
 
 class ClassOptionsAdapter(
     private val class_id: String,
-    private val optionsList: List<ClassOptions>
+    private val optionsList: List<ClassOptions>,
+    private val role: Int
 ) : RecyclerView.Adapter<ClassOptionsAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val label: TextView = itemView.findViewById(R.id.c_option_label)
@@ -34,22 +36,64 @@ class ClassOptionsAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val current = optionsList[position]
-        when (position) {
-            0 -> {
-                holder.classOptionItem.setBackgroundResource(R.drawable.round_filledblue)
-                holder.label.setTextColor(Color.parseColor("#B2C2FF"))
-                holder.classOptionItem.cardElevation = 12F
+
+        if(role == 0){
+            when (position) {
+                2 -> {
+                    holder.classOptionItem.setBackgroundResource(R.drawable.round_filledblue)
+                    holder.label.setTextColor(Color.parseColor("#B2C2FF"))
+                    holder.classOptionItem.cardElevation = 12F
+                    holder.classOptionItem.setOnClickListener{
+                        Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                1 -> {
+                    holder.classOptionItem.setOnClickListener{
+                        Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                0 -> {
+                    holder.classOptionItem.setOnClickListener {
+                        Navigation.findNavController(it).navigate(R.id.studentAssignment)
+                    }
+                }
             }
-            1 -> {
-                holder.classOptionItem.setOnClickListener {
-                    val clipboard: ClipboardManager =
-                        it.context.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-                    val clip = ClipData.newPlainText("class_id", class_id)
-                    clipboard.setPrimaryClip(clip)
-                    Toast.makeText(it.context, "Copied Class Id", Toast.LENGTH_SHORT).show()
+        }else if(role == 1){
+            when (position) {
+                2 -> {
+                    holder.classOptionItem.setBackgroundResource(R.drawable.round_filledblue)
+                    holder.label.setTextColor(Color.parseColor("#B2C2FF"))
+                    holder.classOptionItem.cardElevation = 12F
+                    holder.classOptionItem.setOnClickListener{
+                        Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                0 -> {
+                    holder.classOptionItem.setOnClickListener {
+                        val clipboard: ClipboardManager =
+                            it.context.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+                        val clip = ClipData.newPlainText("class_id", class_id)
+                        clipboard.setPrimaryClip(clip)
+                        Toast.makeText(it.context, "Copied Class Id", Toast.LENGTH_SHORT).show()
+                    }
+
+                }
+
+                3 -> {
+                    holder.classOptionItem.setOnClickListener{
+                        Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                1 -> {
+                    holder.classOptionItem.setOnClickListener {
+                        Navigation.findNavController(it).navigate(R.id.teacherAssignmentFragment)
+                    }
                 }
             }
         }
+
 
         holder.label.text = current.label
         holder.icon.setImageResource(current.imageView)
