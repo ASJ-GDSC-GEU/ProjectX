@@ -26,8 +26,6 @@ import kotlinx.coroutines.launch
 class ClassGroupFragment : Fragment() {
     private var _binding: FragmentClassGroupBinding? = null
     private val binding get() = _binding!!
-    private var class_obj: MyClass? = null
-    lateinit var result: MyClass
     private lateinit var adapter: StudentItemAdapter
     private var studentArray = ArrayList<StudentItem>()
 
@@ -75,6 +73,9 @@ class ClassGroupFragment : Fragment() {
                     if(array.size >0){
                         setRecyclerView(array)
                     }
+                    else{
+                        binding.progressBar2.visibility = View.GONE
+                    }
                 }
 
         }
@@ -95,6 +96,8 @@ class ClassGroupFragment : Fragment() {
                     studentArray.add(studentItem)
                 }
                 adapter = StudentItemAdapter(studentArray, requireView().context)
+                binding.progressBar2.visibility = View.GONE
+                binding.recyclerViewStudents.visibility = View.VISIBLE
                 binding.recyclerViewStudents.adapter = adapter
                 binding.recyclerViewStudents.layoutManager = LinearLayoutManager(view?.context)
             }

@@ -15,10 +15,12 @@
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/assignment_item.xml" value="0.2717391304347826" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/dropdown_item.xml" value="0.1829861111111111" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.14241803278688525" />
+        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_class_group.xml" value="0.4" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_details.xml" value="0.14241803278688525" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_edit_notes.xml" value="0.27447916666666666" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/fragment_teachers.xml" value="0.264" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/myclass_item.xml" value="0.4" />
+        <entry key="..\:/App_Projects/ProjectX/app/src/main/res/layout/students_item.xml" value="0.1334853090172239" />
         <entry key="..\:/App_Projects/ProjectX/app/src/main/res/menu/create_fabmenu.xml" value="0.6" />
         <entry key="app/src/main/res/drawable/assignment.xml" value="0.20185185185185187" />
         <entry key="app/src/main/res/drawable/background_circle.xml" value="0.2222222222222222" />

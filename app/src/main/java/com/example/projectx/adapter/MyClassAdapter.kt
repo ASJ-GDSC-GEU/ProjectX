@@ -34,6 +34,7 @@ class MyClassAdapter(
         val user2: ImageView = itemView.findViewById(R.id.user2)
         val user3: ImageView = itemView.findViewById(R.id.user3)
         val classitem: ConstraintLayout = itemView.findViewById(R.id.class_groupBtn)
+        val student_names: TextView = itemView.findViewById(R.id.stu)
 
 
     }
@@ -46,30 +47,45 @@ class MyClassAdapter(
 
 
     override fun onBindViewHolder(holder: ClassViewHolder, position: Int, model: MyClass) {
-        var array = ArrayList<String>()
+        var array = ArrayList<List<String>>()
         holder.courselabel.text = "${model.course}  Sem-${model.semester}"
         holder.subjectlabel.text = "${model.subject} : Sec-${model.section}"
         if (model.students_id.size > 0) {
             TopDao().dbRef().collection("student")
-                .whereIn("uid", model.students_id).limit(3)
+                .whereIn("uid", model.students_id).limit(8)
                 .get()
                 .addOnSuccessListener { documents ->
                     for (document in documents) {
-                        array.add(document.get("imageUrl").toString())
+                        array.add(
+                            listOf(
+                                document.get("name").toString(),
+                                document.get("imageUrl").toString()
+                            )
+                        )
                     }
+
+                    //adding student names in class item
+                    var namesArray = ArrayList<String>()
+                    for (i in array) {
+                        namesArray.add(i[0])
+                    }
+                    holder.student_names.text = namesArray.toString()
+                        .replace("[", "").replace("]", "").trim()
+
+
 
                     when (model.students_id.size) {
                         1 -> {
-                            Glide.with(context).load(array[0]).error(R.drawable.user_error)
+                            Glide.with(context).load(array[0][1]).error(R.drawable.user_error)
                                 .circleCrop().into(holder.user1)
                             holder.user2.visibility = View.GONE
                             holder.user3.visibility = View.GONE
                             holder.total_show.visibility = View.GONE
                         }
                         2 -> {
-                            Glide.with(context).load(array[0]).error(R.drawable.user_error)
+                            Glide.with(context).load(array[0][1]).error(R.drawable.user_error)
                                 .circleCrop().into(holder.user1)
-                            Glide.with(context).load(array[1]).error(R.drawable.user_error)
+                            Glide.with(context).load(array[1][1]).error(R.drawable.user_error)
                                 .circleCrop().into(holder.user2)
                             holder.user3.visibility = View.GONE
                             holder.total_show.visibility = View.GONE
@@ -77,27 +93,32 @@ class MyClassAdapter(
 
                         }
                         3 -> {
-                            Glide.with(context).load(array[0]).error(R.drawable.user_error)
+                            Glide.with(context).load(array[0][1]).error(R.drawable.user_error)
                                 .circleCrop().into(holder.user1)
-                            Glide.with(context).load(array[1]).error(R.drawable.user_error)
+                            Glide.with(context).load(array[1][1]).error(R.drawable.user_error)
                                 .circleCrop().into(holder.user2)
-                            Glide.with(context).load(array[2]).error(R.drawable.user_error)
+                            Glide.with(context).load(array[2][1]).error(R.drawable.user_error)
                                 .circleCrop().into(holder.user3)
                             holder.total_all.visibility = View.GONE
                         }
                         else -> {
-                            Glide.with(context).load(array[0]).error(R.drawable.user_error)
+                            Glide.with(context).load(array[0][1]).error(R.drawable.user_error)
                                 .circleCrop().into(holder.user1)
-                            Glide.with(context).load(array[1]).error(R.drawable.user_error)
+                            Glide.with(context).load(array[1][1]).error(R.drawable.user_error)
                                 .circleCrop().into(holder.user2)
-                            Glide.with(context).load(array[2]).error(R.drawable.user_error)
+                            Glide.with(context).load(array[2][1]).error(R.drawable.user_error)
                                 .circleCrop().into(holder.user3)
-                            holder.total_all.text = "+" + documents.size().toString()
+                            holder.total_all.text = "+" + (documents.size() - 3).toString()
+
 
                         }
                     }
 
                 }
+        }
+        else if (model.students_id.isEmpty()){
+            holder.student_names.text = "Click to Invite Students"
+            holder.total_all.text = "+0"
         }
         holder.classitem.setOnClickListener {
             var snapshot: String = snapshots.getSnapshot(position).id
