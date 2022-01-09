@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/teachersFragment"
-        android:name="com.example.projectx.screens.Teachers.TeachersFragment"
+        android:name="com.example.projectx.screens.teachers.TeachersFragment"
         android:label="fragment_teachers"
         tools:layout="@layout/fragment_teachers" >
         <action
@@ -77,7 +77,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeNotesFragment"
-        android:name="com.example.projectx.screens.Notes.HomeNotesFragment"
+        android:name="com.example.projectx.screens.notes.HomeNotesFragment"
         android:label="Notes"
         tools:layout="@layout/fragment_home_notes" >
         <action
@@ -89,7 +89,7 @@
     </fragment>
     <fragment
         android:id="@+id/createNoteFragment"
-        android:name="com.example.projectx.screens.Notes.CreateNoteFragment"
+        android:name="com.example.projectx.screens.notes.CreateNoteFragment"
         android:label="Create Note"
         tools:layout="@layout/fragment_create_note" >
         <action
@@ -98,7 +98,7 @@
     </fragment>
     <fragment
         android:id="@+id/editNotesFragment"
-        android:name="com.example.projectx.screens.Notes.EditNotesFragment"
+        android:name="com.example.projectx.screens.notes.EditNotesFragment"
         android:label="Edit Note"
         tools:layout="@layout/fragment_edit_notes" >
         <action
@@ -115,12 +115,12 @@
         tools:layout="@layout/fragment_bottom_sheet" />
     <activity
         android:id="@+id/meetingHome"
-        android:name="com.example.projectx.screens.LectureHall.MeetingHome"
+        android:name="com.example.projectx.screens.lecturehall.MeetingHome"
         android:label="activity_meeting_home"
         tools:layout="@layout/activity_meeting_home" />
     <fragment
         android:id="@+id/studentFragment"
-        android:name="com.example.projectx.screens.Student.StudentFragment"
+        android:name="com.example.projectx.screens.student.StudentFragment"
         android:label="fragment_student"
         tools:layout="@layout/fragment_student" >
         <action
@@ -157,7 +157,7 @@
     </fragment>
     <fragment
         android:id="@+id/studentAssignment"
-        android:name="com.example.projectx.screens.Student.StudentAssignment"
+        android:name="com.example.projectx.screens.student.StudentAssignment"
         android:label="fragment_student_assignment"
         tools:layout="@layout/fragment_student_assignment" >
         <action
@@ -166,7 +166,7 @@
     </fragment>
     <fragment
         android:id="@+id/teacherAssignmentFragment"
-        android:name="com.example.projectx.screens.Teachers.TeacherAssignmentFragment"
+        android:name="com.example.projectx.screens.teachers.TeacherAssignmentFragment"
         android:label="fragment_teacher_assignment"
         tools:layout="@layout/fragment_teacher_assignment" >
         <action
@@ -192,12 +192,19 @@
     </fragment>
     <fragment
         android:id="@+id/classGroupFragment"
-        android:name="com.example.projectx.screens.Teachers.ClassGroupFragment"
+        android:name="com.example.projectx.screens.ClassGroupFragment"
         android:label="fragment_class_group"
-        tools:layout="@layout/fragment_class_group" />
+        tools:layout="@layout/fragment_class_group" >
+        <action
+            android:id="@+id/action_classGroupFragment_to_studentFragment"
+            app:destination="@id/studentFragment" />
+        <action
+            android:id="@+id/action_classGroupFragment_to_teachersFragment"
+            app:destination="@id/teachersFragment" />
+    </fragment>
     <fragment
         android:id="@+id/joinClassFragment"
-        android:name="com.example.projectx.screens.Student.JoinClassFragment"
+        android:name="com.example.projectx.screens.student.JoinClassFragment"
         android:label="fragment_join_class"
         tools:layout="@layout/fragment_join_class" >
         <action

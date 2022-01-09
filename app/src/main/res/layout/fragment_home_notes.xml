@@ -1,90 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#f5f5f5"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".screens.Notes.HomeNotesFragment">
+    tools:context=".screens.notes.HomeNotesFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_margin="8dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:gravity="center_vertical"
             android:id="@+id/linearLayoutfilter"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/googlesans_medium"
                 android:text="Filter: "
-                />
+                android:textColor="@color/darkMainColor"
+                android:textSize="14sp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:id="@+id/ivAllNotesPriority"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/filter_list"
                 android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:background="@drawable/filter_list">
+                android:paddingEnd="20dp">
 
             </ImageView>
 
             <TextView
+                android:id="@+id/tvHighPriority"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/priority_bg"
+                android:fontFamily="@font/googlesans_regular"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
                 android:text="High"
                 android:textColor="@color/red"
-                android:textSize="18sp"
-                android:background="@drawable/priority_bg"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:paddingTop="10dp"
-                android:layout_margin="5dp"
-                android:paddingBottom="10dp"
-                android:id="@+id/tvHighPriority"
-                ></TextView>
+                android:textSize="18sp"/>
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Medium"
-                android:layout_margin="5dp"
-                android:textColor="#FFC800"
-                android:textSize="18sp"
-                android:background="@drawable/priority_bg"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
                 android:id="@+id/tvMediumPriority"
-                ></TextView>
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Low"
                 android:layout_margin="5dp"
-                android:textColor="@color/teal_200"
-                android:textSize="18sp"
                 android:background="@drawable/priority_bg"
+                android:fontFamily="@font/googlesans_regular"
                 android:paddingStart="20dp"
-                android:paddingEnd="20dp"
                 android:paddingTop="10dp"
+                android:paddingEnd="20dp"
                 android:paddingBottom="10dp"
+                android:text="Medium"
+                android:textColor="#FFC800"
+                android:textSize="18sp"/>
+
+            <TextView
                 android:id="@+id/tvLowPriority"
-                ></TextView>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/priority_bg"
+                android:fontFamily="@font/googlesans_regular"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="10dp"
+                android:text="Low"
+                android:textColor="@color/teal_200"
+                android:textSize="18sp"/>
 
         </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNotes"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/linearLayoutfilter"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:id="@+id/rvNotes"
+            app:layout_constraintTop_toBottomOf="@id/linearLayoutfilter"
 
             />
 

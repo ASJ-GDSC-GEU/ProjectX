@@ -1,5 +1,6 @@
 package com.example.projectx.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -28,10 +29,11 @@ class StudentItemAdapter(
         return StudentItemViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: StudentItemViewHolder, position: Int) {
-        var model = dataList[position]
+        val model = dataList[position]
         holder.studentName.text = model.name
-        holder.studentDescription.text = model.description
+        holder.studentDescription.text = "Hey there I am using Grovico"
         Glide.with(context).load(model.imageUrl).circleCrop().error(R.drawable.user_error)
             .into(holder.studentImage)
     }

@@ -1,4 +1,4 @@
-package com.example.projectx.screens.Student
+package com.example.projectx.screens.student
 
 import android.os.Bundle
 import android.view.Gravity
@@ -27,21 +27,16 @@ class StudentFragment : Fragment() {
     private var _binding: FragmentStudentBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: MyClassAdapter
-    private val USER_TYPE: Int = 0 // 0 for student and 1 for Teacher
+    private val userType: Int = 0 // 0 for student and 1 for Teacher
     private lateinit var teacherDao : TeacherDao
     private lateinit var topDao : TopDao
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentStudentBinding.inflate(inflater, container, false)
-        val view = binding!!.root
+        val view = binding.root
         topDao = TopDao()
 
         binding.apply {
@@ -52,7 +47,7 @@ class StudentFragment : Fragment() {
                 .into(userLogo)
             setUpRecyclerView()
             userLogo.setOnClickListener {
-                popUpMenuSetting(view)
+                popUpMenuSetting()
             }
 
             binding.joinMeet.setOnClickListener {
@@ -76,11 +71,11 @@ class StudentFragment : Fragment() {
     }
 
 
-    private fun popUpMenuSetting(view: View) {
-        val popupMenu: PopupMenu =
+    private fun popUpMenuSetting() {
+        val popupMenu =
             PopupMenu(context, binding.userLogo, Gravity.END, 0, R.style.MyPopupMenu)
         popupMenu.menuInflater.inflate(R.menu.mini_setting_menu, popupMenu.menu)
-        popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
+        popupMenu.setOnMenuItemClickListener{ item ->
             when (item.itemId) {
                 R.id.logout ->
                     logoutUser()
@@ -92,7 +87,7 @@ class StudentFragment : Fragment() {
 
             }
             true
-        })
+        }
         popupMenu.show()
     }
 
@@ -105,12 +100,12 @@ class StudentFragment : Fragment() {
 
 
     private fun setUpRecyclerView() {
-        var collection = MyClassDao().getClassCollection()
-        var user_id = TopDao().userId()
-        var query = collection.whereArrayContains("students_id", "qxCjRDWLeUPd5EpztIq5pM43LlD2")
+        val collection = MyClassDao().getClassCollection()
+        val userId = TopDao().userId()
+        val query = collection.whereArrayContains("students_id", userId)
         val recyclerOptions =
             FirestoreRecyclerOptions.Builder<MyClass>().setQuery(query, MyClass::class.java).build()
-        adapter = MyClassAdapter(recyclerOptions, USER_TYPE)
+        adapter = MyClassAdapter(recyclerOptions, userType, requireContext())
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
         adapter.startListening()
@@ -152,18 +147,17 @@ class StudentFragment : Fragment() {
         binding.mainCons.visibility = View.INVISIBLE
         binding.loaderCons.visibility = View.VISIBLE
         teacherDao = TeacherDao()
-                    val snapshot2 =
-                        teacherDao.getTeacherById(topDao.userId())
-                            .addOnCompleteListener {
-                                var teacherResult = it.result.exists()
-                                if (!teacherResult) {
-                                        navigateToDetailsFragment()
-                                } else {
-                                    val action =
-                                        StudentFragmentDirections.actionStudentFragmentToTeachersFragment()
-                                    requireView().findNavController().navigate(action)
-                                }
-                            }
+        teacherDao.getTeacherById(topDao.userId())
+            .addOnCompleteListener {
+                val teacherResult = it.result.exists()
+                if (!teacherResult) {
+                        navigateToDetailsFragment()
+                } else {
+                    val action =
+                        StudentFragmentDirections.actionStudentFragmentToTeachersFragment()
+                    requireView().findNavController().navigate(action)
+                }
+            }
 
 
     }
