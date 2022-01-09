@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f5f5f5"
-    tools:context=".screens.teachers.ClassGroupFragment">
+    tools:context=".screens.ClassGroupFragment">
 
     <ScrollView
         android:layout_marginTop="0dp"
@@ -29,7 +29,7 @@
             android:text=""
             android:textColor="@color/darkMainColor"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView8"
+            app:layout_constraintEnd_toStartOf="@+id/settings"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline8" />
@@ -47,7 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/course_name" />
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"

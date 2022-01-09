@@ -1,11 +1,15 @@
-package com.example.projectx.screens.teachers
+package com.example.projectx.screens
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projectx.R
 import com.example.projectx.adapter.ClassOptionsAdapter
@@ -15,6 +19,7 @@ import com.example.projectx.databinding.FragmentClassGroupBinding
 import com.example.projectx.models.ClassOptions
 import com.example.projectx.models.MyClass
 import com.example.projectx.models.StudentItem
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.toObject
 
 
@@ -23,6 +28,7 @@ class ClassGroupFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var adapter: StudentItemAdapter
     private var studentArray = ArrayList<StudentItem>()
+    private var userType: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +44,8 @@ class ClassGroupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val classId: String = arguments?.getString("test").toString()
-        when (arguments?.getInt("user_type")!!.toInt()) {
+        userType = requireArguments().getInt("user_type")
+        when (userType) {
             0 -> {
                 binding.classOptions.visibility = View.GONE
             }
@@ -47,6 +54,7 @@ class ClassGroupFragment : Fragment() {
                 addOptions(classId)
             }
         }
+
 
         TopDao().dbRef().collection("classes")
             .document(classId)
@@ -64,7 +72,50 @@ class ClassGroupFragment : Fragment() {
                 }
             }
 
+        binding.settings.setOnClickListener {
+            popUpMenuClassGroup(view, classId)
+        }
 
+
+    }
+
+    private fun popUpMenuClassGroup(view: View, classId: String) {
+        val userId = TopDao().userId()
+        val popupMenu: PopupMenu =
+            PopupMenu(context, binding.settings, Gravity.END, 0, R.style.MyPopupMenu)
+        popupMenu.menuInflater.inflate(R.menu.class_group_menu, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.exit_group ->
+                    TopDao().dbRef().collection("classes").document(classId)
+                        .update("students_id", FieldValue.arrayRemove(userId))
+                        .addOnCompleteListener {
+                            when (userType) {
+                                0 -> {
+                                   navigateToStudent()
+                                }
+                                1 -> {
+                                    navigateToTeacher()
+                                }
+                            }
+                        }
+
+            }
+            true
+        })
+        popupMenu.show()
+    }
+
+    private fun navigateToTeacher() {
+        val action =
+            ClassGroupFragmentDirections.actionClassGroupFragmentToTeachersFragment()
+        requireView().findNavController().navigate(action)
+    }
+
+    private fun navigateToStudent() {
+        val action =
+            ClassGroupFragmentDirections.actionClassGroupFragmentToStudentFragment()
+        requireView().findNavController().navigate(action)
     }
 
     private fun setRecyclerView(array: List<String>) {

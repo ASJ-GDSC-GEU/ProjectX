@@ -192,9 +192,16 @@
     </fragment>
     <fragment
         android:id="@+id/classGroupFragment"
-        android:name="com.example.projectx.screens.teachers.ClassGroupFragment"
+        android:name="com.example.projectx.screens.ClassGroupFragment"
         android:label="fragment_class_group"
-        tools:layout="@layout/fragment_class_group" />
+        tools:layout="@layout/fragment_class_group" >
+        <action
+            android:id="@+id/action_classGroupFragment_to_studentFragment"
+            app:destination="@id/studentFragment" />
+        <action
+            android:id="@+id/action_classGroupFragment_to_teachersFragment"
+            app:destination="@id/teachersFragment" />
+    </fragment>
     <fragment
         android:id="@+id/joinClassFragment"
         android:name="com.example.projectx.screens.student.JoinClassFragment"
