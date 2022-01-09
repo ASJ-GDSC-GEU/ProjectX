@@ -1,6 +1,7 @@
 
 package com.example.projectx.adapter
 
+import android.R.attr
 import android.graphics.Color
 import android.text.Layout
 import android.view.LayoutInflater
@@ -12,8 +13,21 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectx.R
 import com.example.projectx.models.ClassOptions
+import android.R.attr.label
 
-class ClassOptionsAdapter(private val optionsList : List<ClassOptions>) : RecyclerView.Adapter<ClassOptionsAdapter.ViewHolder>() {
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.content.Context.CLIPBOARD_SERVICE
+import androidx.core.content.ContextCompat
+
+import androidx.core.content.ContextCompat.getSystemService
+import android.content.Context.CLIPBOARD_SERVICE
+import android.widget.Toast
+
+import androidx.core.content.ContextCompat.getSystemService
+
+class ClassOptionsAdapter(private val class_id : String , private val optionsList : List<ClassOptions>, private val context: Context) : RecyclerView.Adapter<ClassOptionsAdapter.ViewHolder>() {
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         val label : TextView = itemView.findViewById(R.id.c_option_label)
         val icon : ImageView = itemView.findViewById(R.id.c_option_icon)
@@ -33,6 +47,14 @@ class ClassOptionsAdapter(private val optionsList : List<ClassOptions>) : Recycl
                 holder.classOptionItem.setBackgroundResource(R.drawable.round_filledblue)
                 holder.label.setTextColor(Color.parseColor("#B2C2FF"))
                 holder.classOptionItem.cardElevation = 12F
+            }
+            1 -> {
+                holder.classOptionItem.setOnClickListener {
+                    val clipboard : ClipboardManager = it.context.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+                    val clip = ClipData.newPlainText("class_id", class_id)
+                    clipboard!!.setPrimaryClip(clip)
+                    Toast.makeText(it.context, "Copied Class Id", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

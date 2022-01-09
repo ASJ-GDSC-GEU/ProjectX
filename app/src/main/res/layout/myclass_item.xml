@@ -54,54 +54,52 @@
         app:layout_constraintTop_toBottomOf="@+id/students_label">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/user1"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
             android:layout_weight="1"
             android:src="@drawable/sample" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/user2"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginStart="-15dp"
             android:layout_weight="1"
             android:src="@drawable/sample" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/user3"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginStart="-15dp"
             android:layout_weight="1"
             android:src="@drawable/sample" />
 
         <androidx.cardview.widget.CardView
             app:cardElevation="0dp"
             app:cardCornerRadius="50dp"
-            android:id="@+id/imageView7"
+            android:id="@+id/total_show"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="-15dp"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
+                android:id="@+id/total_all"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="#f2f2f4"
-                android:textSize="12sp"
-                android:textColor="@color/darkMainColor"
                 android:foregroundGravity="center_horizontal"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="+43" />
+                android:text="+43"
+                android:textColor="@color/darkMainColor"
+                android:textSize="12sp" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

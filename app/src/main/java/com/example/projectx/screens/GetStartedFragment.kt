@@ -55,7 +55,7 @@ class GetStartedFragment : Fragment() {
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(this.requireContext(), gso)
-
+        googleSignInClient.revokeAccess()
         auth = Firebase.auth
         studentDao = StudentDao()
         teacherDao = TeacherDao()

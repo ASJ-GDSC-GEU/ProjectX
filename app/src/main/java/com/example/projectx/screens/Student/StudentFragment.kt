@@ -110,7 +110,7 @@ class StudentFragment : Fragment() {
         var query = collection.whereArrayContains("students_id", "qxCjRDWLeUPd5EpztIq5pM43LlD2")
         val recyclerOptions =
             FirestoreRecyclerOptions.Builder<MyClass>().setQuery(query, MyClass::class.java).build()
-        adapter = MyClassAdapter(recyclerOptions, USER_TYPE)
+        adapter = MyClassAdapter(recyclerOptions, USER_TYPE, requireContext())
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
         adapter.startListening()

@@ -57,7 +57,7 @@ class ClassGroupFragment : Fragment() {
             }
             1 -> {
                 binding.classOptions.visibility = View.VISIBLE
-                addOptions()
+                addOptions(class_id)
             }
         }
         val db = FirebaseFirestore.getInstance()
@@ -72,8 +72,9 @@ class ClassGroupFragment : Fragment() {
                     binding.studentCount.text = array.size.toString() + " Students"
                     binding.courseName.text = data.subject
                     binding.courseSem.text = "${data!!.course} Sem-${data.semester}"
-                    Toast.makeText(view.context, "$array", Toast.LENGTH_SHORT).show()
-                    setRecyclerView(array)
+                    if(array.size >0){
+                        setRecyclerView(array)
+                    }
                 }
 
         }
@@ -100,7 +101,7 @@ class ClassGroupFragment : Fragment() {
     }
 
 
-    private fun addOptions() {
+    private fun addOptions(class_id : String) {
         binding.apply {
             classOptions.layoutManager =
                 LinearLayoutManager(
@@ -127,7 +128,7 @@ class ClassGroupFragment : Fragment() {
                     imageView = R.drawable.share_file_icon
                 )
             )
-            val adapter = ClassOptionsAdapter(data)
+            val adapter = ClassOptionsAdapter(class_id, data, requireActivity().applicationContext)
             classOptions.adapter = adapter
         }
     }

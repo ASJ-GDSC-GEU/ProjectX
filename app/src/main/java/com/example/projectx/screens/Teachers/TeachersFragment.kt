@@ -126,7 +126,7 @@ class TeachersFragment : Fragment() {
         var collection = MyClassDao().getClassCollection()
         var query = collection.whereEqualTo("creator_id", TopDao().userId()).orderBy("semester", Query.Direction.ASCENDING)
         val recyclerOptions = FirestoreRecyclerOptions.Builder<MyClass>().setQuery(query, MyClass::class.java).build()
-        adapter = MyClassAdapter(recyclerOptions, USER_TYPE)
+        adapter = MyClassAdapter(recyclerOptions, USER_TYPE, requireContext())
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(view?.context)
         adapter.startListening()
