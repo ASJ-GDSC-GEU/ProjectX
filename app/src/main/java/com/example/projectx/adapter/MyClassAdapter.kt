@@ -101,7 +101,7 @@ class MyClassAdapter(
                                 .circleCrop().into(holder.user2)
                             Glide.with(context).load(array[2][1]).error(R.drawable.user_error)
                                 .circleCrop().into(holder.user3)
-                            holder.totalAll.visibility = View.GONE
+                            holder.totalShow.visibility = View.GONE
                         }
                         else -> {
                             Glide.with(context).load(array[0][1]).error(R.drawable.user_error)

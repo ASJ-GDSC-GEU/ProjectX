@@ -4,24 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f7f7f7"
+    android:background="@drawable/coloured_bg"
     tools:context=".screens.student.StudentFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/loaderCons"
+        android:id="@+id/loader_cons"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/join_meet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -34,9 +37,11 @@
             android:id="@+id/toolbar2"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:background="?attr/colorPrimary"
+            android:layout_marginTop="10dp"
             android:elevation="16dp"
+            android:navigationIcon="@drawable/hamburger_icon"
             android:outlineSpotShadowColor="#907B8B97"
+            android:paddingStart="5dp"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,18 +52,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/app_namelabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/googlesans_medium"
-                    android:text="Grovico"
-                    android:textColor="@color/darkMainColor"
-                    android:textSize="24sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <ImageView
                     android:id="@+id/user_logo"
                     android:layout_width="36dp"
@@ -66,6 +59,7 @@
                     android:layout_marginEnd="20dp"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
+                    android:src="@drawable/toolbar_menu_icon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -112,7 +106,7 @@
                         android:background="@drawable/filled_round_btn"
                         android:backgroundTint="#f2f2f4"
                         android:drawableLeft="@drawable/assignment"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/googlesans_medium"
                         android:paddingStart="12dp"
                         android:text="Assignments"
                         android:textAllCaps="false"
@@ -128,7 +122,7 @@
                         android:background="@drawable/filled_round_btn"
                         android:backgroundTint="#f2f2f4"
                         android:drawableLeft="@drawable/notes_vector"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/googlesans_medium"
                         android:paddingStart="12dp"
                         android:text="Your Notes"
                         android:textAllCaps="false"
@@ -148,8 +142,8 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/roboto"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/googlesans_medium"
             android:text="Your classes"
             android:textColor="@color/darkMainColor"
             android:textSize="24sp"
@@ -171,13 +165,14 @@
                 android:layout_height="wrap_content" />
         </ScrollView>
 
+
         <LinearLayout
             android:id="@+id/join_meet"
             android:layout_width="match_parent"
             android:layout_height="46dp"
+            android:layout_margin="20dp"
             android:background="@drawable/filled_round_btn"
             android:clickable="false"
-            android:layout_margin="20dp"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"

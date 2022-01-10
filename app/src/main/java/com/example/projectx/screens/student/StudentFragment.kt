@@ -51,19 +51,22 @@ class StudentFragment : Fragment() {
                 popUpMenuSetting()
             }
 
-            binding.joinMeet.setOnClickListener {
+            joinMeet.setOnClickListener {
                 Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
             }
 
-            binding.assignmentButton.setOnClickListener {
+            assignmentButton.setOnClickListener {
                 navigateToStuAssignment()
 
             }
 
-            binding.notesButton.setOnClickListener {
+            notesButton.setOnClickListener {
                 navigateToStuNotes()
             }
 
+            toolbar2.setNavigationOnClickListener {
+                Toast.makeText(view.context, "Will be Implemented Soon ...", Toast.LENGTH_SHORT).show()
+            }
         }
 
         return view
@@ -94,9 +97,6 @@ class StudentFragment : Fragment() {
         Firebase.auth.signOut()
             navigateToGetStarted()
     }
-
-
-
 
     private fun setUpRecyclerView() {
         val collection = MyClassDao().getClassCollection()

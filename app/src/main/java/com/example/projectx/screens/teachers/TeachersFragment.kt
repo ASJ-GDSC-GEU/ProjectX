@@ -37,13 +37,8 @@ class TeachersFragment : Fragment() {
     private val USER_TYPE: Int = 1 //1 for Teacher
     private lateinit var myClassDao: MyClassDao
     val db = FirebaseFirestore.getInstance()
-    private lateinit var studentDao : StudentDao
-    private lateinit var topDao : TopDao
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+    private lateinit var studentDao: StudentDao
+    private lateinit var topDao: TopDao
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,39 +56,34 @@ class TeachersFragment : Fragment() {
             val userImage = TopDao().currentUser().photoUrl
             Glide.with(view.context).load(userImage).circleCrop().error(R.drawable.user_error)
                 .into(userLogo)
-
+            setUpRecyclerView()
             userLogo.setOnClickListener {
                 popUpMenuSetting(view)
             }
-        }
-        binding.createMeet.setOnClickListener {
-            Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
+            createMeet.setOnClickListener {
+                Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
 
+            }
+
+            joinMeet.setOnClickListener {
+                Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
+
+            }
+            create.setOnClickListener {
+                popUpMenu(view)
+            }
+
+            toolbar2.setNavigationOnClickListener {
+                Toast.makeText(view.context, "Will be Implemented Soon ...", Toast.LENGTH_SHORT).show()
+            }
         }
 
-        binding.joinMeet.setOnClickListener {
-            Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
 
-        }
 
-        binding.apply {
-            setUpRecyclerView()
-        }
-
-        binding.create.setOnClickListener {
-            popUpMenu(view)
-        }
 
         return view
     }
 
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
-
-    }
 
     private fun popUpMenuSetting(view: View) {
         val popupMenu: PopupMenu =
@@ -122,15 +112,17 @@ class TeachersFragment : Fragment() {
     }
 
 
-    private fun navigateToDetailsFragment(){
+    private fun navigateToDetailsFragment() {
         val action = TeachersFragmentDirections.actionTeachersFragmentToDetailsFragment()
         requireView().findNavController().navigate(action)
     }
 
     private fun setUpRecyclerView() {
         var collection = MyClassDao().getClassCollection()
-        var query = collection.whereEqualTo("creator_id", TopDao().userId()).orderBy("semester", Query.Direction.ASCENDING)
-        val recyclerOptions = FirestoreRecyclerOptions.Builder<MyClass>().setQuery(query, MyClass::class.java).build()
+        var query = collection.whereEqualTo("creator_id", TopDao().userId())
+            .orderBy("semester", Query.Direction.ASCENDING)
+        val recyclerOptions =
+            FirestoreRecyclerOptions.Builder<MyClass>().setQuery(query, MyClass::class.java).build()
         adapter = MyClassAdapter(recyclerOptions, USER_TYPE, requireContext())
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(view?.context)
@@ -146,7 +138,11 @@ class TeachersFragment : Fragment() {
                 R.id.create_newClass ->
                     openDialog(view)
                 R.id.create_meet ->
-                        Toast.makeText(requireContext(), "Will be implemented soon...", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "Will be implemented soon...",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 R.id.create_timeTable ->
                     findNavController().navigate(R.id.homeNotesFragment)
                 R.id.give_assignment ->
@@ -157,7 +153,7 @@ class TeachersFragment : Fragment() {
         popupMenu.show()
     }
 
-    private fun navigateToAssignment(){
+    private fun navigateToAssignment() {
         val action = TeachersFragmentDirections.actionTeachersFragmentToTeacherAssignmentFragment()
         requireView().findNavController().navigate(action)
     }
@@ -223,7 +219,7 @@ class TeachersFragment : Fragment() {
         adapter.stopListening()
     }
 
-    private fun navigateToStudentFragment(){
+    private fun navigateToStudentFragment() {
         binding.mainCons.visibility = View.INVISIBLE
         binding.loaderCons.visibility = View.VISIBLE
 
@@ -233,7 +229,7 @@ class TeachersFragment : Fragment() {
                 .addOnCompleteListener {
                     var teacherResult = it.result.exists()
                     if (!teacherResult) {
-                            navigateToDetailsFragment()
+                        navigateToDetailsFragment()
                     } else {
                         val action =
                             TeachersFragmentDirections.actionTeachersFragmentToStudentFragment()
