@@ -44,9 +44,14 @@ android {
 
 dependencies {
     implementation 'com.google.firebase:firebase-firestore:24.0.0'
-    implementation 'com.google.firebase:firebase-database:20.0.3'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.3'
     def nav_version = "2.4.0-alpha02"
 
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+//
+//    implementation 'com.github.AgoraIO-Community.Android-UIKit:final:4.0.1'
+////    implementation 'com.github.agorabuilder:native-full-sdk:3.6.0.1'
+//    implementation 'com.github.agorabuilder:agora-full-preview:4.0.0'
 
 
 
@@ -104,5 +109,7 @@ dependencies {
     //ui Libraries
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+
 
 }

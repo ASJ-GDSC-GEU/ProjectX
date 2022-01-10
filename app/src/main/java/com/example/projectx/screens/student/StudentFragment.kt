@@ -59,7 +59,7 @@ class StudentFragment : Fragment() {
 
 
             joinMeet.setOnClickListener {
-                Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(it.context,"Functionality removed due to app size limit...", Toast.LENGTH_SHORT).show()
             }
 
             assignmentButton.setOnClickListener {

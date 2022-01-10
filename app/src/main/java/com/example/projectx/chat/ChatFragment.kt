@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 
+
 class ChatFragment : Fragment() {
     private var _binding: FragmentChatFragmetBinding? = null
     private val binding get() = _binding!!
