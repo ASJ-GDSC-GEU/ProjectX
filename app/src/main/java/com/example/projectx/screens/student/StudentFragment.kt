@@ -29,8 +29,8 @@ class StudentFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var adapter: MyClassAdapter
     private val userType: Int = 0 // 0 for student and 1 for Teacher
-    private lateinit var teacherDao : TeacherDao
-    private lateinit var topDao : TopDao
+    private lateinit var teacherDao: TeacherDao
+    private lateinit var topDao: TopDao
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,13 +51,14 @@ class StudentFragment : Fragment() {
                 popUpMenuSetting()
             }
 
+
+
             joinMeet.setOnClickListener {
                 Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
             }
 
             assignmentButton.setOnClickListener {
                 navigateToStuAssignment()
-
             }
 
             notesButton.setOnClickListener {
@@ -65,24 +66,32 @@ class StudentFragment : Fragment() {
             }
 
             toolbar2.setNavigationOnClickListener {
-                Toast.makeText(view.context, "Will be Implemented Soon ...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(view.context, "Will be Implemented Soon ...", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 
         return view
     }
+    
+    
 
 
     private fun popUpMenuSetting() {
         val popupMenu =
             PopupMenu(context, binding.userLogo, Gravity.END, 0, R.style.MyPopupMenu)
         popupMenu.menuInflater.inflate(R.menu.mini_setting_menu, popupMenu.menu)
-        popupMenu.setOnMenuItemClickListener{ item ->
+        popupMenu.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.logout ->
                     logoutUser()
                 R.id.switch_to_teacher ->
                     navigateToTeacherFragment()
+//                    Toast.makeText(
+//                        view?.context,
+//                        "You are not allowed to switch",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
 
                 R.id.join_class ->
                     navigateToJoinClass()
@@ -95,7 +104,7 @@ class StudentFragment : Fragment() {
 
     private fun logoutUser() {
         Firebase.auth.signOut()
-            navigateToGetStarted()
+        navigateToGetStarted()
     }
 
     private fun setUpRecyclerView() {
@@ -107,9 +116,13 @@ class StudentFragment : Fragment() {
         adapter = MyClassAdapter(recyclerOptions, userType, requireContext())
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
+        val itemcount = binding.recyclerview.adapter?.notifyDataSetChanged()
+        Toast.makeText(activity, "$itemcount", Toast.LENGTH_SHORT).show()
         adapter.startListening()
 
+
     }
+
 
 
     private fun navigateToGetStarted() {
@@ -138,7 +151,7 @@ class StudentFragment : Fragment() {
         requireView().findNavController().navigate(action)
     }
 
-    private fun navigateToTeacherFragment(){
+    private fun navigateToTeacherFragment() {
         binding.mainCons.visibility = View.INVISIBLE
         binding.loaderCons.visibility = View.VISIBLE
         teacherDao = TeacherDao()
@@ -146,15 +159,13 @@ class StudentFragment : Fragment() {
             .addOnCompleteListener {
                 val teacherResult = it.result.exists()
                 if (!teacherResult) {
-                        navigateToDetailsFragment()
+                    navigateToDetailsFragment()
                 } else {
                     val action =
                         StudentFragmentDirections.actionStudentFragmentToTeachersFragment()
                     requireView().findNavController().navigate(action)
                 }
             }
-
-
     }
 
 

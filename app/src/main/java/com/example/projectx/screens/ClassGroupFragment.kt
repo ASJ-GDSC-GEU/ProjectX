@@ -107,23 +107,23 @@ class ClassGroupFragment : Fragment() {
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     val studentItem = StudentItem(
+                        id = document.id,
                         name = document.get("name").toString(),
                         description = document.get("course").toString(),
                         imageUrl = document.get("imageUrl").toString()
                     )
                     studentArray.add(studentItem)
                 }
-                if (!searchName.isEmpty()){
+                if (searchName.isNotEmpty()){
                     binding.classOptions.visibility = View.GONE
                     val array2 = studentArray.filter { it.name.lowercase().startsWith(searchName) } as ArrayList<StudentItem>
-                    adapter = StudentItemAdapter(array2, requireView().context)
+                    adapter = StudentItemAdapter(array2, requireView().context, userType)
                     studentArray.clear()
 
                 }
-                else{
+                else if (searchName.isEmpty()){
                     binding.classOptions.visibility = View.VISIBLE
-                    adapter = StudentItemAdapter(studentArray, requireView().context)
-                    studentArray.clear()
+                    adapter = StudentItemAdapter(studentArray, requireView().context, userType)
                 }
 
                 binding.progressBar2.visibility = View.GONE
@@ -215,13 +215,14 @@ class ClassGroupFragment : Fragment() {
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     val studentItem = StudentItem(
+                        id = document.id,
                         name = document.get("name").toString(),
                         description = document.get("course").toString(),
                         imageUrl = document.get("imageUrl").toString()
                     )
                     studentArray.add(studentItem)
                 }
-                adapter = StudentItemAdapter(studentArray, requireView().context)
+                adapter = StudentItemAdapter(studentArray, requireView().context, userType)
                 binding.progressBar2.visibility = View.GONE
                 binding.recyclerViewStudents.visibility = View.VISIBLE
                 binding.recyclerViewStudents.adapter = adapter

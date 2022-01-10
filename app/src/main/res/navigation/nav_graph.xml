@@ -201,6 +201,9 @@
         <action
             android:id="@+id/action_classGroupFragment_to_teachersFragment"
             app:destination="@id/teachersFragment" />
+        <action
+            android:id="@+id/action_classGroupFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
     </fragment>
     <fragment
         android:id="@+id/joinClassFragment"
@@ -213,4 +216,8 @@
             app:popUpTo="@id/nav_graph.xml"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.projectx.chat.ChatFragment"
+        android:label="ChatFragment" />
 </navigation>

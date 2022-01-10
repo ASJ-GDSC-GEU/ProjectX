@@ -11,7 +11,9 @@ import androidx.navigation.findNavController
 import com.example.projectx.R
 import com.example.projectx.daos.StudentDao
 import com.example.projectx.daos.TeacherDao
+import com.example.projectx.daos.TopDao
 import com.example.projectx.databinding.FragmentDetailsBinding
+import com.example.projectx.models.ChatPersonData
 import com.example.projectx.models.Student
 import com.example.projectx.models.Teacher
 import com.google.firebase.auth.FirebaseAuth
@@ -31,10 +33,6 @@ class DetailsFragment : Fragment() {
 
     private var selectedUser: Int = 0 // 0 for Student --- 1 for Teacher
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,13 +50,15 @@ class DetailsFragment : Fragment() {
         val currentUser = auth.currentUser
         val studentDao = StudentDao()
         val teacherDao = TeacherDao()
+        val userId: String = TopDao().userId()
+        val userEmail: String = TopDao().currentUser().email.toString()
 
 
 
 
         binding.apply {
             nameInput.setText(currentUser?.displayName)
-            val userId : String = Firebase.auth.currentUser!!.uid
+            val userId: String = Firebase.auth.currentUser!!.uid
 
             //User with these Id's are only allowed for teachersFragment
 
@@ -69,7 +69,6 @@ class DetailsFragment : Fragment() {
                     binding.student.setTextColor(Color.GRAY)
                     selectedUser = 1
                     constraintLayout2.visibility = View.INVISIBLE
-
 
 
                 } else if (checkedId == R.id.student) {
@@ -86,7 +85,7 @@ class DetailsFragment : Fragment() {
             signUpBtn.setOnClickListener {
                 if (nameInput.text.isNullOrBlank()) {
                     nameInput.error = "Required"
-                }else {
+                } else {
                     if (selectedUser == 0) {
                         userName = nameInput.text.toString()
                         course = courseDrop.text.toString()
@@ -105,6 +104,9 @@ class DetailsFragment : Fragment() {
                         goToStudentHomeScreen()
 
                     } else if (selectedUser == 1) {
+
+//                        Toast.makeText(view?.context, "You are not allowed to switch", Toast.LENGTH_SHORT).show()
+
                         userName = nameInput.text.toString()
                         val teacher =
                             Teacher(
@@ -116,7 +118,13 @@ class DetailsFragment : Fragment() {
                         goToTeacherHomeScreen()
                     }
 
+                    TopDao().realDb().child("user").child(TopDao().userId())
+                        .setValue(
+                            ChatPersonData(nameInput.text.toString(), userEmail, userId)
+                        )
+
                 }
+
             }
         }
 
