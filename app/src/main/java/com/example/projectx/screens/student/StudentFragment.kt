@@ -37,6 +37,11 @@ class StudentFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentStudentBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val view = binding.root
         topDao = TopDao()
 
@@ -71,10 +76,8 @@ class StudentFragment : Fragment() {
             }
         }
 
-        return view
+
     }
-    
-    
 
 
     private fun popUpMenuSetting() {
@@ -116,13 +119,10 @@ class StudentFragment : Fragment() {
         adapter = MyClassAdapter(recyclerOptions, userType, requireContext())
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
-        val itemcount = binding.recyclerview.adapter?.notifyDataSetChanged()
-        Toast.makeText(activity, "$itemcount", Toast.LENGTH_SHORT).show()
         adapter.startListening()
 
 
     }
-
 
 
     private fun navigateToGetStarted() {
@@ -179,4 +179,6 @@ class StudentFragment : Fragment() {
         adapter.stopListening()
     }
 
+
 }
+

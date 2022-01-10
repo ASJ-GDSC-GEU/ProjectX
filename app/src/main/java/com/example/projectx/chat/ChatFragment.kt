@@ -57,10 +57,11 @@ class ChatFragment : Fragment() {
                         messageList.add(message!!)
                     }
                     chatAdapter.notifyDataSetChanged()
+                    binding.messageRecycler.scrollToPosition(messageList.size-1)
+
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
                 }
 
             })

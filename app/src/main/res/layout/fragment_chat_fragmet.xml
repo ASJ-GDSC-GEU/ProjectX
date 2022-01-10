@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f7f7f7"
+    android:background="#f0f0f0"
     tools:context=".chat.ChatFragmet">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,6 +23,7 @@
             android:id="@+id/message_recycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:paddingBottom="20dp"
             app:layout_constraintBottom_toTopOf="@+id/message"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
