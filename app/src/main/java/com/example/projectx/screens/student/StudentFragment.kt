@@ -29,14 +29,19 @@ class StudentFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var adapter: MyClassAdapter
     private val userType: Int = 0 // 0 for student and 1 for Teacher
-    private lateinit var teacherDao : TeacherDao
-    private lateinit var topDao : TopDao
+    private lateinit var teacherDao: TeacherDao
+    private lateinit var topDao: TopDao
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentStudentBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val view = binding.root
         topDao = TopDao()
 
@@ -51,22 +56,27 @@ class StudentFragment : Fragment() {
                 popUpMenuSetting()
             }
 
-            binding.joinMeet.setOnClickListener {
+
+
+            joinMeet.setOnClickListener {
                 Toast.makeText(it.context, "Will be implemented soon...", Toast.LENGTH_SHORT).show()
             }
 
-            binding.assignmentButton.setOnClickListener {
+            assignmentButton.setOnClickListener {
                 navigateToStuAssignment()
-
             }
 
-            binding.notesButton.setOnClickListener {
+            notesButton.setOnClickListener {
                 navigateToStuNotes()
             }
 
+            toolbar2.setNavigationOnClickListener {
+                Toast.makeText(view.context, "Will be Implemented Soon ...", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
 
-        return view
+
     }
 
 
@@ -74,12 +84,17 @@ class StudentFragment : Fragment() {
         val popupMenu =
             PopupMenu(context, binding.userLogo, Gravity.END, 0, R.style.MyPopupMenu)
         popupMenu.menuInflater.inflate(R.menu.mini_setting_menu, popupMenu.menu)
-        popupMenu.setOnMenuItemClickListener{ item ->
+        popupMenu.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.logout ->
                     logoutUser()
                 R.id.switch_to_teacher ->
                     navigateToTeacherFragment()
+//                    Toast.makeText(
+//                        view?.context,
+//                        "You are not allowed to switch",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
 
                 R.id.join_class ->
                     navigateToJoinClass()
@@ -92,11 +107,8 @@ class StudentFragment : Fragment() {
 
     private fun logoutUser() {
         Firebase.auth.signOut()
-            navigateToGetStarted()
+        navigateToGetStarted()
     }
-
-
-
 
     private fun setUpRecyclerView() {
         val collection = MyClassDao().getClassCollection()
@@ -108,6 +120,7 @@ class StudentFragment : Fragment() {
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
         adapter.startListening()
+
 
     }
 
@@ -138,7 +151,7 @@ class StudentFragment : Fragment() {
         requireView().findNavController().navigate(action)
     }
 
-    private fun navigateToTeacherFragment(){
+    private fun navigateToTeacherFragment() {
         binding.mainCons.visibility = View.INVISIBLE
         binding.loaderCons.visibility = View.VISIBLE
         teacherDao = TeacherDao()
@@ -146,15 +159,13 @@ class StudentFragment : Fragment() {
             .addOnCompleteListener {
                 val teacherResult = it.result.exists()
                 if (!teacherResult) {
-                        navigateToDetailsFragment()
+                    navigateToDetailsFragment()
                 } else {
                     val action =
                         StudentFragmentDirections.actionStudentFragmentToTeachersFragment()
                     requireView().findNavController().navigate(action)
                 }
             }
-
-
     }
 
 
@@ -168,4 +179,6 @@ class StudentFragment : Fragment() {
         adapter.stopListening()
     }
 
+
 }
+

@@ -12,7 +12,7 @@ class StudentDao {
     val db = FirebaseFirestore.getInstance()
     val studentCollection = db.collection("student")
 
-    fun addStudent(student: Student?){
+    fun addStudent(student: Student?) {
         student?.let {
             GlobalScope.launch(Dispatchers.IO) {
                 studentCollection.document(student.uid).set(it)
@@ -22,7 +22,10 @@ class StudentDao {
 
 
 
-    fun getStudentById(uid : String) : Task<DocumentSnapshot> {
+
+
+
+    fun getStudentById(uid: String): Task<DocumentSnapshot> {
         return studentCollection.document(uid).get()
     }
 
