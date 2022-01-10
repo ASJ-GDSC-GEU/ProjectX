@@ -57,10 +57,12 @@
             app:layout_constraintTop_toTopOf="@+id/course_name"
             android:contentDescription="@string/setting_icon" />
 
-        <SearchView
+        <EditText
             android:id="@+id/searchView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
+            android:hint="Search by name"
+            android:paddingStart="16dp"
             android:layout_margin="20dp"
             android:background="@drawable/white_roundfilled"
             android:backgroundTint="#ededed"
