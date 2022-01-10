@@ -6,11 +6,7 @@ struggle for both the teachers and the students, to find a platform for organize
 learnings even during the toughest times.
 
 ## <img src = "https://media1.giphy.com/media/JZ40cnfnN11KycrvMF/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width = 23px> Proposed Solution :
-This App, Grovico is developed with a long vision that can help students and teachers to provide a platform that can manage all the class stuff in a single app. Teachers and
-students can log in using their roles in the app. Teachers can upload assignments and schedule meetings for individual courses, sections, and semesters. Students can also see their 
-assignments listed in the Assignment section, keep important notes in an organized manner ranging from low to high, and participate in meetings for live classes. The **Android Room 
-Database** is used to save class notes and information, while assignments are saved in **Google's Firebase Firestore**. Graphic Era University is currently using the app, but as time 
-goes on, we will integrate with more universities and improve the functionalities.
+This App, Grovico is developed with a long vision that can help students and teachers to provide a platform that can manage all the class stuff in a single app. Teachers and students can log in using their roles in the app. Teachers can upload assignments and schedule meetings for individual courses, sections, and semesters. Students can also see their assignments listed in the Assignment section, keep important notes in an organized manner ranging from low to high, and can chat with individuals of the class. A teacher can create a class and send class link from which students can join that specific class. The Android Room Database is used to save class notes and information, while assignments are saved in Google's Firebase Firestore. Graphic Era University is currently using the app, but as time goes on, we will integrate with more universities and improve the functionalities.
 
 ## 📸 Screenshots : 
 
