@@ -33,7 +33,8 @@ data whenever needed.  
 
 ## 🔮 Application Link & Future Scope : 
 
-The app is currently in the ```Alpha testing``` phase in Graphic Era University with a limited no. of users. You can access our app here : 
+The app is currently in the ```Alpha testing``` phase in Graphic Era University with a limited no. of users. You can access our app here : https://drive.google.com/drive/folders/1n2u5Umqvd6qStjrXvugRuhw0kQ3aCjKX?usp=sharing
+(USE THE APP ONLY IN LIGHT MODE). 
 
 Once the app is fully tested, we will be expanding to other neighboring universities to improve their online class systems. We are planning to introduce the following features:   
 1. Video Meeting Functionality (which is currently removed due to large app size) for live classes.
