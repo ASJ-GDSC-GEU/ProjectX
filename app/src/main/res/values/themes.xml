@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.ProjectX" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
+
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryVariant">@color/primaryLightColor</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -26,7 +27,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.ProjectX.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.ProjectX.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="Theme.ProjectX.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

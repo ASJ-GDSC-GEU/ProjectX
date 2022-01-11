@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:paddingBottom="20dp"
     android:layout_height="wrap_content"
-    android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+    android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar"
     tools:context=".screens.BottomSheetFragment">
 
     <!-- TODO: Update blank fragment layout -->

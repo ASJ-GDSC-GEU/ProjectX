@@ -8,6 +8,7 @@
     <item
         android:id="@+id/assignment_menu"
         android:title="Assignments" />
+
     <item
         android:id="@+id/notes_menu"
         android:title="Your Notes" />

@@ -95,9 +95,12 @@ class StudentFragment : Fragment() {
 //                        "You are not allowed to switch",
 //                        Toast.LENGTH_SHORT
 //                    ).show()
-
                 R.id.join_class ->
                     navigateToJoinClass()
+
+                R.id.change_detials ->
+                    navigateToDetailsFragment()
+
 
             }
             true

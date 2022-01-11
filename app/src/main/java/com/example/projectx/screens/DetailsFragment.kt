@@ -85,7 +85,13 @@ class DetailsFragment : Fragment() {
             signUpBtn.setOnClickListener {
                 if (nameInput.text.isNullOrBlank()) {
                     nameInput.error = "Required"
-                } else {
+                }else if(courseDrop.text.isNullOrBlank()){
+                    courseDrop.error = "Required"
+                }else if(semesterDrop.text.isNullOrBlank()){
+                    semesterDrop.error = "Required"
+                }else if(sectionDrop2.text.isNullOrBlank()){
+                    sectionDrop2.error = "Required"
+                }else {
                     if (selectedUser == 0) {
                         userName = nameInput.text.toString()
                         course = courseDrop.text.toString()

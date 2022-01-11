@@ -55,33 +55,43 @@ class CreateAssignmentFragment : Fragment() {
                 val assign = etAssignment.text.toString()
                 val dueDate = etDueDate.text.toString()
 
-                Log.e("****", heading)
+                if(course.isNullOrBlank()){
+                    etCourse.error = "Required"
+                }else if(section.isNullOrBlank()){
+                    etSection.error = "Required"
+                }else if(semester.isNullOrBlank()){
+                    etSemester.error = "Required"
+                }else{
+                    Log.e("****", heading)
 
-                teacherDao.getTeacherById(FirebaseAuth.getInstance().uid!!).addOnCompleteListener {
+                    teacherDao.getTeacherById(FirebaseAuth.getInstance().uid!!).addOnCompleteListener {
 
-                    val temp = it.result
-                    val name: String = temp.getString("name")!!
+                        val temp = it.result
+                        val name: String = temp.getString("name")!!
 
-                    val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
-                    val currentDate = sdf.format(Date())
+                        val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
+                        val currentDate = sdf.format(Date())
 
-                    val assignment = Assignment(
-                        course,
-                        subject,
-                        semester,
-                        section,
-                        name,
-                        heading,
-                        assign,
-                        dueDate,
-                        currentDate,
-                        course + semester + section
-                    )
+                        val assignment = Assignment(
+                            course,
+                            subject,
+                            semester,
+                            section,
+                            name,
+                            heading,
+                            assign,
+                            dueDate,
+                            currentDate,
+                            course + semester + section
+                        )
 
-                    assignmentDao.addAssignment(assignment)
+                        assignmentDao.addAssignment(assignment)
+                    }
+
+                    requireView().findNavController().popBackStack()
                 }
 
-                requireView().findNavController().popBackStack()
+
 
             }
         }

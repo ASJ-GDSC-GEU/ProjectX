@@ -8,6 +8,11 @@
         android:title="@string/switch_to_teacher" />
 
     <item
+        android:id="@+id/change_detials"
+        android:title="Change Details"
+    />
+
+    <item
         android:id="@+id/join_class"
         android:title="@string/join_a_new_class"/>
 

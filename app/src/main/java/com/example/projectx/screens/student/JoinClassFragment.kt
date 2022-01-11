@@ -24,8 +24,13 @@ class JoinClassFragment : Fragment() {
         val view = binding.root
         binding.apply {
             join.setOnClickListener {
-                JoinClassDao().joinClass(classId.text.toString())
-                navigateToStudentfragment()
+                if(classId.text.isNullOrBlank()){
+                    classId.error = "Required"
+                }else{
+                    JoinClassDao().joinClass(classId.text.toString())
+                    navigateToStudentfragment()
+                }
+
             }
 
         }
