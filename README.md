@@ -9,6 +9,11 @@ learnings even during the toughest times.
 This App, Grovico is developed with a long vision that can help students and teachers to provide a platform that can manage all the class stuff in a single app. Teachers and students can log in using their roles in the app. Teachers can upload assignments and schedule meetings for individual courses, sections, and semesters. Students can also see their assignments listed in the Assignment section, keep important notes in an organized manner ranging from low to high, and can chat with individuals of the class. A teacher can create a class and send class link from which students can join that specific class. The Android Room Database is used to save class notes and information, while assignments are saved in Google's Firebase Firestore. Graphic Era University is currently using the app, but as time goes on, we will integrate with more universities and improve the functionalities.
 
 ## 📸 Screenshots : 
+<img width="900" alt="Screenshot 2022-01-11 at 4 44 42 PM" src="https://user-images.githubusercontent.com/77102514/148933235-d97c00e8-def9-4726-82e3-3fdfda26f7b5.png">
+<img width="900" alt="Screenshot 2022-01-11 at 4 44 47 PM" src="https://user-images.githubusercontent.com/77102514/148933244-19829e7c-3e87-41d9-afb3-4c9fdea4cd98.png">
+<img width="900" alt="Screenshot 2022-01-11 at 4 44 59 PM" src="https://user-images.githubusercontent.com/77102514/148933250-c8b8632b-2c5c-4cb8-9e52-10cb9b4e34f7.png">
+<img width="900" alt="Screenshot 2022-01-11 at 4 45 02 PM" src="https://user-images.githubusercontent.com/77102514/148933259-4e91056a-48e7-4744-bfb5-9c67b945f239.png">
+
 
 
 ## 👩🏻‍💻 Functionalities and Concepts used :
