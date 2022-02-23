@@ -66,7 +66,10 @@
         <entry key="app/src/main/res/drawable/email_icon.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/drawable/facebook_icon.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/drawable/filled_round_btn.xml" value="0.2759259259259259" />
+        <entry key="app/src/main/res/drawable/google_icon.xml" value="0.23981481481481481" />
         <entry key="app/src/main/res/drawable/main_color_gradiet.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/drawable/reciver_bub_bg.xml" value="0.23981481481481481" />
+        <entry key="app/src/main/res/drawable/red_button.xml" value="0.23981481481481481" />
         <entry key="app/src/main/res/drawable/selector_channel_btn.xml" value="0.14479166666666668" />
         <entry key="app/src/main/res/drawable/selector_shape.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/drawable/selector_single_btn.xml" value="0.14479166666666668" />
@@ -74,6 +77,7 @@
         <entry key="app/src/main/res/drawable/shape_circle_blue.xml" value="0.14479166666666668" />
         <entry key="app/src/main/res/drawable/shape_circle_pink_dark.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/twitter_icon.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/drawable/white_roundfilled.xml" value="0.23981481481481481" />
         <entry key="app/src/main/res/drawable/yellow_dot.xml" value="0.20185185185185187" />
         <entry key="app/src/main/res/layout/activity_details.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/activity_get_started.xml" value="0.25052083333333336" />

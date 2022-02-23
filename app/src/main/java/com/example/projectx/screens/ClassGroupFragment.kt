@@ -23,7 +23,6 @@ import com.example.projectx.models.StudentItem
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.toObject
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class ClassGroupFragment : Fragment() {
@@ -241,7 +240,7 @@ class ClassGroupFragment : Fragment() {
 
             data.add(
                 ClassOptions(
-                    label = "Invite Students",
+                    label = "Class Assignments",
                     imageView = R.drawable.invite_student_icon
                 )
             )
