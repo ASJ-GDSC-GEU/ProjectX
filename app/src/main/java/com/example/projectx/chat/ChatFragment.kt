@@ -16,8 +16,8 @@ import com.google.firebase.database.ValueEventListener
 
 
 class ChatFragment : Fragment() {
-    private var _binding: FragmentChatFragmetBinding? = null
-    private val binding get() = _binding!!
+    private var _bind: FragmentChatFragmetBinding? = null
+    private val binding get() = _bind!!
     private lateinit var chatAdapter: ChatAdapter
     private lateinit var messageList: ArrayList<ChatMessage>
     private lateinit var receiverRoom: String
@@ -27,7 +27,7 @@ class ChatFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentChatFragmetBinding.inflate(inflater, container, false)
+        _bind = FragmentChatFragmetBinding.inflate(inflater, container, false)
         return binding.root
     }
 

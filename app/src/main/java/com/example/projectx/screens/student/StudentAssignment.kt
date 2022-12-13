@@ -60,8 +60,6 @@ class StudentAssignment : Fragment() {
             adapter.startListening()
             binding.progressBar.visibility = View.INVISIBLE
         }
-
-
     }
 
     override fun onStop() {

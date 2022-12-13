@@ -25,6 +25,7 @@ class AssignmentDetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentAssignmentDetailBinding.inflate(inflater, container, false)
+
         assignment = arguments?.getParcelable<Assignment>("model")!!
 
         binding.subject.text = assignment.subject

@@ -6,5 +6,5 @@ data class MyClass(
     val semester: String= "",
     val section: String= "",
     val creator_id: String= "",
-    val students_id : List<String> = listOf()
+    val students_id : List<String> = listOf(),
 )

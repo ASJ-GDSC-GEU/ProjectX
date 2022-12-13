@@ -66,7 +66,6 @@ class MyClassAdapter(
                         )
                     }
 
-                    //adding student names in class item
                     val namesArray = ArrayList<String>()
                     for (i in array) {
                         namesArray.add(i[0])

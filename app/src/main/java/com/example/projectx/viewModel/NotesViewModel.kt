@@ -3,7 +3,6 @@ package com.example.projectx.viewModel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.example.projectx.daos.NotesDao
 import com.example.projectx.database.NotesDb
 import com.example.projectx.entities.Notes
 import com.example.projectx.repository.NotesRepository
@@ -15,6 +14,7 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
         val dao = NotesDb.getDatabaseInstance(application).myNotesDao()
         repository = NotesRepository(dao)
     }
+
 
     fun addNotes(notes: Notes){
         repository.insertNotes(notes)

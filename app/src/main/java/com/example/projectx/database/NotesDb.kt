@@ -11,7 +11,7 @@ import com.example.projectx.entities.Notes
 abstract class NotesDb : RoomDatabase() {
     abstract fun myNotesDao() : NotesDao
 
-    companion object{
+    companion object {
         @Volatile
         var INSTANCE : NotesDb?= null
 

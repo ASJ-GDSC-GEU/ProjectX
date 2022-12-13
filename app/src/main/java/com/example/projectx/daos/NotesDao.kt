@@ -5,7 +5,7 @@ import androidx.room.*
 import com.example.projectx.entities.Notes
 
 @Dao
-interface NotesDao {
+interface NotesDao{
 
     @Query("SELECT * FROM Notes")
     fun getNotes() : LiveData<List<Notes>>

@@ -3,13 +3,11 @@ package com.example.projectx.entities
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.versionedparcelable.ParcelField
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity(tableName = "Notes")
 data class Notes (
-
     @PrimaryKey(autoGenerate = true)
     var id: Int ?= null ,
     var title : String ,
@@ -17,8 +15,4 @@ data class Notes (
     var notes : String,
      var date : String,
     var priority :  String
-        ) : Parcelable {
-
-
-
-}
+        ) : Parcelable

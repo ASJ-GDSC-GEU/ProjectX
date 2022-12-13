@@ -118,8 +118,4 @@ class CreateAssignmentFragment : Fragment() {
         binding.etSemester.setAdapter(semAdapter)
         binding.etSection.setAdapter(secAdapter)
     }
-
-
-
-
 }

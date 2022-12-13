@@ -33,7 +33,7 @@ class AssignmentAdapter(options: FirestoreRecyclerOptions<Assignment>) :
     override fun onBindViewHolder(holder: AssignmentViewHolder, position: Int, model: Assignment) {
 
         holder.binding.AssignmentHeading.text = model.assignmentHeading
-        holder.binding.TeacherName.text = "By: " + model.teacherName
+        holder.binding.TeacherName.text = "By:  " + model.teacherName
         holder.binding.subjectLabel.text = model.subject
         holder.binding.dueDate.text = "Due Date: " + model.dueDate
         holder.binding.assignmentConstraint.setOnClickListener {

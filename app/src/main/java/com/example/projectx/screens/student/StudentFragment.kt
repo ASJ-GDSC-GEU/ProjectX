@@ -75,8 +75,6 @@ class StudentFragment : Fragment() {
                     .show()
             }
         }
-
-
     }
 
 

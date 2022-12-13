@@ -38,6 +38,7 @@
         <item>B</item>
         <item>C</item>
         <item>D</item>
+        <item>E</item>
 
     </string-array>
     <string name="title_activity_lecture_home">LectureHome</string>

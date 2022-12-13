@@ -21,12 +21,12 @@ class NotesAdapter(private val noteList: List<Notes>) :
     }
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
-        val data = noteList[position]
-        holder.binding.tvTitle.text = data.title
-        holder.binding.tvSubtitle.text = data.subTitle
-        holder.binding.tvDate.text = data.date
+        val curData = noteList[position]
+        holder.binding.tvTitle.text = curData.title
+        holder.binding.tvSubtitle.text = curData.subTitle
+        holder.binding.tvDate.text = curData.date
 
-        when (data.priority) {
+        when (curData.priority) {
             "1" -> holder.binding.vPriority.setBackgroundResource(R.drawable.green_dot)
 
             "2" -> holder.binding.vPriority.setBackgroundResource(R.drawable.yellow_dot)
@@ -36,7 +36,7 @@ class NotesAdapter(private val noteList: List<Notes>) :
 
         holder.binding.root.setOnClickListener {
             val action =
-                HomeNotesFragmentDirections.actionHomeNotesFragmentToEditNotesFragment(data)
+                HomeNotesFragmentDirections.actionHomeNotesFragmentToEditNotesFragment(curData)
             Navigation.findNavController(it).navigate(action)
         }
     }

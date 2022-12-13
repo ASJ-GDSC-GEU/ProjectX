@@ -8,7 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class TeacherDao {
+class TeacherDao{
     val db = FirebaseFirestore.getInstance()
     val studentCollection = db.collection("teacher")
 

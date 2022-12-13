@@ -16,6 +16,6 @@ data class Assignment(
                     val dueDate: String = "",
                     val createdAt: String = "",
                     val code: String = ""
-               ) : Parcelable
+               ): Parcelable
 
 

@@ -49,13 +49,13 @@ class ClassOptionsAdapter(
                 }
                 1 -> {
                     holder.classOptionItem.setOnClickListener{
-                        Toast.makeText(it.context,"Functionality removed due to app size limit...", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(it.context,"Will be implemented soon...", Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 2 -> {
                     holder.classOptionItem.setOnClickListener{
-                        Toast.makeText(it.context,"Functionality removed due to app size limit...", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(it.context,"Will be implemented soon...", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

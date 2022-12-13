@@ -13,7 +13,7 @@ class AssignmentDao {
         fun addAssignment(assignment: Assignment?){
 
             assignment?.let {
-                GlobalScope.launch(Dispatchers.IO) {
+                GlobalScope.launch(Dispatchers.IO){
                     assignmentCollection.document().set(assignment)
                 }
             }

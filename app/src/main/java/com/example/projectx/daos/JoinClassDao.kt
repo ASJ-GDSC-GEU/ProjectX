@@ -12,7 +12,7 @@ class JoinClassDao {
 
     fun joinClass(classId: String?) {
         classId?.let {
-            GlobalScope.launch(Dispatchers.IO) {
+            GlobalScope.launch(Dispatchers.IO){
                 classCollection.document(classId)
                     .update("students_id", FieldValue.arrayUnion(TopDao().userId()))
             }

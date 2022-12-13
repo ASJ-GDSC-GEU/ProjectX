@@ -24,7 +24,6 @@ class CreateNoteFragment : Fragment() {
 
     val viewModel : NotesViewModel by viewModels()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

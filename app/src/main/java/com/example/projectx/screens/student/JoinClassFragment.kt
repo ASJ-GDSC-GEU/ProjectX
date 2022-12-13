@@ -30,9 +30,7 @@ class JoinClassFragment : Fragment() {
                     JoinClassDao().joinClass(classId.text.toString())
                     navigateToStudentfragment()
                 }
-
             }
-
         }
         return view
     }
@@ -41,6 +39,4 @@ class JoinClassFragment : Fragment() {
         val action = JoinClassFragmentDirections.actionJoinClassFragmentToStudentFragment()
         requireView().findNavController().navigate(action)
     }
-
-
 }

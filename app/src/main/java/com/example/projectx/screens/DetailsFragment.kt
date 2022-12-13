@@ -165,5 +165,4 @@ class DetailsFragment : Fragment() {
         val action = DetailsFragmentDirections.actionDetailsFragmentToTeachersFragment()
         requireView().findNavController().navigate(action)
     }
-
 }

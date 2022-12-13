@@ -39,10 +39,10 @@ class ChatAdapter(private val context: Context, private val messageList: ArrayLi
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val curretMessage = messageList[position]
         if (holder.javaClass == SenderViewHolder::class.java) {
-            val viewHolder = holder as SenderViewHolder
+            val viewHolder1 = holder as SenderViewHolder
             holder.sMessageText?.text = curretMessage.message
         } else if (holder.javaClass == ReciverViewHolder::class.java) {
-            val viewHolder = holder as ReciverViewHolder
+            val viewHolder2 = holder as ReciverViewHolder
             holder.rMessageText?.text = curretMessage.message
         }
     }

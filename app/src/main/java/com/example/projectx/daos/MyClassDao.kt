@@ -2,7 +2,6 @@ package com.example.projectx.daos
 
 import android.content.ContentValues.TAG
 import android.util.Log
-import android.widget.Toast
 import com.example.projectx.models.MyClass
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.CollectionReference
@@ -22,7 +21,7 @@ class MyClassDao {
 
     fun addClass(myClass: MyClass?) {
         myClass?.let {
-            GlobalScope.launch(Dispatchers.IO) {
+            GlobalScope.launch(Dispatchers.IO){
                 val myClassCol = myClassCollection.document()
                 myClassCol.set(it).addOnSuccessListener {
                     teacherRef.update("myClass", FieldValue.arrayUnion(myClassCol.id))
